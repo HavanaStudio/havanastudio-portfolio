@@ -649,6 +649,31 @@
       border-color: var(--accent);
     }
 
+    /* BACK TO TOP */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(200,184,154,0.35);
+      border-radius: 50%;
+      background: rgba(8,8,8,0.85);
+      color: var(--accent);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease, background 0.3s, border-color 0.3s;
+      backdrop-filter: blur(8px);
+      z-index: 200;
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: all; }
+    .back-to-top:hover { background: rgba(200,184,154,0.15); border-color: var(--accent); }
+
     /* FAQ */
     .faq {
       padding: 8rem 3rem;
@@ -997,18 +1022,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="reveal">
-      <p class="section-label">Get In Touch</p>
-      <h2 class="contact-title">Tell us about<br>your <em>brand.</em></h2>
-    </div>
-    <div class="contact-right reveal">
-      <p class="contact-text">We'll show you what we'd create for it. No brief too small, no ambition too large. If your brand deserves better visuals, we'd like to hear from you.</p>
-      <a href="mailto:havanastudioco@outlook.es" class="contact-email">havanastudioco@outlook.es</a>
-    </div>
-  </section>
-
   <!-- FAQ -->
   <section class="faq" id="faq">
     <div class="faq-header reveal">
@@ -1079,6 +1092,18 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="reveal">
+      <p class="section-label">Get In Touch</p>
+      <h2 class="contact-title">Tell us about<br>your <em>brand.</em></h2>
+    </div>
+    <div class="contact-right reveal">
+      <p class="contact-text">We'll show you what we'd create for it. No brief too small, no ambition too large. If your brand deserves better visuals, we'd like to hear from you.</p>
+      <a href="mailto:havanastudioco@outlook.es" class="contact-email">havanastudioco@outlook.es</a>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">Havana Studio</div>
@@ -1087,6 +1112,9 @@
       <a href="https://instagram.com/havanastudioco" target="_blank">@havanastudioco</a>
     </div>
   </footer>
+
+  <!-- BACK TO TOP -->
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
   <script>
     // CURSOR
@@ -1126,6 +1154,12 @@
         cursorRing.style.width = '36px';
         cursorRing.style.height = '36px';
       });
+    });
+
+    // BACK TO TOP
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 600);
     });
 
     // FAQ TOGGLE

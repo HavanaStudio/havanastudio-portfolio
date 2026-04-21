@@ -128,9 +128,9 @@
       .format-row { grid-template-columns: 1fr; }
       .format-row--reverse .format-row-image { order: 0; }
       .format-row--reverse .format-row-info { order: 0; }
-      .format-row-image--916,
-      .format-row-image--34,
-      .format-row-image--11 { width: 100%; aspect-ratio: auto; max-height: 80vw; }
+      .format-row-image--916 { width: 100%; aspect-ratio: 9/16; max-height: none; }
+      .format-row-image--34 { width: 100%; aspect-ratio: 3/4; max-height: none; }
+      .format-row-image--11 { width: 100%; aspect-ratio: 1/1; max-height: none; }
       .format-row-image--169 { aspect-ratio: 16/9; }
       .format-row-info { padding: 2rem 1.5rem; gap: 1rem; }
       .fri-ratio { font-size: 3rem; }
@@ -146,6 +146,10 @@
       .next-title { font-size: clamp(2rem, 9vw, 3rem); }
       footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
     }
+    /* BACK TO TOP */
+    .back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; border: 1px solid rgba(200,184,154,0.35); border-radius: 50%; background: rgba(8,8,8,0.85); color: var(--accent); font-size: 1.1rem; display: flex; align-items: center; justify-content: center; text-decoration: none; opacity: 0; pointer-events: none; transition: opacity 0.4s ease, background 0.3s; backdrop-filter: blur(8px); z-index: 200; }
+    .back-to-top.visible { opacity: 1; pointer-events: all; }
+    .back-to-top:hover { background: rgba(200,184,154,0.15); border-color: var(--accent); }
   </style>
 </head>
 <body>
@@ -384,6 +388,13 @@
       entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
     }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
+
+    // BACK TO TOP
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => { backToTop.classList.toggle("visible", window.scrollY > 400); });
   </script>
+  <!-- BACK TO TOP -->
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
 </body>
 </html>
