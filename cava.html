@@ -3,159 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAVA — Some Things Are Not Bought · Havana Studio</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23080808'/><text y='72' x='50' text-anchor='middle' font-family='serif' font-size='52' fill='%23c8b89a'>HS</text></svg>" />
+  <title>CAVA — Leather Accessories Campaign · Havana Studio</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23080808'/><text y='72' x='50' text-anchor='middle' font-family='serif' font-size='52' fill='%23c8b89a'>HS</text></svg>" />
   <link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --black: #080808; --white: #f5f2ed; --grey: #9a9590;
-      --accent: #c8b89a; --font-display: 'Forum', serif; --font-body: 'Cormorant Garamond', serif;
-    }
+    :root { --black: #080808; --white: #f5f2ed; --grey: #9a9590; --accent: #c8b89a; --font-display: 'Forum', serif; --font-body: 'Cormorant Garamond', serif; }
     html { scroll-behavior: smooth; }
     body { background: var(--black); color: var(--white); font-family: var(--font-body); overflow-x: hidden; cursor: none; }
-
     .cursor { position: fixed; width: 8px; height: 8px; background: var(--white); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .3s, height .3s, background .3s; }
     .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(245,242,237,0.35); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .3s, height .3s; }
-
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; background: linear-gradient(to bottom, rgba(8,8,8,0.9), transparent); }
     .nav-back { font-family: var(--font-body); font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--grey); text-decoration: none; display: flex; align-items: center; gap: 0.6rem; transition: color .3s; }
     .nav-back:hover { color: var(--white); }
     .nav-back::before { content: '←'; font-size: 1rem; }
     .nav-logo { font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--white); text-decoration: none; }
-
     .hero { position: relative; height: 100vh; overflow: hidden; display: flex; align-items: flex-end; }
     .hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.75; }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.4) 40%, rgba(8,8,8,0.1) 100%); }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.3) 50%, rgba(8,8,8,0.1) 100%); }
     .hero-content { position: relative; z-index: 2; padding: 4rem 3rem; width: 100%; }
     .hero-label { font-size: 0.75rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; opacity: 0; animation: fadeUp 1s ease 0.3s forwards; }
     .hero-title { font-family: var(--font-display); font-size: clamp(5rem, 14vw, 13rem); line-height: 0.9; letter-spacing: 0.08em; color: var(--white); opacity: 0; animation: fadeUp 1.2s ease 0.5s forwards; }
     .hero-subtitle { font-family: var(--font-body); font-size: 1rem; font-style: italic; letter-spacing: 0.2em; color: var(--grey); margin-top: 1rem; opacity: 0; animation: fadeUp 1s ease 0.8s forwards; }
-
-    .concept { padding: 8rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: start; border-bottom: 1px solid rgba(245,242,237,0.06); }
-    .concept-left { position: sticky; top: 8rem; }
-    .concept-label { font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; }
-    .concept-title { font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1.05; margin-bottom: 3rem; }
-    .concept-title em { font-style: italic; color: var(--accent); }
-    .concept-tagline { font-family: var(--font-display); font-size: 1.3rem; color: var(--grey); border-left: 1px solid rgba(200,184,154,0.4); padding-left: 1.5rem; line-height: 1.6; }
-    .concept-text { font-size: 1.1rem; font-weight: 300; color: var(--grey); line-height: 1.95; margin-bottom: 2rem; }
-    .concept-details { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.5rem; }
-    .detail-row { display: flex; gap: 2rem; align-items: baseline; border-bottom: 1px solid rgba(245,242,237,0.06); padding-bottom: 1.5rem; }
-    .detail-key { font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); min-width: 100px; }
-    .detail-val { font-size: 1rem; font-style: italic; color: var(--white); }
-
-    .ai-challenge { padding: 5rem 3rem; border-bottom: 1px solid rgba(245,242,237,0.06); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; background: #0a0a0a; }
-    .ai-challenge-label { font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .ai-challenge-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.1; }
-    .ai-challenge-text { font-size: 1rem; font-weight: 300; color: var(--grey); line-height: 1.9; }
-
-    .gallery { padding: 6rem 3rem; }
-    .gallery-header { margin-bottom: 4rem; }
-    .gallery-label { font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
-    .gallery-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem); }
-
-    .format-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid rgba(245,242,237,0.06); align-items: stretch; }
-    .format-row--reverse .format-row-image { order: 2; }
-    .format-row--reverse .format-row-info { order: 1; }
-    .format-row-image { overflow: hidden; position: relative; display: flex; }
-    .format-row-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94); }
-    .format-row:hover .format-row-image img { transform: scale(1.04); }
-    .format-row-image--916 { aspect-ratio: 9/16; }
-    .format-row-image--34  { aspect-ratio: 3/4; }
-    .format-row-image--11  { aspect-ratio: 1/1; }
-    .format-row-image--169 { aspect-ratio: 16/9; }
-    .format-row-info { padding: 3rem; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem; background: #0c0c0c; }
-    .fri-ratio { font-family: var(--font-display); font-size: 5rem; color: var(--white); line-height: 1; opacity: 0.08; letter-spacing: -0.02em; }
-    .fri-name { font-family: var(--font-display); font-size: 1.6rem; color: var(--white); letter-spacing: 0.04em; margin-top: -1rem; }
-    .fri-desc { font-size: 1rem; font-weight: 300; color: var(--grey); line-height: 1.85; max-width: 360px; }
-    .fri-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
-    .fri-tag { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey); border: 1px solid rgba(245,242,237,0.1); padding: 0.3rem 0.8rem; border-radius: 2px; }
-
-    .video-section { padding: 6rem 3rem; border-top: 1px solid rgba(245,242,237,0.06); }
-    .video-header { margin-bottom: 3rem; }
-    .video-label { font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
-    .video-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem); }
-    .format-row-video { aspect-ratio: 9/16; display: flex; align-items: stretch; background: #0a0a0a; overflow: hidden; }
-    .video-wrapper { position: relative; width: 100%; overflow: hidden; background: #0d0d0d; }
-    .video-wrapper video { width: 100%; height: 100%; object-fit: cover; }
-    .video-controls { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); }
+    .concept-section { padding: 7rem 3rem; border-bottom: 1px solid rgba(245,242,237,0.06); max-width: 900px; }
+    .section-label { font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; }
+    .concept-text { font-family: var(--font-display); font-size: clamp(1.6rem, 2.8vw, 2.4rem); line-height: 1.35; color: var(--white); }
+    .concept-text em { font-style: italic; color: var(--accent); }
+    .universe-intro { padding: 5rem 3rem 0; }
+    .universe-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem); }
+    .equation-block { padding: 4rem 3rem; }
+    .equation-grid { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: start; gap: 0; margin-bottom: 5rem; }
+    .eq-item {}
+    .eq-image { width: 100%; aspect-ratio: 1/1; overflow: hidden; }
+    .eq-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
+    .eq-image:hover img { transform: scale(1.04); }
+    .eq-label { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-top: 1.2rem; margin-bottom: 0.4rem; }
+    .eq-name { font-family: var(--font-display); font-size: 1.25rem; color: var(--white); margin-bottom: 0.6rem; }
+    .eq-desc { font-size: 0.92rem; font-weight: 300; color: var(--grey); line-height: 1.75; }
+    .eq-sign { font-family: var(--font-display); font-size: 3.5rem; color: rgba(200,184,154,0.2); display: flex; align-items: flex-start; padding: 0 1.5rem; padding-top: calc(50% - 1rem); }
+    .result-block { border-top: 1px solid rgba(245,242,237,0.06); padding-top: 3rem; }
+    .result-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
+    .result-eq-sign { font-family: var(--font-display); font-size: 3.5rem; color: rgba(200,184,154,0.2); line-height: 1; }
+    .result-label-text { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); }
+    .result-image { width: 100%; aspect-ratio: 1/1; overflow: hidden; }
+    .result-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .result-caption { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding-top: 2.5rem; }
+    .result-title { font-family: var(--font-display); font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1.25; }
+    .result-text { font-size: 1rem; font-weight: 300; color: var(--grey); line-height: 1.85; }
+    .reel-section { padding: 6rem 3rem; border-top: 1px solid rgba(245,242,237,0.06); }
+    .reel-header { margin-bottom: 3rem; }
+    .reel-label { font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .reel-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem); }
+    .reel-layout { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; border: 1px solid rgba(245,242,237,0.06); }
+    .reel-video-wrap { aspect-ratio: 9/16; overflow: hidden; background: #0a0a0a; position: relative; }
+    .reel-video-wrap video { width: 100%; height: 100%; object-fit: cover; }
+    .reel-controls { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); }
     .btn-play { width: 52px; height: 52px; border: 1px solid rgba(245,242,237,0.4); border-radius: 50%; background: rgba(8,8,8,0.6); color: var(--white); font-size: 1rem; display: flex; align-items: center; justify-content: center; cursor: none; transition: background .3s, border-color .3s; backdrop-filter: blur(8px); }
     .btn-play:hover { background: rgba(200,184,154,0.2); border-color: var(--accent); }
-    .video-formats-label { font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
-    .video-formats-title { font-family: var(--font-display); font-size: clamp(1.6rem, 2.5vw, 2.2rem); line-height: 1.15; margin-bottom: 0.75rem; }
-    .video-formats-intro { font-size: 0.95rem; font-weight: 300; color: var(--grey); line-height: 1.8; margin-bottom: 2rem; }
-    .vf-list { display: flex; flex-direction: column; }
-    .vf-item { padding: 1.25rem 0; border-top: 1px solid rgba(245,242,237,0.06); }
-    .vf-item:last-child { border-bottom: 1px solid rgba(245,242,237,0.06); }
-    .vf-item-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 0.4rem; }
-    .vf-item-ratio { font-family: var(--font-display); font-size: 1.1rem; color: var(--accent); min-width: 40px; }
-    .vf-item-name { font-family: var(--font-display); font-size: 1rem; color: var(--white); }
-    .vf-item-desc { font-size: 0.88rem; font-weight: 300; color: var(--grey); line-height: 1.7; padding-left: calc(40px + 1rem); }
-
-    .credits { padding: 5rem 3rem; border-top: 1px solid rgba(245,242,237,0.06); display: flex; justify-content: space-between; align-items: center; }
-    .credits-left { font-family: var(--font-display); font-size: 1.8rem; color: var(--grey); }
+    .reel-info { padding: 3rem; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; background: #0c0c0c; }
+    .reel-info-title { font-family: var(--font-display); font-size: clamp(1.4rem, 2vw, 1.9rem); line-height: 1.2; }
+    .reel-info-text { font-size: 0.95rem; font-weight: 300; color: var(--grey); line-height: 1.85; }
+    .reel-formats { display: flex; flex-direction: column; border-top: 1px solid rgba(245,242,237,0.06); padding-top: 1.5rem; }
+    .rfi { display: flex; align-items: baseline; gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid rgba(245,242,237,0.06); }
+    .rfi:last-child { border-bottom: none; }
+    .rfi-ratio { font-family: var(--font-display); font-size: 1rem; color: var(--accent); min-width: 36px; }
+    .rfi-name { font-size: 0.88rem; font-weight: 300; color: var(--grey); }
+    .closing { padding: 6rem 3rem; border-top: 1px solid rgba(245,242,237,0.06); background: #050505; text-align: center; }
+    .closing-text { font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 2rem); color: var(--grey); line-height: 1.5; max-width: 680px; margin: 0 auto 2.5rem; }
+    .closing-text em { color: var(--white); font-style: italic; }
+    .closing-cta { display: inline-block; padding: 0.9rem 2.5rem; border: 1px solid rgba(200,184,154,0.4); color: var(--white); font-family: var(--font-body); font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: background .3s, border-color .3s, color .3s; }
+    .closing-cta:hover { background: rgba(200,184,154,0.1); border-color: var(--accent); color: var(--accent); }
+    .credits { padding: 4rem 3rem; border-top: 1px solid rgba(245,242,237,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .credits-left { font-family: var(--font-display); font-size: 1.6rem; color: var(--grey); }
     .credits-left span { color: var(--white); }
-    .credits-right { text-align: right; }
-    .credits-item { font-size: 0.85rem; letter-spacing: 0.15em; color: var(--grey); margin-bottom: 0.4rem; }
+    .credits-item { font-size: 0.85rem; letter-spacing: 0.15em; color: var(--grey); }
     .credits-item span { color: var(--white); font-style: italic; }
-
     .next { padding: 5rem 3rem; border-top: 1px solid rgba(245,242,237,0.06); display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: var(--white); transition: background .3s; }
     .next:hover { background: rgba(245,242,237,0.02); }
     .next-label { font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.5rem; }
     .next-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); }
     .next-arrow { font-size: 3rem; color: var(--accent); transition: transform .3s; }
     .next:hover .next-arrow { transform: translateX(10px); }
-
     footer { padding: 2rem 3rem; border-top: 1px solid rgba(245,242,237,0.06); display: flex; justify-content: space-between; align-items: center; }
     .footer-logo { font-family: var(--font-display); font-size: 0.85rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--grey); }
     .footer-copy { font-size: 0.75rem; color: rgba(154,149,144,0.4); }
-
+    .back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; border: 1px solid rgba(200,184,154,0.35); border-radius: 50%; background: rgba(8,8,8,0.85); color: var(--accent); font-size: 1.1rem; display: flex; align-items: center; justify-content: center; text-decoration: none; opacity: 0; pointer-events: none; transition: opacity 0.4s ease, background 0.3s; backdrop-filter: blur(8px); z-index: 200; }
+    .back-to-top.visible { opacity: 1; pointer-events: all; }
+    .back-to-top:hover { background: rgba(200,184,154,0.15); }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     .reveal { opacity: 0; transform: translateY(40px); transition: opacity .9s ease, transform .9s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
       .hero-content { padding: 2.5rem 1.5rem; }
       .hero-title { font-size: clamp(4rem, 18vw, 6rem); }
-      .concept { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
-      .concept-left { position: static; }
-      .concept-title { font-size: clamp(2.2rem, 9vw, 3rem); }
-      .ai-challenge { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
-      .gallery { padding: 3rem 1.5rem; }
-      .gallery-header { margin-bottom: 2rem; }
-      .format-row { grid-template-columns: 1fr; }
-      .format-row--reverse .format-row-image { order: 0; }
-      .format-row--reverse .format-row-info { order: 0; }
-      .format-row-image--916 { width: 100%; aspect-ratio: 9/16; max-height: none; }
-      .format-row-image--34 { width: 100%; aspect-ratio: 3/4; max-height: none; }
-      .format-row-image--11 { width: 100%; aspect-ratio: 1/1; max-height: none; }
-      .format-row-image--169 { aspect-ratio: 16/9; }
-      .format-row-info { padding: 2rem 1.5rem; gap: 1rem; }
-      .fri-ratio { font-size: 3rem; }
-      .fri-name { font-size: 1.3rem; margin-top: -0.5rem; }
-      .fri-desc { font-size: 0.95rem; max-width: 100%; }
-      .video-section { padding: 3rem 1.5rem; }
-      .format-row-video { aspect-ratio: 9/16; max-height: 90vw; }
-      .video-formats-title { font-size: 1.5rem; }
-      .credits { flex-direction: column; gap: 1.5rem; padding: 3rem 1.5rem; }
-      .credits-right { text-align: left; }
-      .credits-left { font-size: 1.4rem; }
+      .concept-section { padding: 4rem 1.5rem; max-width: 100%; }
+      .universe-intro { padding: 3rem 1.5rem 0; }
+      .equation-block { padding: 2rem 1.5rem; }
+      .equation-grid { grid-template-columns: 1fr; }
+      .eq-sign { padding: 0.5rem 0; font-size: 2.5rem; align-items: center; padding-top: 0.5rem; }
+      .result-caption { grid-template-columns: 1fr; gap: 1.5rem; padding-top: 1.5rem; }
+      .reel-section { padding: 3rem 1.5rem; }
+      .reel-layout { grid-template-columns: 1fr; }
+      .reel-info { padding: 2rem 1.5rem; }
+      .closing { padding: 4rem 1.5rem; }
+      .credits { flex-direction: column; gap: 1.5rem; padding: 3rem 1.5rem; text-align: center; }
       .next { padding: 3rem 1.5rem; }
-      .next-title { font-size: clamp(2rem, 9vw, 3rem); }
       footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
     }
-    /* BACK TO TOP */
-    .back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; border: 1px solid rgba(200,184,154,0.35); border-radius: 50%; background: rgba(8,8,8,0.85); color: var(--accent); font-size: 1.1rem; display: flex; align-items: center; justify-content: center; text-decoration: none; opacity: 0; pointer-events: none; transition: opacity 0.4s ease, background 0.3s; backdrop-filter: blur(8px); z-index: 200; }
-    .back-to-top.visible { opacity: 1; pointer-events: all; }
-    .back-to-top:hover { background: rgba(200,184,154,0.15); border-color: var(--accent); }
   </style>
 </head>
 <body>
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
-
   <nav>
     <a href="index.html" class="nav-back">All Work</a>
     <a href="index.html" class="nav-logo">Havana Studio</a>
@@ -169,181 +129,91 @@
     <div class="hero-content">
       <p class="hero-label">Leather Accessories · Extremadura</p>
       <h1 class="hero-title">CAVA</h1>
-      <p class="hero-subtitle">Some things are not bought. They are inherited.</p>
+      <p class="hero-subtitle">Leather Accessories Campaign</p>
     </div>
   </section>
 
-  <section class="concept">
-    <div class="concept-left reveal">
-      <p class="concept-label">Campaign Concept</p>
-      <h2 class="concept-title">Things that<br><em>last.</em></h2>
-      <div class="concept-tagline">
-        Not a bag you buy this season.<br>
-        One that is already waiting for you.
-      </div>
-    </div>
-    <div class="concept-right reveal">
-      <p class="concept-text">CAVA is a fictional artisan leather accessories brand built through AI creative direction. The brief: create a campaign that communicates heritage, craft, and permanence — without a single studio, sample, or production team.</p>
-      <p class="concept-text">The campaign unfolds inside a stone cortijo in Extremadura. Warm light filters through wooden beams. A woman in ivory silk sits with a burgundy geometric bag — not posed, simply present. A horse leans in from the shadows. Nothing is forced. Everything is still.</p>
-      <p class="concept-text">The bag — pentagonal, burgundy, with a circular handle — is treated as an heirloom from the first frame. Not a product. A thing that belongs.</p>
-      <div class="concept-details">
-        <div class="detail-row">
-          <span class="detail-key">Category</span>
-          <span class="detail-val">Artisan Leather Accessories</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key">Location</span>
-          <span class="detail-val">Stone cortijo, Extremadura</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key">Aesthetic</span>
-          <span class="detail-val">Warm, analogue, timeless</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key">Concept</span>
-          <span class="detail-val">Some things are not bought. They are inherited.</span>
-        </div>
-      </div>
-    </div>
+  <section class="concept-section reveal">
+    <p class="section-label">Concept</p>
+    <p class="concept-text">A campaign built around heritage, craft and <em>quiet permanence.</em> The object as heirloom — not as product.</p>
   </section>
 
-  <section class="ai-challenge reveal">
-    <div>
-      <p class="ai-challenge-label">The AI Challenge</p>
-      <h3 class="ai-challenge-title">Texture, warmth and living presence</h3>
-    </div>
-    <div>
-      <p class="ai-challenge-text">The challenge of CAVA was recreating the tactile quality of handstitched leather under warm analogue light — every grain, every seam, every shadow — alongside the unpredictable presence of a horse. Generating a living animal that interacts naturally with both the product and the model, with consistent fur texture and authentic behaviour across different shots, required precise AI creative direction. The result eliminates the need for a location shoot, animal wrangling, or traditional product photography.</p>
-    </div>
-  </section>
+  <div class="universe-intro reveal">
+    <p class="section-label">Campaign Construction</p>
+    <h2 class="universe-title">Building the universe</h2>
+  </div>
 
-  <section class="gallery">
-    <div class="gallery-header reveal">
-      <p class="gallery-label">Campaign Images</p>
-      <h2 class="gallery-title">The Shoot</h2>
-    </div>
-
-    <div class="format-row reveal">
-      <div class="format-row-image format-row-image--916">
-        <img src="c1.png" alt="CAVA — Horse and bag in the stable" />
+  <div class="equation-block reveal">
+    <div class="equation-grid">
+      <div class="eq-item">
+        <div class="eq-image"><img src="c4.png" alt="CAVA — Environment" /></div>
+        <p class="eq-label">Environment</p>
+        <p class="eq-name">The cortijo</p>
+        <p class="eq-desc">A stone farmhouse in Extremadura. Warm afternoon light through old wood. A space that speaks of time, not trend.</p>
       </div>
-      <div class="format-row-info">
-        <div class="fri-ratio">9:16</div>
-        <div class="fri-name">Vertical</div>
-        <p class="fri-desc">The native format of modern attention. Built for Stories, Reels and TikTok — where the audience lives and scrolls.</p>
-        <div class="fri-tags">
-          <span class="fri-tag">Instagram Stories</span>
-          <span class="fri-tag">Reels cover</span>
-          <span class="fri-tag">TikTok</span>
-          <span class="fri-tag">Pinterest</span>
+      <div class="eq-sign">+</div>
+      <div class="eq-item">
+        <div class="eq-image"><img src="c2.png" alt="CAVA — Character" /></div>
+        <p class="eq-label">Character</p>
+        <p class="eq-name">The woman</p>
+        <p class="eq-desc">Still. Present. She does not pose with the bag — she simply exists beside it, as if it has always been hers.</p>
+      </div>
+      <div class="eq-sign">+</div>
+      <div class="eq-item">
+        <div class="eq-image"><img src="c1.png" alt="CAVA — Product" /></div>
+        <p class="eq-label">Product</p>
+        <p class="eq-name">The bag</p>
+        <p class="eq-desc">Pentagonal geometry in burgundy leather. Treated not as accessory but as the centrepiece of the visual narrative.</p>
+      </div>
+    </div>
+
+    <div class="result-block reveal">
+      <div class="result-header">
+        <span class="result-eq-sign">=</span>
+        <span class="result-label-text">Final Result</span>
+      </div>
+      <div class="result-image"><img src="c3.png" alt="CAVA — Final Result" /></div>
+      <div class="result-caption">
+        <h3 class="result-title">All elements integrate into a single visual language.</h3>
+        <p class="result-text">The environment, the woman and the object become one. The campaign does not sell a bag — it communicates what kind of person owns one.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="reel-section">
+    <div class="reel-header reveal">
+      <p class="reel-label">Campaign Film</p>
+      <h2 class="reel-title">The Reel</h2>
+    </div>
+    <div class="reel-layout reveal">
+      <div class="reel-video-wrap">
+        <video id="mainVideo" loop playsinline>
+          <source src="bolso_CAVA.mp4" type="video/mp4" />
+        </video>
+        <div class="reel-controls">
+          <button class="btn-play" id="playBtn" onclick="toggleVideo()">▶</button>
         </div>
       </div>
-    </div>
-
-    <div class="format-row format-row--reverse reveal">
-      <div class="format-row-image format-row-image--34">
-        <img src="c2.png" alt="CAVA — Woman sitting with bag in the cortijo" />
-      </div>
-      <div class="format-row-info">
-        <div class="fri-ratio">3:4</div>
-        <div class="fri-name">Portrait</div>
-        <p class="fri-desc">The editorial standard. Maximum image area in the Instagram feed — commands attention without cropping.</p>
-        <div class="fri-tags">
-          <span class="fri-tag">Feed post</span>
-          <span class="fri-tag">Meta Ads</span>
-          <span class="fri-tag">E-commerce</span>
-          <span class="fri-tag">Lookbook</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="format-row reveal">
-      <div class="format-row-image format-row-image--11">
-        <img src="c3.png" alt="CAVA — Woman and horse, face to face" />
-      </div>
-      <div class="format-row-info">
-        <div class="fri-ratio">1:1</div>
-        <div class="fri-name">Square</div>
-        <p class="fri-desc">The universal format. Works across every platform with zero adjustment — carousels, thumbnails, product pages.</p>
-        <div class="fri-tags">
-          <span class="fri-tag">Carousel</span>
-          <span class="fri-tag">Grid</span>
-          <span class="fri-tag">Product page</span>
-          <span class="fri-tag">WhatsApp</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="format-row format-row--reverse reveal">
-      <div class="format-row-image format-row-image--169">
-        <img src="c4.png" alt="CAVA — Bag on stone wall in afternoon light" />
-      </div>
-      <div class="format-row-info">
-        <div class="fri-ratio">16:9</div>
-        <div class="fri-name">Landscape</div>
-        <p class="fri-desc">The cinematic frame. Designed for web banners, digital press and any context where width carries weight.</p>
-        <div class="fri-tags">
-          <span class="fri-tag">Web hero</span>
-          <span class="fri-tag">YouTube</span>
-          <span class="fri-tag">Press</span>
-          <span class="fri-tag">Newsletter</span>
+      <div class="reel-info">
+        <h3 class="reel-info-title">One campaign.<br>Three formats.</h3>
+        <p class="reel-info-text">Every campaign film is cut and exported in three versions — each built for a different context. Ready to publish from day one.</p>
+        <div class="reel-formats">
+          <div class="rfi"><span class="rfi-ratio">9:16</span><span class="rfi-name">Campaign Reel · Reels, TikTok and Stories</span></div>
+          <div class="rfi"><span class="rfi-ratio">1:1</span><span class="rfi-name">Feed Clip · Silent autoplay in the feed</span></div>
+          <div class="rfi"><span class="rfi-ratio">16:9</span><span class="rfi-name">Brand Film · YouTube, web and digital press</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="video-section">
-    <div class="video-header reveal">
-      <p class="video-label">Campaign Film</p>
-      <h2 class="video-title">The Reel</h2>
-    </div>
-    <div class="format-row reveal">
-      <div class="format-row-video">
-        <div class="video-wrapper">
-          <video id="mainVideo" loop playsinline>
-            <source src="bolso_CAVA.mp4" type="video/mp4" />
-          </video>
-          <div class="video-controls">
-            <button class="btn-play" id="playBtn" onclick="toggleVideo()">▶</button>
-          </div>
-        </div>
-      </div>
-      <div class="format-row-info">
-        <p class="video-formats-label">Video Deliverables</p>
-        <h3 class="video-formats-title">One campaign.<br>Three formats.</h3>
-        <p class="video-formats-intro">Every campaign film is cut and exported in three versions — each built for a different context. Ready to publish from day one.</p>
-        <div class="vf-list">
-          <div class="vf-item">
-            <div class="vf-item-head">
-              <span class="vf-item-ratio">9:16</span>
-              <span class="vf-item-name">Campaign Reel</span>
-            </div>
-            <p class="vf-item-desc">15–30s · Full narrative · Voiceover and music included. For Reels, TikTok and Stories.</p>
-          </div>
-          <div class="vf-item">
-            <div class="vf-item-head">
-              <span class="vf-item-ratio">1:1</span>
-              <span class="vf-item-name">Feed Clip</span>
-            </div>
-            <p class="vf-item-desc">10–15s · Square crop · Built for silent autoplay in the Instagram feed.</p>
-          </div>
-          <div class="vf-item">
-            <div class="vf-item-head">
-              <span class="vf-item-ratio">16:9</span>
-              <span class="vf-item-name">Brand Film</span>
-            </div>
-            <p class="vf-item-desc">30–60s · Cinematic cut · For YouTube, website hero sections and digital press.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <section class="closing reveal">
+    <p class="closing-text">This is the type of campaign we build for brands that want to <em>stand out visually.</em></p>
+    <a href="index.html#contact" class="closing-cta">Start your project</a>
   </section>
 
   <section class="credits reveal">
     <div class="credits-left"><span>CAVA</span> Campaign · © 2026</div>
-    <div class="credits-right">
-      <div class="credits-item">Creative Direction — <span>Havana Studio</span></div>
-    </div>
+    <div class="credits-item">Creative Direction — <span>Havana Studio</span></div>
   </section>
 
   <a href="lina.html" class="next reveal">
@@ -359,42 +229,27 @@
     <div class="footer-copy">© 2026 Havana Studio. All rights reserved.</div>
   </footer>
 
+  <a href="#" class="back-to-top" id="backToTop">↑</a>
+
   <script>
     const cursor = document.getElementById('cursor');
     const cursorRing = document.getElementById('cursorRing');
     let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
-    document.addEventListener('mousemove', e => {
-      mouseX = e.clientX; mouseY = e.clientY;
-      cursor.style.left = mouseX + 'px'; cursor.style.top = mouseY + 'px';
-    });
-    function animateRing() {
-      ringX += (mouseX - ringX) * 0.12; ringY += (mouseY - ringY) * 0.12;
-      cursorRing.style.left = ringX + 'px'; cursorRing.style.top = ringY + 'px';
-      requestAnimationFrame(animateRing);
-    }
+    document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; cursor.style.left = mouseX+'px'; cursor.style.top = mouseY+'px'; });
+    function animateRing() { ringX += (mouseX-ringX)*0.12; ringY += (mouseY-ringY)*0.12; cursorRing.style.left = ringX+'px'; cursorRing.style.top = ringY+'px'; requestAnimationFrame(animateRing); }
     animateRing();
-    document.querySelectorAll('a, button, .format-row-image').forEach(el => {
+    document.querySelectorAll('a, button, .eq-image, .result-image').forEach(el => {
       el.addEventListener('mouseenter', () => { cursor.style.width='16px'; cursor.style.height='16px'; cursor.style.background='var(--accent)'; cursorRing.style.width='56px'; cursorRing.style.height='56px'; });
       el.addEventListener('mouseleave', () => { cursor.style.width='8px'; cursor.style.height='8px'; cursor.style.background='var(--white)'; cursorRing.style.width='36px'; cursorRing.style.height='36px'; });
     });
     const video = document.getElementById('mainVideo');
     const playBtn = document.getElementById('playBtn');
-    function toggleVideo() {
-      if (video.paused) { video.play(); playBtn.textContent = '❚❚'; }
-      else { video.pause(); playBtn.textContent = '▶'; }
-    }
+    function toggleVideo() { if (video.paused) { video.play(); playBtn.textContent='❚❚'; } else { video.pause(); playBtn.textContent='▶'; } }
     const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
-    }, { threshold: 0.08 });
+    const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
-
-    // BACK TO TOP
-    const backToTop = document.getElementById("backToTop");
-    window.addEventListener("scroll", () => { backToTop.classList.toggle("visible", window.scrollY > 400); });
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => { btt.classList.toggle('visible', window.scrollY > 400); });
   </script>
-  <!-- BACK TO TOP -->
-  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
-
 </body>
 </html>
