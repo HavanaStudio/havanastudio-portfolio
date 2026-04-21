@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Havana Studio — AI Creative Direction</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23080808'/><text y='72' x='50' text-anchor='middle' font-family='serif' font-size='52' fill='%23c8b89a'>HS</text></svg>" />
   <link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -161,6 +162,28 @@
       animation: fadeUp 1s ease 0.8s forwards;
     }
 
+    .hero-cta {
+      display: inline-block;
+      margin-top: 2.5rem;
+      padding: 0.9rem 2.2rem;
+      border: 1px solid rgba(200,184,154,0.5);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s, border-color 0.3s, color 0.3s;
+      opacity: 0;
+      animation: fadeUp 1s ease 1s forwards;
+    }
+    .hero-cta:hover {
+      background: rgba(200,184,154,0.1);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* SCROLL indicator */
     .hero-scroll {
       position: absolute;
       bottom: 3rem;
@@ -754,20 +777,51 @@
       transform: translateY(0);
     }
 
-    /* RESPONSIVE */
+    /* ── MOBILE ── */
     @media (max-width: 768px) {
-      nav { padding: 1.5rem; }
+      nav { padding: 1.2rem 1.5rem; }
       .nav-links { display: none; }
+
       .hero { padding: 2rem 1.5rem 3rem; }
-      .about { grid-template-columns: 1fr; padding: 5rem 1.5rem; gap: 3rem; }
+      .hero-title { font-size: clamp(3rem, 14vw, 5rem); }
+      .hero-sub { font-size: 1rem; margin-top: 1.5rem; }
+      .hero-cta { margin-top: 1.8rem; padding: 0.8rem 1.8rem; }
+      .hero-scroll { display: none; }
+
+      .about { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
+      .about-title { font-size: clamp(2rem, 8vw, 2.8rem); margin-bottom: 1.5rem; }
+      .about-right { gap: 1.8rem; }
+      .about-stat-num { font-size: 1.6rem; }
+
       .portfolio { padding: 4rem 1.5rem; }
-      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-header { margin-bottom: 2.5rem; }
+      .portfolio-grid { grid-template-columns: 1fr; gap: 2px; }
       .campaign:first-child { aspect-ratio: 3/4; grid-column: auto; }
+      .campaign-name { font-size: clamp(2.5rem, 10vw, 3.5rem); }
+
+      .value { padding: 4rem 1.5rem; }
+      .value-intro { margin-bottom: 3rem; }
+      .value-headline { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+      .value-grid { grid-template-columns: 1fr; }
+      .value-block { border-right: none; border-bottom: 1px solid rgba(245,242,237,0.06); padding: 2rem 0; }
+      .value-block:last-child { border-bottom: none; }
+      .value-number { font-size: 2.5rem; margin-bottom: 1rem; }
+
+      .services { padding: 4rem 1.5rem; }
+      .services-title { margin-bottom: 3rem; }
       .services-grid { grid-template-columns: 1fr; }
-      .service-item { border-right: none; border-bottom: 1px solid rgba(245,242,237,0.06); padding: 2rem 1.5rem; }
-      .contact { grid-template-columns: 1fr; padding: 5rem 1.5rem; gap: 3rem; }
-      .faq { padding: 5rem 1.5rem; }
-      .faq-header { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem; }
+      .service-item { border-right: none; border-bottom: 1px solid rgba(245,242,237,0.06); padding: 2rem 0; }
+      .service-item:last-child { border-bottom: none; }
+
+      .faq { padding: 4rem 1.5rem; }
+      .faq-header { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; }
+      .faq-question { font-size: 1rem; padding: 1.5rem 0; }
+
+      .contact { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
+      .contact-title { font-size: clamp(2.2rem, 9vw, 3.5rem); }
+      .contact-text { margin-bottom: 2rem; }
+      .contact-email { font-size: 0.95rem; word-break: break-all; }
+
       footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
     }
   </style>
@@ -779,7 +833,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">Havana Studio</a>
+    <a href="index.html" class="nav-logo">Havana Studio</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#portfolio">Work</a></li>
@@ -796,6 +850,7 @@
     <p class="hero-eyebrow">AI Creative Direction Studio</p>
     <h1 class="hero-title">We build<br>brands through<br><em>image.</em></h1>
     <p class="hero-sub">Fashion & luxury campaigns built entirely with artificial intelligence. Strategy, aesthetics, and narrative — from concept to final frame.</p>
+    <a href="#contact" class="hero-cta">Request a concept</a>
     <div class="hero-scroll">
       <div class="scroll-line"></div>
       <span>Scroll</span>
@@ -949,7 +1004,7 @@
       <h2 class="contact-title">Tell us about<br>your <em>brand.</em></h2>
     </div>
     <div class="contact-right reveal">
-      <p class="contact-text">We'll show you what we'd create for it. No brief too small, no ambition too large. If you take your image seriously, we'd like to hear from you.</p>
+      <p class="contact-text">We'll show you what we'd create for it. No brief too small, no ambition too large. If your brand deserves better visuals, we'd like to hear from you.</p>
       <a href="mailto:havanastudioco@outlook.es" class="contact-email">havanastudioco@outlook.es</a>
     </div>
   </section>
