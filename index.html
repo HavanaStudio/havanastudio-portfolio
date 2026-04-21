@@ -95,7 +95,6 @@
     }
 
     .nav-links a:hover { opacity: 1; }
-
     /* HERO */
     .hero {
       height: 100vh;
@@ -340,15 +339,15 @@
       transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
-    /* Campaign color treatments */
-    .campaign-lina .campaign-bg {
-      background: linear-gradient(135deg, #c4b5a0 0%, #8fa8b2 40%, #d4c9bc 100%);
+    /* Campaign images */
+    .campaign-sern .campaign-bg {
+      background: url('p3.png') center/cover no-repeat;
     }
     .campaign-cava .campaign-bg {
-      background: linear-gradient(160deg, #2a1f1a 0%, #5c3d2e 40%, #8b6552 70%, #c4956a 100%);
+      background: url('c4.png') center/cover no-repeat;
     }
-    .campaign-sern .campaign-bg {
-      background: url('freepik_no-hagas-nada_2828242834.png') center/cover no-repeat;
+    .campaign-lina .campaign-bg {
+      background: url('L4.png') center/cover no-repeat;
     }
 
     .campaign:hover .campaign-bg {
@@ -627,6 +626,78 @@
       border-color: var(--accent);
     }
 
+    /* FAQ */
+    .faq {
+      padding: 8rem 3rem;
+      border-top: 1px solid rgba(245,242,237,0.06);
+    }
+    .faq-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      margin-bottom: 5rem;
+      align-items: end;
+    }
+    .faq-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      line-height: 1.1;
+    }
+    .faq-title em { font-style: italic; color: var(--accent); }
+    .faq-intro {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--grey);
+      line-height: 1.9;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid rgba(245,242,237,0.08);
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(245,242,237,0.08);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      text-align: left;
+      padding: 2rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      cursor: none;
+      transition: color 0.3s;
+    }
+    .faq-question:hover { color: var(--accent); }
+    .faq-icon {
+      font-size: 1.4rem;
+      color: var(--accent);
+      transition: transform 0.35s ease;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--grey);
+      line-height: 1.85;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding-bottom: 0;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-bottom: 2rem;
+    }
+
     /* FOOTER */
     footer {
       padding: 2.5rem 3rem;
@@ -695,6 +766,8 @@
       .services-grid { grid-template-columns: 1fr; }
       .service-item { border-right: none; border-bottom: 1px solid rgba(245,242,237,0.06); padding: 2rem 1.5rem; }
       .contact { grid-template-columns: 1fr; padding: 5rem 1.5rem; gap: 3rem; }
+      .faq { padding: 5rem 1.5rem; }
+      .faq-header { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem; }
       footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
     }
   </style>
@@ -711,6 +784,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#portfolio">Work</a></li>
       <li><a href="#value">Why Us</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -787,7 +861,7 @@
         <div class="campaign-bg"></div>
         <div class="campaign-overlay"></div>
         <div class="campaign-content">
-          <p class="campaign-category">Perfume · Masculino</p>
+          <p class="campaign-category">Fragrance · Masculine</p>
           <h3 class="campaign-name">SERN</h3>
           <p class="campaign-tagline">For Men Who Endure</p>
         </div>
@@ -797,9 +871,9 @@
         <div class="campaign-bg"></div>
         <div class="campaign-overlay"></div>
         <div class="campaign-content">
-          <p class="campaign-category">Bolsos · Artesanía</p>
+          <p class="campaign-category">Leather Accessories · Extremadura</p>
           <h3 class="campaign-name">CAVA</h3>
-          <p class="campaign-tagline">Algunas cosas no se compran. Se heredan.</p>
+          <p class="campaign-tagline">Some things are not bought. They are inherited.</p>
         </div>
       </a>
 
@@ -807,7 +881,7 @@
         <div class="campaign-bg"></div>
         <div class="campaign-overlay"></div>
         <div class="campaign-content">
-          <p class="campaign-category">Fashion · Women</p>
+          <p class="campaign-category">Women's Ready-to-Wear · Santorini</p>
           <h3 class="campaign-name">LINA</h3>
           <p class="campaign-tagline">Mediterranean Editorial</p>
         </div>
@@ -880,6 +954,76 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="faq-header reveal">
+      <div>
+        <p class="section-label">Frequently Asked Questions</p>
+        <h2 class="faq-title">Everything you<br>need to <em>know.</em></h2>
+      </div>
+      <p class="faq-intro">We work with fashion, luxury and lifestyle brands that have a product worth showing and the mindset to take image seriously. Here are the questions we hear most.</p>
+    </div>
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What types of brands do you work with?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">We work with fashion labels, accessories brands, fragrance, lifestyle and luxury goods — at any stage. Whether you are launching your first collection or scaling an established brand, what matters is that you take your image seriously. We are selective because results require alignment.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do I need a physical product for you to work with me?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">No. We can create campaigns for products that are not yet produced, pre-launch brands, or concept collections. AI creative direction means we are not limited by physical samples, production timelines, or logistics. If you have a clear brand vision, we can build the visual world around it.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How is this different from hiring a photographer?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">A traditional shoot requires a photographer, model, location, stylist, makeup artist, post-production, and coordination across all of them. It takes weeks and costs between €3,000 and €15,000 minimum. We deliver editorial-quality campaigns in days — with full creative direction, consistent aesthetic, and all formats included. You get more, faster, for less.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What do I actually receive at the end?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Depending on the package: a set of editorial images in all standard formats (9:16, 3:4, 1:1, 16:9), campaign reels, and brand films — ready to publish across Instagram, TikTok, Meta Ads, your website, and press. Everything is yours with full usage rights. No hidden licences, no usage limits.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long does a campaign take?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Between 3 and 15 days depending on scope. A focused image package takes 3–5 days. A full campaign with images, reels and brand film takes 7–15 days. We move quickly and keep you informed at every step.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do you use artificial intelligence?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Yes — entirely. Every image and film we produce is generated through AI, guided by human creative direction. We handle the concept, narrative, aesthetic, and all technical execution. The result is indistinguishable from a traditional production and often more consistent, because we control every variable from the start.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How do I get started?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Send us an email at havanastudioco@outlook.es telling us about your brand — what you sell, who your customer is, and what you need. We will come back to you within 48 hours with a proposal. No lengthy briefs required to start the conversation.</div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">Havana Studio</div>
@@ -928,6 +1072,14 @@
         cursorRing.style.height = '36px';
       });
     });
+
+    // FAQ TOGGLE
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
 
     // SCROLL REVEAL
     const reveals = document.querySelectorAll('.reveal');
