@@ -242,6 +242,7 @@ footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:
   .pack-name{font-size:2.6rem;}
   #scrolltop{bottom:1.2rem;right:1.2rem;}
   .form-wrap{grid-template-columns:1fr;}
+  #ejemplos > div:last-child{grid-template-columns:1fr!important;}
   .form-box{padding:1.8rem 1.4rem;}
 }
 </style>
@@ -345,20 +346,47 @@ footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:
 </section>
 
 
-<!-- TRABAJO 2 -->
-<section id="trabajo2" style="background:var(--off);padding:6rem 4rem;">
-  <p class="sec-eyebrow">Otro ejemplo real</p>
-  <h2 class="sec-title">COLECCIÓN<br>FEMENINA.</h2>
-  <p class="trabajo-intro">Flat lay enviado por la marca — y el resultado final en una modelo real en la calle. Mismo proceso, diferente estética.</p>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;align-items:start;">
+
+
+
+<!-- EJEMPLOS -->
+<section id="ejemplos" style="background:var(--white);padding:5rem 4rem;">
+  <p class="sec-eyebrow">Resultados reales</p>
+  <h2 class="sec-title">ANTES Y<br>DESPUÉS.</h2>
+  <p style="font-size:0.88rem;color:var(--gray);font-weight:300;line-height:1.7;max-width:500px;margin-bottom:2.5rem;">Dos ejemplos reales — la foto que nos envía la marca y el resultado final listo para publicar.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;">
+
+    <!-- Ejemplo 1 -->
     <div>
-      <img src="antes2.png" alt="Conjunto cuadros amarillo flat lay" style="width:100%;display:block;">
-      <div style="font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;padding:0.6rem 1rem;background:var(--white);color:var(--gray);border-top:1px solid var(--border-l);">Antes — Foto de la marca</div>
+      <p style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray);font-weight:500;margin-bottom:0.75rem;">Ejemplo 01 — Streetwear</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+        <div>
+          <img src="antes.png" alt="Chaqueta varsity" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
+          <div style="font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.4rem 0.6rem;background:var(--off);color:var(--gray);">Antes</div>
+        </div>
+        <div>
+          <img src="despues.png" alt="Modelo con chaqueta" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top;display:block;">
+          <div style="font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.4rem 0.6rem;background:var(--red);color:white;">Después</div>
+        </div>
+      </div>
     </div>
+
+    <!-- Ejemplo 2 -->
     <div>
-      <img src="despues2.png" alt="Modelo con conjunto cuadros en la calle" style="width:100%;display:block;">
-      <div style="font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;padding:0.6rem 1rem;background:var(--red);color:white;">Después — Havana Studio</div>
+      <p style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray);font-weight:500;margin-bottom:0.75rem;">Ejemplo 02 — Colección femenina</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+        <div>
+          <img src="antes2.png" alt="Conjunto cuadros flat lay" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
+          <div style="font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.4rem 0.6rem;background:var(--off);color:var(--gray);">Antes</div>
+        </div>
+        <div>
+          <img src="despues2.png" alt="Modelo con conjunto cuadros" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top;display:block;">
+          <div style="font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.4rem 0.6rem;background:var(--red);color:white;">Después</div>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -397,22 +425,7 @@ footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:
   </div>
 </section>
 
-<!-- TRABAJO -->
-<section id="trabajo">
-  <p class="sec-eyebrow">Resultados</p>
-  <h2 class="sec-title">ANTES Y DESPUÉS.</h2>
-  <p class="trabajo-intro">Las marcas son escépticas con el contenido de IA. Por eso no te lo contamos — te lo enseñamos. Esto es un resultado real: la foto que nos envió la marca, y el resultado final listo para publicar.</p>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2rem;align-items:start;">
-    <div>
-      <img src="antes.png" alt="Chaqueta varsity negra" style="width:100%;display:block;">
-      <div style="font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;padding:0.6rem 1rem;background:var(--off);color:var(--gray);">Antes — Foto de la marca</div>
-    </div>
-    <div>
-      <img src="despues.png" alt="Modelo con chaqueta varsity" style="width:100%;display:block;">
-      <div style="font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;padding:0.6rem 1rem;background:var(--red);color:white;">Después — Havana Studio</div>
-    </div>
-  </div>
-</section>
+
 
 <!-- PRECIOS -->
 <section id="precios">
