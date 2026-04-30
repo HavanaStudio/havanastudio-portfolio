@@ -202,6 +202,15 @@ footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:
 .foot-copy{font-size:0.68rem;color:rgba(255,255,255,0.25);}
 .foot-nicho{font-size:0.65rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;}
 
+
+.faq-item{background:var(--white);}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:1.2rem 1.5rem;font-family:"DM Sans",sans-serif;font-size:0.88rem;font-weight:500;color:var(--black);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+.faq-q:hover{color:var(--red);}
+.faq-icon{font-size:1.2rem;color:var(--red);flex-shrink:0;transition:transform 0.2s;}
+.faq-a{display:none;padding:0 1.5rem 1.2rem;font-size:0.82rem;color:var(--gray);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+
 /* SCROLL TO TOP */
 #scrolltop{position:fixed;bottom:2rem;right:2rem;z-index:400;width:40px;height:40px;background:rgba(10,10,10,0.85);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity 0.3s,background 0.2s;}
 #scrolltop.visible{opacity:1;pointer-events:all;}
@@ -282,11 +291,11 @@ footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:
   </div>
   <div class="hero-right">
     <div class="hero-right-main">
-      <div class="hero-big">MÁS VENTAS.<br>MENOS COSTE.<br><span>MÁS RÁPIDO.</span></div>
-      <p class="hero-sub-dark">Tu cliente necesita verte puesta. Nosotros lo conseguimos en 5–7 días, sin producción física.</p>
+      <div class="hero-big">MEJOR CONTENIDO.<br>MENOS COSTE.<br><span>MÁS RÁPIDO.</span></div>
+      <p class="hero-sub-dark">Imágenes y vídeos de moda con estética profesional, sin fotógrafo, sin estudio y sin semanas de producción.</p>
     </div>
     <div class="hero-tags">
-      <div class="hero-tag"><span class="hero-tag-dot"></span>Fotos de catálogo con modelo real</div>
+      <div class="hero-tag"><span class="hero-tag-dot"></span>Fotos de catálogo con modelos hiperrealistas</div>
       <div class="hero-tag"><span class="hero-tag-dot"></span>Vídeo cinemático hasta 30 segundos</div>
       <div class="hero-tag"><span class="hero-tag-dot"></span>Modelos de todas las etnias y tallas</div>
       <div class="hero-tag"><span class="hero-tag-dot"></span>Localizaciones internacionales</div>
@@ -299,7 +308,7 @@ footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:
 <section id="diferencia">
   <p class="sec-eyebrow">Por qué trabajar con nosotros</p>
   <h2 class="sec-title">LO QUE NOS<br>DIFERENCIA.</h2>
-  <p class="dif-intro">No somos una agencia tradicional. No tenemos estudio, no contratamos modelos y no cobramos una fortuna. Usamos tecnología de IA para darte el mismo resultado visual que una producción profesional, a una fracción del precio y en una fracción del tiempo.</p>
+  <p class="dif-intro">Trabajamos con un sistema de producción visual con IA diseñado para marcas de moda que necesitan contenido ágil, cuidado y rentable. Creamos imágenes y vídeos con estética profesional sin depender de una producción física tradicional — reduciendo tiempos, costes y fricción operativa.</p>
   <div class="dif-grid">
     <div class="dif-card">
       <span class="dif-num">01</span>
@@ -308,8 +317,8 @@ footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:
     </div>
     <div class="dif-card">
       <span class="dif-num">02</span>
-      <p class="dif-title">Tu marca parece internacional</p>
-      <p class="dif-desc">Ponemos tu ropa en una modelo asiática en Tokio o en un modelo afroamericano en Nueva York. Tu marca local puede verse como una firma global.</p>
+      <p class="dif-title">Dale a tu marca una imagen más global</p>
+      <p class="dif-desc">Ponemos tu ropa en modelos hiperrealistas en Tokio, Nueva York o París. Tu marca local puede proyectar una identidad visual al nivel de marcas internacionales.</p>
     </div>
     <div class="dif-card">
       <span class="dif-num">03</span>
@@ -341,10 +350,10 @@ footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:
 <!-- EL PROBLEMA -->
 <section id="problema">
   <p class="sec-eyebrow">El problema que resolvemos</p>
-  <h2 class="sec-title">SIN MODELO,<br>TU ROPA NO VENDE.</h2>
+  <h2 class="sec-title">CUANDO LA PRENDA NO SE VE PUESTA,<br>VENDERLA CUESTA MÁS.</h2>
   <div class="prob-grid">
     <div class="prob-left">
-      <p>Las marcas pequeñas lo saben perfectamente. Pero pagar fotógrafo, modelo y estudio para todo el catálogo no entra en el presupuesto. El resultado son fotos en maniquí, flat lays o en el suelo — y el cliente no se imagina la prenda puesta.</p>
+      <p>Muchas marcas pequeñas lo saben, pero no siempre pueden asumir el coste y la logística de fotógrafo, modelo, estudio y edición para cada colección. El resultado son fotos en maniquí o flat lays que no transmiten el fit, la caída ni el estilo de la prenda.</p>
       <div class="prob-quote">"Mándame la foto de tu prenda en fondo claro y yo la pongo en una modelo realista. Tu catálogo listo para vender en menos de una semana."</div>
     </div>
     <div class="prob-cards">
@@ -486,11 +495,48 @@ footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:
 
 
 
+
+<!-- FAQ -->
+<section id="faq" style="background:var(--off);padding:6rem 4rem;">
+  <p class="sec-eyebrow">Preguntas frecuentes</p>
+  <h2 class="sec-title">LO QUE MÁS<br>NOS PREGUNTAN.</h2>
+  <div style="display:flex;flex-direction:column;gap:1px;background:var(--border-l);border:1px solid var(--border-l);margin-top:3rem;max-width:800px;">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Necesito fotos profesionales de la prenda?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">No. Basta con una foto clara en fondo claro o blanco, bien iluminada. Vale perfectamente con el móvil si la luz es buena. Cuanto más limpia sea la foto, mejor será el resultado final.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Puedo elegir el tipo de modelo o la estética?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Sí. Puedes indicarnos etnia, complexión, estilo visual y tipo de localización — calle, estudio, exterior, ciudad internacional. Adaptamos el resultado a la identidad de tu marca.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Qué incluye la ronda de revisión?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Una vez entregado el contenido, tienes una ronda de ajustes incluida — cambios de estética, encuadre, color o composición. Queremos que el resultado encaje con tu marca antes de darlo por cerrado.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿En qué formato entregáis el contenido?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Entregamos en alta resolución, con los formatos optimizados para cada canal: cuadrado y vertical para Instagram, horizontal para web, y formato Reels/TikTok para vídeo. Todo listo para publicar directamente.</div>
+    </div>
+  </div>
+</section>
+
 <!-- FORMULARIO -->
 <section id="contacto">
   <p class="sec-eyebrow">Empieza hoy</p>
   <h2 class="sec-title">¿LISTA TU MARCA<br>PARA DAR EL SALTO?</h2>
-  <p class="sub">Rellena el formulario y nos ponemos en contacto en menos de 24 horas. Cuéntanos tu proyecto y te respondemos en menos de 24 horas.</p>
+  <p class="sub">Cuéntanos tu marca y el tipo de contenido que necesitas. Te respondemos con una orientación inicial en menos de 24 horas.</p>
 
   <div class="form-wrap">
     <div class="form-left">
@@ -528,11 +574,11 @@ footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:
 
 <div class="form-check">
           <input type="checkbox" id="presupuesto" name="presupuesto" value="confirmado" required>
-          <label for="presupuesto" class="form-check-label">Entiendo que el precio mínimo es <strong>$150 USD</strong> (E-Commerce), <strong>$500 USD</strong> (Vídeo Publicitario) y <strong>$700 USD/mes</strong> (Piloto Automático).</label>
+          <label for="presupuesto" class="form-check-label">Entiendo que Havana Studio trabaja con presupuestos base desde <strong>$150 USD</strong> para imágenes, <strong>$500 USD</strong> para vídeo y <strong>$700 USD/mes</strong> para producción continua.</label>
         </div>
 
         <button type="submit" class="btn-submit" id="submitBtn">Enviar solicitud</button>
-        <p class="form-note">Respondemos en menos de 24 horas en días laborables.</p>
+        <p class="form-note">Respondemos en menos de 24 horas laborables con una orientación inicial y, si encaja, una propuesta adaptada a tu marca.</p>
       </form>
     </div>
 
@@ -545,7 +591,7 @@ footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:
 
 <footer>
   <div class="foot-logo">HAVANA<span>STUDIO</span></div>
-  <span class="foot-nicho">Moda · Fashion · E-commerce</span>
+  <span class="foot-nicho">Producción visual con IA para marcas de moda</span>
   <span class="foot-copy">© 2026 Havana Studio</span>
 </footer>
 
@@ -554,6 +600,12 @@ footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:
 </div>
 
 <script>
+
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  item.classList.toggle('open');
+}
+
 const ham = document.getElementById('ham');
 const mobileMenu = document.getElementById('mobileMenu');
 ham.addEventListener('click', () => mobileMenu.classList.toggle('open'));
