@@ -1,649 +1,139 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Havana Studio — Contenido Visual para Marcas de Moda</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --black:#0A0A0A;
-  --black2:#111;
-  --gray-mid:#444;
-  --gray:#777;
-  --border:#2A2A2A;
-  --border-l:#E2E2E2;
-  --white:#FFF;
-  --off:#F5F5F3;
-  --red:#D42B2B;
-  --red-d:#A81E1E;
-  
-}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--black);overflow-x:hidden;}
+HAVANASTUDIO
+	•	POR QUÉ NOSOTROS
+	•	EL PROBLEMA
+	•	PRECIOS
+	•	PROCESO
+	•	DEMO GRATIS
+CONTENIDO VISUAL CON IA · MODA
+TU CATÁLOGO. LISTO PARA VENDER.
+Convertimos las fotos planas de tus prendas en imágenes con modelo real listas para tu tienda online y redes sociales. Tu catálogo completo, sin fotógrafo, sin estudio y sin esperar semanas.
+Solo necesitas enviarnos tus prendas en fondo claro o blanco. Nosotros nos encargamos del resto.
+VER PAQUETES
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;justify-content:space-between;align-items:center;padding:0 4rem;height:60px;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-l);}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.45rem;letter-spacing:0.1em;color:var(--black);text-decoration:none;}
-.nav-logo span{color:var(--red);}
-.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
-.nav-links a{text-decoration:none;font-size:0.7rem;font-weight:400;color:var(--gray);letter-spacing:0.14em;text-transform:uppercase;transition:color 0.2s;}
-.nav-links a:hover{color:var(--black);}
-.nav-cta{background:var(--red)!important;color:white!important;padding:0.45rem 1.1rem;letter-spacing:0.08em!important;transition:background 0.2s!important;}
-.nav-cta:hover{background:var(--red-d)!important;color:white!important;}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
-.hamburger span{display:block;width:22px;height:1.5px;background:var(--black);transition:all 0.3s;}
-.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;bottom:0;z-index:299;background:var(--white);flex-direction:column;align-items:center;justify-content:center;gap:2rem;}
-.mobile-menu.open{display:flex;}
-.mobile-menu a{text-decoration:none;font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:0.1em;color:var(--black);transition:color 0.2s;}
-.mobile-menu a:hover,.mobile-menu .m-cta{color:var(--red);}
+5–7
+DÍAS DE ENTREGA
++3
+EJEMPLOS POR PRENDA
+90%
+MENOS COSTE
+MEJOR CONTENIDO.
+MENOS COSTE.
+MÁS RÁPIDO.
+Imágenes y vídeos de moda con estética profesional, sin fotógrafo, sin estudio y sin semanas de producción.
 
-/* HERO */
-.hero{min-height:100vh;padding-top:60px;display:grid;grid-template-columns:1fr 1fr;}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 3rem 5rem 4rem;border-right:1px solid var(--border-l);}
-.eyebrow{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);font-weight:500;margin-bottom:1.4rem;display:flex;align-items:center;gap:0.7rem;}
-.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--red);}
-.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.2rem,5.5vw,5.5rem);line-height:0.93;letter-spacing:0.02em;color:var(--black);margin-bottom:1.8rem;}
-.hero-title span{color:var(--red);}
-.hero-sub{font-size:0.95rem;line-height:1.78;color:var(--gray-mid);max-width:400px;margin-bottom:1.5rem;font-weight:300;}
-.hero-req{font-size:0.78rem;line-height:1.55;color:var(--gray);background:var(--off);border-left:2px solid var(--red);padding:0.75rem 1rem;margin-bottom:2.5rem;}
-.hero-req strong{color:var(--black);font-weight:500;}
-.btn-dark{display:inline-flex;align-items:center;gap:0.6rem;background:var(--black);color:white;text-decoration:none;padding:0.95rem 2rem;font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.2s;width:fit-content;}
-.btn-dark:hover{background:var(--red);}
-.hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border-l);}
-.stat-n{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:0.04em;color:var(--black);display:block;line-height:1;}
-.stat-l{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray);margin-top:0.2rem;display:block;}
-.hero-right{background:var(--black);display:flex;flex-direction:column;}
-.hero-right-main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 3rem;gap:1.5rem;}
-.hero-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,3.5vw,3.2rem);letter-spacing:0.04em;color:white;text-align:center;line-height:1;}
-.hero-big span{color:var(--red);}
-.hero-sub-dark{font-size:0.85rem;color:rgba(255,255,255,0.4);text-align:center;line-height:1.65;font-weight:300;max-width:300px;font-style:italic;}
-.hero-tags{display:flex;flex-direction:column;border-top:1px solid var(--border);}
-.hero-tag{display:flex;align-items:center;gap:0.7rem;padding:0.85rem 3rem;font-size:0.73rem;color:rgba(255,255,255,0.4);border-bottom:1px solid var(--border);}
-.hero-tag-dot{width:5px;height:5px;background:var(--red);border-radius:50%;flex-shrink:0;}
+Fotos de catálogo con modelos hiperrealistas
 
-/* SECTIONS */
-section{padding:6rem 4rem;}
-.sec-eyebrow{font-size:0.67rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);font-weight:500;margin-bottom:0.65rem;display:flex;align-items:center;gap:0.6rem;}
-.sec-eyebrow::before{content:'';display:block;width:18px;height:1px;background:var(--red);}
-.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,3.8vw,3.6rem);letter-spacing:0.03em;line-height:0.95;color:var(--black);margin-bottom:1.2rem;}
+Vídeo cinemático hasta 30 segundos
 
-/* POR QUÉ NOSOTROS */
-#diferencia{background:var(--off);border-top:3px solid var(--black);}
-.dif-intro{font-size:0.95rem;line-height:1.75;color:var(--gray-mid);font-weight:300;max-width:560px;margin-bottom:3.5rem;}
-.dif-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-l);border:1px solid var(--border-l);}
-.dif-card{background:var(--white);padding:2rem 1.8rem;}
-.dif-num{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--border-l);letter-spacing:0.04em;line-height:1;display:block;margin-bottom:0.8rem;}
-.dif-title{font-size:0.88rem;font-weight:500;color:var(--black);margin-bottom:0.4rem;}
-.dif-desc{font-size:0.78rem;color:var(--gray);line-height:1.6;}
-.dif-bottom{margin-top:3rem;background:var(--black);color:white;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
-.dif-bottom-text{font-size:1rem;font-weight:300;line-height:1.6;max-width:500px;color:rgba(255,255,255,0.7);}
-.dif-bottom-text strong{color:white;font-weight:500;}
-.btn-red{display:inline-flex;align-items:center;gap:0.6rem;flex-shrink:0;background:var(--red);color:white;text-decoration:none;padding:0.9rem 1.8rem;font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.2s;}
-.btn-red:hover{background:var(--red-d);}
+Modelos de todas las etnias y tallas
 
-/* PROBLEMA */
-#problema{background:var(--white);}
-.prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:3rem;}
-.prob-left p{font-size:0.93rem;line-height:1.75;color:var(--gray-mid);font-weight:300;margin-bottom:1.5rem;}
-.prob-quote{font-size:1rem;font-style:italic;color:var(--black);border-left:3px solid var(--red);padding:1rem 1.4rem;background:var(--off);line-height:1.6;}
-.prob-cards{display:flex;flex-direction:column;gap:1px;background:var(--border-l);}
-.prob-card{background:var(--white);padding:1.4rem 1.6rem;display:flex;gap:1rem;}
-.prob-card-num{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--border-l);letter-spacing:0.04em;line-height:1;flex-shrink:0;width:32px;}
-.prob-card-title{font-size:0.84rem;font-weight:500;color:var(--black);margin-bottom:0.25rem;}
-.prob-card-desc{font-size:0.77rem;color:var(--gray);line-height:1.55;}
+Localizaciones internacionales
 
-/* PRECIOS */
-#precios{background:var(--black);padding:6rem 4rem;}
-#precios .sec-eyebrow{color:var(--red);}
-#precios .sec-eyebrow::before{background:var(--red);}
-#precios .sec-title{color:var(--white);}
-.precios-sub{font-size:0.88rem;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.7;max-width:480px;margin-bottom:3.5rem;}
-.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.08);}
-.pack{padding:3rem 2.5rem;position:relative;}
-.pack-basico{background:#161616;}
-.pack-video{background:var(--black2);}
-.pack-label{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;margin-bottom:1.5rem;display:block;}
-.pack-basico .pack-label{color:rgba(255,255,255,0.35);}
-.pack-video .pack-label{color:rgba(255,255,255,0.35);}
-.pack-badge{position:absolute;top:2.5rem;right:2.5rem;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;background:var(--black);color:white;padding:0.25rem 0.65rem;font-weight:500;}
-.pack-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,4vw,3.8rem);letter-spacing:0.03em;line-height:0.93;margin-bottom:1.2rem;}
-.pack-basico .pack-name{color:white;}
-.pack-video .pack-name{color:white;}
-.pack-price{font-size:1rem;font-weight:300;font-style:italic;margin-bottom:2rem;padding-bottom:2rem;}
-.pack-basico .pack-price{color:rgba(255,255,255,0.5);border-bottom:1px solid rgba(255,255,255,0.1);}
-.pack-video .pack-price{color:rgba(255,255,255,0.5);border-bottom:1px solid rgba(255,255,255,0.1);}
-.pack-items{list-style:none;margin-bottom:2rem;}
-.pack-items li{font-size:0.8rem;padding:0.5rem 0;display:flex;align-items:flex-start;gap:0.7rem;line-height:1.4;border-bottom:1px solid;}
-.pack-basico .pack-items li{color:rgba(255,255,255,0.6);border-bottom-color:rgba(255,255,255,0.06);}
-.pack-video .pack-items li{color:rgba(255,255,255,0.6);border-bottom-color:rgba(255,255,255,0.06);}
-.pack-items li::before{content:'→';font-size:0.75rem;flex-shrink:0;margin-top:0.05rem;}
-.pack-basico .pack-items li::before{color:var(--red);}
-.pack-video .pack-items li::before{color:var(--red);}
-.pack-cta-b{display:block;text-align:center;text-decoration:none;padding:0.9rem;font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.2s;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.7);}
-.pack-cta-b:hover{background:var(--red);border-color:var(--red);color:white;}
-.pack-cta-y{display:block;text-align:center;text-decoration:none;padding:0.9rem;font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.2s;background:var(--red);color:white;border:1px solid var(--red);}
-.pack-cta-y:hover{background:var(--red);}
-.precios-note{margin-top:1.5rem;font-size:0.78rem;color:rgba(255,255,255,0.3);text-align:center;line-height:1.6;font-style:italic;}
+1 ronda de revisión incluida
+POR QUÉ TRABAJAR CON NOSOTROS
+LO QUE NOS DIFERENCIA.
+Trabajamos con un sistema de producción visual con IA diseñado para marcas de moda que necesitan contenido ágil, cuidado y rentable. Creamos imágenes y vídeos con estética profesional sin depender de una producción física tradicional — reduciendo tiempos, costes y fricción operativa.
+01
+Precio accesible, calidad de agencia
+Una sesión fotográfica profesional cuesta entre $800 y $3,000 por colección. Nosotros empezamos desde $150 por proyecto. Tu catálogo con modelos hiperrealistas, sin el presupuesto de una firma grande.
+02
+Dale a tu marca una imagen más global
+Ponemos tu ropa en modelos hiperrealistas en Tokio, Nueva York o París. Tu marca local puede proyectar una identidad visual al nivel de marcas internacionales.
+03
+Entrega en 5–7 días
+Sin esperar semanas para coordinar sesiones, edición y entrega. En menos de una semana tienes tu contenido listo para publicar.
+04
+Diversidad real de modelos
+Todas las etnias, todas las tallas, todos los géneros. Sin las limitaciones de quién está disponible en tu ciudad.
+05
+Precios cerrados, sin sorpresas
+Sabes exactamente lo que pagas antes de empezar. Sin presupuestos que se alargan, sin costes ocultos al final del proyecto.
+06
+1 ronda de revisión incluida
+Si algo no te convence, lo ajustamos sin coste adicional. En todos los paquetes, sin excepción.
+¿Escéptico con la IA? Te entendemos. Por eso ofrecemos una demostración gratuita antes de que inviertas un solo dólar. Mándanos una prenda y te mostramos el resultado.
+PEDIR DEMO GRATIS
+EL PROBLEMA QUE RESOLVEMOS
+CUANDO LA PRENDA NO SE VE PUESTA, VENDERLA CUESTA MÁS.
+Muchas marcas pequeñas lo saben, pero no siempre pueden asumir el coste y la logística de fotógrafo, modelo, estudio y edición para cada colección. El resultado son fotos en maniquí o flat lays que no transmiten el fit, la caída ni el estilo de la prenda.
+"Mándame la foto de tu prenda en fondo claro y yo la pongo en una modelo realista. Tu catálogo listo para vender en menos de una semana."
+01
+Catálogo sin modelo = ventas perdidas
+Los clientes necesitan imaginarse la prenda puesta para comprarla. Una foto con modelo convierte mucho mejor que un flat lay o un maniquí.
+02
+Una sesión fotográfica cuesta una fortuna
+Fotógrafo + modelo + estudio + edición: entre $800 y $3,000 por colección. Inaccesible para marcas que están creciendo.
+03
+Las redes sociales no esperan
+Sin contenido visual constante, tu marca desaparece del feed. Necesitas publicar sin parar — y eso es imposible dependiendo de sesiones.
+RESULTADOS
+ANTES Y DESPUÉS.
+Las marcas son escépticas con el contenido de IA. Por eso no te lo contamos — te lo enseñamos. Esto es un resultado real: la foto que nos envió la marca, y el resultado final listo para publicar.
+￼
+ANTES — FOTO DE LA MARCA
+￼
+DESPUÉS — HAVANA STUDIO
+PAQUETES
+TRES PAQUETES. SIN LETRA PEQUEÑA.
+Escríbenos y confirmamos tu presupuesto exacto en menos de 24 horas.
+PACK 01
+E-COMMERCE & REDES
+Desde $150 USD / proyecto
+	•	5–10 imágenes lifestyle de alta calidad Tu prenda en modelos hiperrealistas (diversidad de etnias, cuerpos y estilos) Fondos a elegir: neutros para catálogo o entornos urbanos para redes Sin contratar fotógrafos, modelos ni estudios Entrega en alta resolución lista para publicar 1 ronda de revisión incluida Plazo: 5–7 días
+COTIZAR MI PROYECTO
+MÁS COMPLETO
+PACK 02
+VÍDEO PUBLICITARIO
+Desde $500 USD / proyecto
+	•	3–5 vídeos cinemáticos cortos (hasta 30 segundos c/u) Prenda en movimiento real con consistencia total Formatos listos para Instagram Reels, TikTok y Ads Dirección de arte y guion visual adaptado a tu marca Música y edición completa incluidas 1 ronda de revisión incluida Plazo: 7–10 días
+COTIZAR MI PROYECTO
+PACK 03
+PILOTO AUTOMÁTICO
+$700 USD / mes
+	•	15 imágenes lifestyle nuevas cada mes 2 vídeos cortos para Reels y TikTok cada mes Hasta 4 prendas diferentes integradas por mes Coherencia visual: misma atmósfera y estilo cada mes Sin permanencia — cancela o pausa cuando quieras El mes de contenido resuelto, sin esfuerzo
+EMPEZAR SUSCRIPCIÓN
+Precio base para 1–2 prendas. Escríbenos y te confirmamos el presupuesto exacto en menos de 24h — sin compromiso.
+CÓMO FUNCIONA
+ASÍ DE SIMPLE.
+1
 
-/* PROCESO */
-#proceso{background:var(--off);}
-.proc-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-l);border:1px solid var(--border-l);margin-top:3rem;}
-.proc-step{background:var(--white);padding:2.2rem 2rem;position:relative;}
-.proc-step-bg{font-family:'Bebas Neue',sans-serif;font-size:6rem;color:var(--off);position:absolute;top:0.5rem;right:1rem;letter-spacing:0.04em;line-height:1;pointer-events:none;}
-.proc-icon{width:34px;height:34px;border:1px solid var(--red);display:flex;align-items:center;justify-content:center;margin-bottom:1.4rem;}
-.proc-step h3{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:0.06em;color:var(--black);margin-bottom:0.6rem;}
-.proc-step p{font-size:0.77rem;color:var(--gray);line-height:1.6;font-weight:300;}
-.proc-tag{display:inline-block;margin-top:1rem;font-size:0.63rem;letter-spacing:0.12em;text-transform:uppercase;background:rgba(212,43,43,0.08);border:1px solid rgba(212,43,43,0.2);color:var(--red);padding:0.22rem 0.6rem;}
+Nos envías tus prendas
+Fotos en fondo claro o blanco, bien iluminadas. Vale perfectamente el móvil si tiene buena luz natural.
+DÍA 1
+2
 
-/* TRABAJO */
-#trabajo{background:var(--white);}
-.trabajo-intro{font-size:0.93rem;color:var(--gray-mid);font-weight:300;line-height:1.7;max-width:500px;margin-bottom:3rem;}
-.ad-wrap{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-l);border:1px solid var(--border-l);max-width:700px;}
-.ad-lbl{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;padding:0.6rem 1rem;border-bottom:1px solid var(--border-l);font-weight:500;}
-.ad-lbl.b{color:var(--gray);}
-.ad-lbl.a{color:var(--red);}
-.ad-img{height:180px;display:flex;align-items:center;justify-content:center;}
-.ad-img.before{background:#EBEBEB;}
-.ad-img.after{background:linear-gradient(140deg,#2a0a0a,#6b1414);}
-.ad-note{margin-top:1.2rem;font-size:0.75rem;color:var(--gray);font-style:italic;}
+Producción visual
+Generamos todas las imágenes y vídeos de tu paquete. Si algo no te convence en la revisión, lo ajustamos sin coste adicional.
+DÍAS 2–6
+3
 
-/* CIERRE / FORMULARIO */
-#contacto{background:var(--off);padding:6rem 4rem;border-top:3px solid var(--black);}
-#contacto .sec-eyebrow{color:var(--red);}
-#contacto .sec-title{color:var(--black);max-width:600px;margin-bottom:0.6rem;}
-#contacto p.sub{font-size:0.9rem;color:var(--gray);max-width:500px;line-height:1.7;font-weight:300;margin-bottom:3rem;}
-.form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-.form-left p{font-size:0.88rem;color:var(--gray-mid);line-height:1.75;font-weight:300;margin-bottom:1.5rem;}
-.form-left ul{list-style:none;display:flex;flex-direction:column;gap:0.7rem;}
-.form-left ul li{display:flex;align-items:flex-start;gap:0.6rem;font-size:0.8rem;color:var(--gray);}
-.form-left ul li::before{content:'→';color:var(--red);flex-shrink:0;font-size:0.75rem;margin-top:0.05rem;}
-.form-box{background:var(--white);border:1px solid var(--border-l);padding:2.5rem;}
-.form-group{margin-bottom:1.4rem;}
-.form-group label{display:block;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);font-weight:500;margin-bottom:0.5rem;}
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="url"]{
-  width:100%;padding:0.75rem 1rem;
-  border:1px solid var(--border-l);background:var(--off);
-  font-family:'DM Sans',sans-serif;font-size:0.85rem;color:var(--black);
-  outline:none;transition:border-color 0.2s;
-}
-.form-group input:focus{border-color:var(--red);}
-.form-group input[type="file"]{
-  width:100%;padding:0.65rem 0;
-  font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--gray);
-  cursor:pointer;
-}
-.form-file-hint{font-size:0.72rem;color:var(--gray);margin-top:0.35rem;}
-.form-check{display:flex;align-items:flex-start;gap:0.75rem;padding:1rem;background:var(--off);border:1px solid var(--border-l);margin-bottom:1.4rem;cursor:pointer;}
-.form-check input[type="checkbox"]{width:16px;height:16px;flex-shrink:0;margin-top:0.1rem;accent-color:var(--red);cursor:pointer;}
-.form-check-label{font-size:0.78rem;color:var(--gray-mid);line-height:1.5;}
-.form-check-label strong{color:var(--black);font-weight:500;}
-.btn-submit{
-  display:block;width:100%;
-  background:var(--red);color:white;border:none;
-  padding:1rem;font-family:'DM Sans',sans-serif;
-  font-size:0.78rem;font-weight:500;letter-spacing:0.1em;
-  text-transform:uppercase;cursor:pointer;transition:background 0.2s;
-}
-.btn-submit:hover{background:var(--red-d);}
-.btn-submit:disabled{background:var(--gray);cursor:not-allowed;}
-.form-note{font-size:0.7rem;color:var(--gray);text-align:center;margin-top:0.8rem;line-height:1.5;}
-.form-success{display:none;text-align:center;padding:2rem;background:var(--white);border:1px solid var(--border-l);}
-.form-success h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.06em;color:var(--black);margin-bottom:0.5rem;}
-.form-success p{font-size:0.85rem;color:var(--gray);line-height:1.6;}
+Entrega lista para publicar
+Recibes todo en el formato correcto para tu tienda y redes. Solo queda publicar.
+DÍA 5–10
+PREGUNTAS FRECUENTES
+LO QUE MÁS NOS PREGUNTAN.
+¿Necesito fotos profesionales de la prenda?
++
+¿Puedo elegir el tipo de modelo o la estética?
++
+¿Qué incluye la ronda de revisión?
++
+¿En qué formato entregáis el contenido?
++
+EMPIEZA HOY
+¿LISTA TU MARCA PARA DAR EL SALTO?
+Cuéntanos tu marca y el tipo de contenido que necesitas. Te respondemos con una orientación inicial en menos de 24 horas.
+Cuéntanos sobre tu marca y tus prendas. Con esta información podemos prepararte una propuesta concreta desde el primer mensaje.
+	•	Tu tienda o Instagram — para entender tu marca, estética y posicionamiento El tipo de contenido que necesitas — para orientarte al paquete adecuado Confirmar el presupuesto mínimo — para ofrecerte una propuesta alineada con tu proyecto
+NOMBRE Y MARCA
+EMAIL DE CONTACTO
+TELÉFONO / WHATSAPP
+URL DE TU TIENDA O INSTAGRAM
 
-/* FOOTER */
-footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:space-between;align-items:center;border-top:3px solid var(--red);flex-wrap:wrap;gap:1rem;}
-.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.1em;color:white;}
-.foot-logo span{color:var(--red);}
-.foot-copy{font-size:0.68rem;color:rgba(255,255,255,0.25);}
-.foot-nicho{font-size:0.65rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;}
+Entiendo que Havana Studio trabaja con presupuestos base desde $150 USD para imágenes, $500 USD para vídeo y $700 USD/mes para producción continua.
+ENVIAR SOLICITUD
+Respondemos en menos de 24 horas laborables con una orientación inicial y, si encaja, una propuesta adaptada a tu marca.
+HAVANASTUDIO
+PRODUCCIÓN VISUAL CON IA PARA MARCAS DE MODA
+© 2026 Havana Studio
 
-
-.faq-item{background:var(--white);}
-.faq-q{width:100%;text-align:left;background:none;border:none;padding:1.2rem 1.5rem;font-family:"DM Sans",sans-serif;font-size:0.88rem;font-weight:500;color:var(--black);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
-.faq-q:hover{color:var(--red);}
-.faq-icon{font-size:1.2rem;color:var(--red);flex-shrink:0;transition:transform 0.2s;}
-.faq-a{display:none;padding:0 1.5rem 1.2rem;font-size:0.82rem;color:var(--gray);line-height:1.7;}
-.faq-item.open .faq-a{display:block;}
-.faq-item.open .faq-icon{transform:rotate(45deg);}
-
-/* SCROLL TO TOP */
-#scrolltop{position:fixed;bottom:2rem;right:2rem;z-index:400;width:40px;height:40px;background:rgba(10,10,10,0.85);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity 0.3s,background 0.2s;}
-#scrolltop.visible{opacity:1;pointer-events:all;}
-#scrolltop:hover{background:var(--red);}
-
-/* MOBILE */
-@media(max-width:768px){
-  nav{padding:0 1.5rem;}
-  .nav-links{display:none;}
-  .hamburger{display:flex;}
-  .hero{grid-template-columns:1fr;}
-  .hero-left{padding:3rem 1.5rem 2.5rem;}
-  .hero-right{display:none;}
-  .hero-title{font-size:3.2rem;}
-  section{padding:4rem 1.5rem;}
-  #precios{padding:4rem 1.5rem;}
-  #contacto{padding:4.5rem 1.5rem;}
-  footer{padding:1.5rem;}
-  .dif-grid{grid-template-columns:1fr;}
-  .prob-grid{grid-template-columns:1fr;gap:2.5rem;}
-  .proc-steps{grid-template-columns:1fr;}
-  .packs{grid-template-columns:1fr!important;}
-  .ad-wrap{grid-template-columns:1fr;}
-  .hero-stats{gap:1.5rem;}
-  .dif-bottom{flex-direction:column;}
-  .cierre-btns{flex-direction:column;align-items:center;}
-  .btn-white,.btn-outline-w{width:100%;justify-content:center;}
-  .pack{padding:2.2rem 1.5rem;}
-  .pack-name{font-size:2.6rem;}
-  #scrolltop{bottom:1.2rem;right:1.2rem;}
-  .form-wrap{grid-template-columns:1fr;}
-  .form-box{padding:1.8rem 1.4rem;}
-}
-</style>
-</head>
-<body>
-
-<nav>
-  <a href="#" class="nav-logo">HAVANA<span>STUDIO</span></a>
-  <ul class="nav-links">
-    <li><a href="#diferencia">Por qué nosotros</a></li>
-    <li><a href="#problema">El problema</a></li>
-    <li><a href="#precios">Precios</a></li>
-    <li><a href="#proceso">Proceso</a></li>
-    <li><a href="#contacto" class="nav-cta">Demo gratis</a></li>
-  </ul>
-  <button class="hamburger" id="ham" aria-label="Menú">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#diferencia" class="m-link">Por qué nosotros</a>
-  <a href="#problema" class="m-link">El problema</a>
-  <a href="#precios" class="m-link">Precios</a>
-  <a href="#proceso" class="m-link">Proceso</a>
-  <a href="#contacto" class="m-cta m-link">Demo gratis</a>
-</div>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-left">
-    <p class="eyebrow">Contenido visual con IA · Moda</p>
-    <h1 class="hero-title">TU CATÁLOGO.<br>LISTO PARA<br><span>VENDER.</span></h1>
-    <p class="hero-sub">Convertimos las fotos planas de tus prendas en imágenes con modelo real listas para tu tienda online y redes sociales. Tu catálogo completo, sin fotógrafo, sin estudio y sin esperar semanas.</p>
-    <div class="hero-req">
-      Solo necesitas enviarnos tus prendas en <strong>fondo claro o blanco</strong>. Nosotros nos encargamos del resto.
-    </div>
-    <a href="#precios" class="btn-dark">
-      Ver paquetes
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <div class="hero-stats">
-      <div><span class="stat-n">5–7</span><span class="stat-l">Días de entrega</span></div>
-      <div><span class="stat-n">+3</span><span class="stat-l">Ejemplos por prenda</span></div>
-      <div><span class="stat-n">90%</span><span class="stat-l">Menos coste</span></div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-right-main">
-      <div class="hero-big">MEJOR CONTENIDO.<br>MENOS COSTE.<br><span>MÁS RÁPIDO.</span></div>
-      <p class="hero-sub-dark">Imágenes y vídeos de moda con estética profesional, sin fotógrafo, sin estudio y sin semanas de producción.</p>
-    </div>
-    <div class="hero-tags">
-      <div class="hero-tag"><span class="hero-tag-dot"></span>Fotos de catálogo con modelos hiperrealistas</div>
-      <div class="hero-tag"><span class="hero-tag-dot"></span>Vídeo cinemático hasta 30 segundos</div>
-      <div class="hero-tag"><span class="hero-tag-dot"></span>Modelos de todas las etnias y tallas</div>
-      <div class="hero-tag"><span class="hero-tag-dot"></span>Localizaciones internacionales</div>
-      <div class="hero-tag"><span class="hero-tag-dot"></span>1 ronda de revisión incluida</div>
-    </div>
-  </div>
-</div>
-
-<!-- POR QUÉ NOSOTROS -->
-<section id="diferencia">
-  <p class="sec-eyebrow">Por qué trabajar con nosotros</p>
-  <h2 class="sec-title">LO QUE NOS<br>DIFERENCIA.</h2>
-  <p class="dif-intro">Trabajamos con un sistema de producción visual con IA diseñado para marcas de moda que necesitan contenido ágil, cuidado y rentable. Creamos imágenes y vídeos con estética profesional sin depender de una producción física tradicional — reduciendo tiempos, costes y fricción operativa.</p>
-  <div class="dif-grid">
-    <div class="dif-card">
-      <span class="dif-num">01</span>
-      <p class="dif-title">Precio accesible, calidad de agencia</p>
-      <p class="dif-desc">Una sesión fotográfica profesional cuesta entre $800 y $3,000 por colección. Nosotros empezamos desde $150 por proyecto. Tu catálogo con modelos hiperrealistas, sin el presupuesto de una firma grande.</p>
-    </div>
-    <div class="dif-card">
-      <span class="dif-num">02</span>
-      <p class="dif-title">Dale a tu marca una imagen más global</p>
-      <p class="dif-desc">Ponemos tu ropa en modelos hiperrealistas en Tokio, Nueva York o París. Tu marca local puede proyectar una identidad visual al nivel de marcas internacionales.</p>
-    </div>
-    <div class="dif-card">
-      <span class="dif-num">03</span>
-      <p class="dif-title">Entrega en 5–7 días</p>
-      <p class="dif-desc">Sin esperar semanas para coordinar sesiones, edición y entrega. En menos de una semana tienes tu contenido listo para publicar.</p>
-    </div>
-    <div class="dif-card">
-      <span class="dif-num">04</span>
-      <p class="dif-title">Diversidad real de modelos</p>
-      <p class="dif-desc">Todas las etnias, todas las tallas, todos los géneros. Sin las limitaciones de quién está disponible en tu ciudad.</p>
-    </div>
-    <div class="dif-card">
-      <span class="dif-num">05</span>
-      <p class="dif-title">Precios cerrados, sin sorpresas</p>
-      <p class="dif-desc">Sabes exactamente lo que pagas antes de empezar. Sin presupuestos que se alargan, sin costes ocultos al final del proyecto.</p>
-    </div>
-    <div class="dif-card">
-      <span class="dif-num">06</span>
-      <p class="dif-title">1 ronda de revisión incluida</p>
-      <p class="dif-desc">Si algo no te convence, lo ajustamos sin coste adicional. En todos los paquetes, sin excepción.</p>
-    </div>
-  </div>
-  <div class="dif-bottom">
-    <p class="dif-bottom-text">¿Escéptico con la IA? <strong>Te entendemos.</strong> Por eso ofrecemos una demostración gratuita antes de que inviertas un solo dólar. Mándanos una prenda y te mostramos el resultado.</p>
-    <a href="#contacto" class="btn-red">Pedir demo gratis</a>
-  </div>
-</section>
-
-<!-- EL PROBLEMA -->
-<section id="problema">
-  <p class="sec-eyebrow">El problema que resolvemos</p>
-  <h2 class="sec-title">CUANDO LA PRENDA NO SE VE PUESTA,<br>VENDERLA CUESTA MÁS.</h2>
-  <div class="prob-grid">
-    <div class="prob-left">
-      <p>Muchas marcas pequeñas lo saben, pero no siempre pueden asumir el coste y la logística de fotógrafo, modelo, estudio y edición para cada colección. El resultado son fotos en maniquí o flat lays que no transmiten el fit, la caída ni el estilo de la prenda.</p>
-      <div class="prob-quote">"Mándame la foto de tu prenda en fondo claro y yo la pongo en una modelo realista. Tu catálogo listo para vender en menos de una semana."</div>
-    </div>
-    <div class="prob-cards">
-      <div class="prob-card">
-        <span class="prob-card-num">01</span>
-        <div>
-          <p class="prob-card-title">Catálogo sin modelo = ventas perdidas</p>
-          <p class="prob-card-desc">Los clientes necesitan imaginarse la prenda puesta para comprarla. Una foto con modelo convierte mucho mejor que un flat lay o un maniquí.</p>
-        </div>
-      </div>
-      <div class="prob-card">
-        <span class="prob-card-num">02</span>
-        <div>
-          <p class="prob-card-title">Una sesión fotográfica cuesta una fortuna</p>
-          <p class="prob-card-desc">Fotógrafo + modelo + estudio + edición: entre $800 y $3,000 por colección. Inaccesible para marcas que están creciendo.</p>
-        </div>
-      </div>
-      <div class="prob-card">
-        <span class="prob-card-num">03</span>
-        <div>
-          <p class="prob-card-title">Las redes sociales no esperan</p>
-          <p class="prob-card-desc">Sin contenido visual constante, tu marca desaparece del feed. Necesitas publicar sin parar — y eso es imposible dependiendo de sesiones.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TRABAJO -->
-<section id="trabajo">
-  <p class="sec-eyebrow">Resultados</p>
-  <h2 class="sec-title">ANTES Y DESPUÉS.</h2>
-  <p class="trabajo-intro">Las marcas son escépticas con el contenido de IA. Por eso no te lo contamos — te lo enseñamos. Esto es un resultado real: la foto que nos envió la marca, y el resultado final listo para publicar.</p>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2rem;align-items:start;">
-    <div>
-      <img src="antes.png" alt="Chaqueta varsity negra" style="width:100%;display:block;">
-      <div style="font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;padding:0.6rem 1rem;background:var(--off);color:var(--gray);">Antes — Foto de la marca</div>
-    </div>
-    <div>
-      <img src="despues.png" alt="Modelo con chaqueta varsity" style="width:100%;display:block;">
-      <div style="font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;padding:0.6rem 1rem;background:var(--red);color:white;">Después — Havana Studio</div>
-    </div>
-  </div>
-</section>
-
-<!-- PRECIOS -->
-<section id="precios">
-  <p class="sec-eyebrow">Paquetes</p>
-  <h2 class="sec-title">TRES PAQUETES.<br>SIN LETRA PEQUEÑA.</h2>
-  <p class="precios-sub">Escríbenos y confirmamos tu presupuesto exacto en menos de 24 horas.</p>
-  <div class="packs">
-
-    <div class="pack pack-basico">
-      <span class="pack-label">Pack 01</span>
-      <h3 class="pack-name">E-COMMERCE<br>&amp; REDES</h3>
-      <p class="pack-price">Desde $150 USD / proyecto</p>
-      <ul class="pack-items">
-        <li>5–10 imágenes lifestyle de alta calidad</li>
-        <li>Tu prenda en modelos hiperrealistas (diversidad de etnias, cuerpos y estilos)</li>
-        <li>Fondos a elegir: neutros para catálogo o entornos urbanos para redes</li>
-        <li>Sin contratar fotógrafos, modelos ni estudios</li>
-        <li>Entrega en alta resolución lista para publicar</li>
-        <li>1 ronda de revisión incluida</li>
-        <li>Plazo: 5–7 días</li>
-      </ul>
-      <a href="#contacto" class="pack-cta-b">Cotizar mi proyecto</a>
-    </div>
-
-    <div class="pack pack-video">
-      <span class="pack-badge">Más completo</span>
-      <span class="pack-label">Pack 02</span>
-      <h3 class="pack-name">VÍDEO<br>PUBLICITARIO</h3>
-      <p class="pack-price">Desde $500 USD / proyecto</p>
-      <ul class="pack-items">
-        <li>3–5 vídeos cinemáticos cortos (hasta 30 segundos c/u)</li>
-        <li>Prenda en movimiento real con consistencia total</li>
-        <li>Formatos listos para Instagram Reels, TikTok y Ads</li>
-        <li>Dirección de arte y guion visual adaptado a tu marca</li>
-        <li>Música y edición completa incluidas</li>
-        <li>1 ronda de revisión incluida</li>
-        <li>Plazo: 7–10 días</li>
-      </ul>
-      <a href="#contacto" class="pack-cta-y">Cotizar mi proyecto</a>
-    </div>
-
-    <div class="pack pack-basico">
-      <span class="pack-label">Pack 03</span>
-      <h3 class="pack-name">PILOTO<br>AUTOMÁTICO</h3>
-      <p class="pack-price">$700 USD / mes</p>
-      <ul class="pack-items">
-        <li>15 imágenes lifestyle nuevas cada mes</li>
-        <li>2 vídeos cortos para Reels y TikTok cada mes</li>
-        <li>Hasta 4 prendas diferentes integradas por mes</li>
-        <li>Coherencia visual: misma atmósfera y estilo cada mes</li>
-        <li>Sin permanencia — cancela o pausa cuando quieras</li>
-        <li>El mes de contenido resuelto, sin esfuerzo</li>
-      </ul>
-      <a href="#contacto" class="pack-cta-b">Empezar suscripción</a>
-    </div>
-
-  </div>
-  <p class="precios-note">Precio base para 1–2 prendas. Escríbenos y te confirmamos el presupuesto exacto en menos de 24h — sin compromiso.</p>
-</section>
-
-<!-- PROCESO -->
-<section id="proceso">
-  <p class="sec-eyebrow">Cómo funciona</p>
-  <h2 class="sec-title">ASÍ DE SIMPLE.</h2>
-  <div class="proc-steps">
-    <div class="proc-step">
-      <span class="proc-step-bg">1</span>
-      <div class="proc-icon">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="#D42B2B" stroke-width="1.4" stroke-linecap="round"/></svg>
-      </div>
-      <h3>Nos envías tus prendas</h3>
-      <p>Fotos en fondo claro o blanco, bien iluminadas. Vale perfectamente el móvil si tiene buena luz natural.</p>
-      <span class="proc-tag">Día 1</span>
-    </div>
-    <div class="proc-step">
-      <span class="proc-step-bg">2</span>
-      <div class="proc-icon">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="1" stroke="#D42B2B" stroke-width="1.4"/><path d="M5 8h6M8 5v6" stroke="#D42B2B" stroke-width="1.2" stroke-linecap="round"/></svg>
-      </div>
-      <h3>Producción visual</h3>
-      <p>Generamos todas las imágenes y vídeos de tu paquete. Si algo no te convence en la revisión, lo ajustamos sin coste adicional.</p>
-      <span class="proc-tag">Días 2–6</span>
-    </div>
-    <div class="proc-step">
-      <span class="proc-step-bg">3</span>
-      <div class="proc-icon">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8l5 5 8-8" stroke="#D42B2B" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <h3>Entrega lista para publicar</h3>
-      <p>Recibes todo en el formato correcto para tu tienda y redes. Solo queda publicar.</p>
-      <span class="proc-tag">Día 5–10</span>
-    </div>
-  </div>
-</section>
-
-
-
-
-<!-- FAQ -->
-<section id="faq" style="background:var(--off);padding:6rem 4rem;">
-  <p class="sec-eyebrow">Preguntas frecuentes</p>
-  <h2 class="sec-title">LO QUE MÁS<br>NOS PREGUNTAN.</h2>
-  <div style="display:flex;flex-direction:column;gap:1px;background:var(--border-l);border:1px solid var(--border-l);margin-top:3rem;max-width:800px;">
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        ¿Necesito fotos profesionales de la prenda?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">No. Basta con una foto clara en fondo claro o blanco, bien iluminada. Vale perfectamente con el móvil si la luz es buena. Cuanto más limpia sea la foto, mejor será el resultado final.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        ¿Puedo elegir el tipo de modelo o la estética?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">Sí. Puedes indicarnos etnia, complexión, estilo visual y tipo de localización — calle, estudio, exterior, ciudad internacional. Adaptamos el resultado a la identidad de tu marca.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        ¿Qué incluye la ronda de revisión?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">Una vez entregado el contenido, tienes una ronda de ajustes incluida — cambios de estética, encuadre, color o composición. Queremos que el resultado encaje con tu marca antes de darlo por cerrado.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        ¿En qué formato entregáis el contenido?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">Entregamos en alta resolución, con los formatos optimizados para cada canal: cuadrado y vertical para Instagram, horizontal para web, y formato Reels/TikTok para vídeo. Todo listo para publicar directamente.</div>
-    </div>
-  </div>
-</section>
-
-<!-- FORMULARIO -->
-<section id="contacto">
-  <p class="sec-eyebrow">Empieza hoy</p>
-  <h2 class="sec-title">¿LISTA TU MARCA<br>PARA DAR EL SALTO?</h2>
-  <p class="sub">Cuéntanos tu marca y el tipo de contenido que necesitas. Te respondemos con una orientación inicial en menos de 24 horas.</p>
-
-  <div class="form-wrap">
-    <div class="form-left">
-      <p>Cuéntanos sobre tu marca y tus prendas. Con esta información podemos prepararte una propuesta concreta desde el primer mensaje.</p>
-      <ul>
-        <li>Tu tienda o Instagram — para entender tu marca, estética y posicionamiento</li>
-        <li>El tipo de contenido que necesitas — para orientarte al paquete adecuado</li>
-        <li>Confirmar el presupuesto mínimo — para ofrecerte una propuesta alineada con tu proyecto</li>
-      </ul>
-    </div>
-
-    <div class="form-box" id="formBox">
-      <!-- Cambia YOUR_FORM_ID por tu código de Formspree -->
-      <form id="contactForm" action="https://formspree.io/f/mjglvbgg" method="POST">
-
-        <div class="form-group">
-          <label for="nombre">Nombre y marca</label>
-          <input type="text" id="nombre" name="nombre" placeholder="Ej: Laura — Marca Bloom" required>
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email de contacto</label>
-          <input type="email" id="email" name="email" placeholder="tu@email.com" required>
-        </div>
-
-        <div class="form-group">
-          <label for="telefono">Teléfono / WhatsApp</label>
-          <input type="text" id="telefono" name="telefono" placeholder="+1 000 000 0000" required>
-        </div>
-
-        <div class="form-group">
-          <label for="tienda">URL de tu tienda o Instagram</label>
-          <input type="text" id="tienda" name="tienda" placeholder="instagram.com/tumarca o tumarca.com" required>
-        </div>
-
-<div class="form-check">
-          <input type="checkbox" id="presupuesto" name="presupuesto" value="confirmado" required>
-          <label for="presupuesto" class="form-check-label">Entiendo que Havana Studio trabaja con presupuestos base desde <strong>$150 USD</strong> para imágenes, <strong>$500 USD</strong> para vídeo y <strong>$700 USD/mes</strong> para producción continua.</label>
-        </div>
-
-        <button type="submit" class="btn-submit" id="submitBtn">Enviar solicitud</button>
-        <p class="form-note">Respondemos en menos de 24 horas laborables con una orientación inicial y, si encaja, una propuesta adaptada a tu marca.</p>
-      </form>
-    </div>
-
-    <div class="form-success" id="formSuccess">
-      <h3>SOLICITUD RECIBIDA.</h3>
-      <p>Gracias por contactarnos. Revisaremos tu solicitud y nos pondremos en contacto en menos de 24 horas. Te pediremos fotos de tus prendas por email.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="foot-logo">HAVANA<span>STUDIO</span></div>
-  <span class="foot-nicho">Producción visual con IA para marcas de moda</span>
-  <span class="foot-copy">© 2026 Havana Studio</span>
-</footer>
-
-<div id="scrolltop" title="Volver arriba">
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 12V4M4 8l4-4 4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-</div>
-
-<script>
-
-function toggleFaq(btn) {
-  const item = btn.parentElement;
-  item.classList.toggle('open');
-}
-
-const ham = document.getElementById('ham');
-const mobileMenu = document.getElementById('mobileMenu');
-ham.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-document.querySelectorAll('.m-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
-
-const scrollBtn = document.getElementById('scrolltop');
-window.addEventListener('scroll', () => scrollBtn.classList.toggle('visible', window.scrollY > 400));
-scrollBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
-
-// Form submission
-const form = document.getElementById('contactForm');
-const submitBtn = document.getElementById('submitBtn');
-const formBox = document.getElementById('formBox');
-const formSuccess = document.getElementById('formSuccess');
-
-if(form){
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Enviando...';
-    try {
-      const data = new FormData(form);
-      const res = await fetch(form.action, {method:'POST', body:data, headers:{Accept:'application/json'}});
-      if(res.ok){
-        form.style.display = 'none';
-        formSuccess.style.display = 'block';
-      } else {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Enviar solicitud';
-        alert('Hubo un error. Por favor inténtalo de nuevo.');
-      }
-    } catch(err){
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Enviar solicitud';
-      alert('Hubo un error. Por favor inténtalo de nuevo.');
-    }
-  });
-}
-</script>
-</body>
-</html>
