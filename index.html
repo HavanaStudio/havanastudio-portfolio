@@ -100,7 +100,7 @@ section{padding:6rem 4rem;}
 #precios .sec-eyebrow::before{background:var(--red);}
 #precios .sec-title{color:var(--white);}
 .precios-sub{font-size:0.88rem;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.7;max-width:480px;margin-bottom:3.5rem;}
-.packs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.08);}
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.08);}
 .pack{padding:3rem 2.5rem;position:relative;}
 .pack-basico{background:#161616;}
 .pack-video{background:var(--black2);}
@@ -223,7 +223,7 @@ footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:
   .dif-grid{grid-template-columns:1fr;}
   .prob-grid{grid-template-columns:1fr;gap:2.5rem;}
   .proc-steps{grid-template-columns:1fr;}
-  .packs{grid-template-columns:1fr;}
+  .packs{grid-template-columns:1fr!important;}
   .ad-wrap{grid-template-columns:1fr;}
   .hero-stats{gap:1.5rem;}
   .dif-bottom{flex-direction:column;}
@@ -378,39 +378,58 @@ footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:
   <p class="sec-eyebrow">Paquetes</p>
   <h2 class="sec-title">DOS PAQUETES.<br>SIN LETRA PEQUEÑA.</h2>
   <p class="precios-sub">El precio final depende del número de prendas. Escríbenos y te confirmamos el presupuesto exacto en menos de 24 horas.</p>
-  <div class="packs">
+  <div class="packs" style="grid-template-columns:repeat(3,1fr);">
+
     <div class="pack pack-basico">
-      <span class="pack-label">Pack básico</span>
-      <h3 class="pack-name">IMÁGENES<br>EDITORIALES</h3>
-      <p class="pack-price">$150 – $500 USD / proyecto</p>
+      <span class="pack-label">Pack 01</span>
+      <h3 class="pack-name">E-COMMERCE<br>&amp; REDES</h3>
+      <p class="pack-price">Desde $150 USD / proyecto</p>
       <ul class="pack-items">
-        <li>5–10 imágenes editoriales de alta calidad</li>
-        <li>Tu prenda en modelo real (etnias y tallas diversas)</li>
-        <li>Localizaciones a elegir: fondo neutro, calle, exteriores</li>
-        <li>Entrega en alta resolución lista para web y redes</li>
+        <li>5–10 imágenes lifestyle de alta calidad</li>
+        <li>Tu prenda en modelos hiperrealistas (diversidad de etnias, cuerpos y estilos)</li>
+        <li>Fondos a elegir: neutros para catálogo o entornos urbanos para redes</li>
+        <li>Sin contratar fotógrafos, modelos ni estudios</li>
+        <li>Entrega en alta resolución lista para publicar</li>
         <li>1 ronda de revisión incluida</li>
         <li>Plazo: 5–7 días</li>
       </ul>
-      <a href="https://wa.me/34000000000?text=Hola%2C%20quiero%20info%20sobre%20el%20Pack%20Im%C3%A1genes%20Editoriales%20de%20Havana%20Studio" class="pack-cta-b">Solicitar pack</a>
+      <a href="https://wa.me/34000000000?text=Hola%2C%20quiero%20cotizar%20el%20Pack%20E-Commerce%20de%20Havana%20Studio" class="pack-cta-b">Cotizar mi proyecto</a>
     </div>
+
     <div class="pack pack-video">
       <span class="pack-badge">Más completo</span>
-      <span class="pack-label">Pack intermedio</span>
-      <h3 class="pack-name">VÍDEO<br>CINEMÁTICO</h3>
-      <p class="pack-price">$500 – $900 USD / proyecto</p>
+      <span class="pack-label">Pack 02</span>
+      <h3 class="pack-name">VÍDEO<br>PUBLICITARIO</h3>
+      <p class="pack-price">Desde $500 USD / proyecto</p>
       <ul class="pack-items">
         <li>3–5 vídeos cinemáticos cortos (hasta 30 segundos c/u)</li>
-        <li>Tu prenda en modelo real en movimiento</li>
-        <li>Guion visual incluido en el pack</li>
-        <li>Música y edición completa</li>
-        <li>Formato listo para Instagram Reels y TikTok</li>
+        <li>Prenda en movimiento real con consistencia total</li>
+        <li>Formatos listos para Instagram Reels, TikTok y Ads</li>
+        <li>Dirección de arte y guion visual adaptado a tu marca</li>
+        <li>Música y edición completa incluidas</li>
         <li>1 ronda de revisión incluida</li>
         <li>Plazo: 7–10 días</li>
       </ul>
-      <a href="https://wa.me/34000000000?text=Hola%2C%20quiero%20info%20sobre%20el%20Pack%20V%C3%ADdeo%20Cinem%C3%A1tico%20de%20Havana%20Studio" class="pack-cta-y">Solicitar pack</a>
+      <a href="https://wa.me/34000000000?text=Hola%2C%20quiero%20cotizar%20el%20Pack%20V%C3%ADdeo%20Publicitario%20de%20Havana%20Studio" class="pack-cta-y">Cotizar mi proyecto</a>
     </div>
+
+    <div class="pack pack-basico">
+      <span class="pack-label">Pack 03</span>
+      <h3 class="pack-name">PILOTO<br>AUTOMÁTICO</h3>
+      <p class="pack-price">$650 USD / mes</p>
+      <ul class="pack-items">
+        <li>15 imágenes lifestyle nuevas cada mes</li>
+        <li>2 vídeos cortos para Reels y TikTok cada mes</li>
+        <li>Hasta 4 prendas diferentes integradas por mes</li>
+        <li>Coherencia visual: misma atmósfera y estilo cada mes</li>
+        <li>Sin permanencia — cancela o pausa cuando quieras</li>
+        <li>El mes de contenido resuelto, sin esfuerzo</li>
+      </ul>
+      <a href="https://wa.me/34000000000?text=Hola%2C%20quiero%20empezar%20la%20suscripci%C3%B3n%20Piloto%20Autom%C3%A1tico%20de%20Havana%20Studio" class="pack-cta-b">Empezar suscripción</a>
+    </div>
+
   </div>
-  <p class="precios-note">El precio exacto depende del número de prendas. Escríbenos y te confirmamos en menos de 24h — sin compromiso.</p>
+  <p class="precios-note">Precio base para 1–2 prendas. Escríbenos y te confirmamos el presupuesto exacto en menos de 24h — sin compromiso.</p>
 </section>
 
 <!-- PROCESO -->
@@ -452,19 +471,15 @@ footer{background:var(--black);padding:1.6rem 4rem;display:flex;justify-content:
 <section id="trabajo">
   <p class="sec-eyebrow">Resultados</p>
   <h2 class="sec-title">ANTES Y DESPUÉS.</h2>
-  <p class="trabajo-intro">Las marcas son escépticas con el contenido de IA. Por eso no te lo contamos — te lo enseñamos. Esto es un resultado real: la chaqueta que nos envió la marca, y el resultado final listo para publicar.</p>
-  <div class="ad-wrap" style="max-width:900px;">
-    <div>
-      <div class="ad-lbl b">Antes — Foto de la marca</div>
-      <div style="overflow:hidden;aspect-ratio:1/1;">
-        <img src="antes.png" alt="Chaqueta varsity negra" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
+  <p class="trabajo-intro">Las marcas son escépticas con el contenido de IA. Por eso no te lo contamos — te lo enseñamos. Esto es un resultado real: la foto que nos envió la marca, y el resultado final listo para publicar.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2rem;">
+    <div style="position:relative;">
+      <span style="position:absolute;top:0;left:0;z-index:2;font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;padding:0.7rem 1.2rem;background:rgba(0,0,0,0.5);color:rgba(255,255,255,0.7);">Antes — Foto de la marca</span>
+      <img src="antes.png" alt="Chaqueta varsity negra" style="width:100%;height:600px;object-fit:cover;object-position:center;display:block;">
     </div>
-    <div>
-      <div class="ad-lbl a">Después — Havana Studio</div>
-      <div style="overflow:hidden;aspect-ratio:1/1;">
-        <img src="despues.png" alt="Modelo con chaqueta varsity en París" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
-      </div>
+    <div style="position:relative;">
+      <span style="position:absolute;top:0;left:0;z-index:2;font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;padding:0.7rem 1.2rem;background:var(--red);color:white;">Después — Havana Studio</span>
+      <img src="despues.png" alt="Modelo con chaqueta varsity" style="width:100%;height:600px;object-fit:cover;object-position:top;display:block;">
     </div>
   </div>
 </section>
