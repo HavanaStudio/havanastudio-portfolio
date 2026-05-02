@@ -40,35 +40,37 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;justify-content
 .mobile-menu a{text-decoration:none;font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:0.1em;color:var(--cream);}
 .mobile-menu a:hover,.mobile-menu .m-cta{color:var(--gold);}
 
-/* HERO */
-.hero{min-height:100vh;padding-top:64px;display:grid;grid-template-columns:1fr 1fr;}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:6rem 3.5rem 5rem 4rem;border-right:1px solid var(--border);}
+/* HERO — full bleed */
+.hero{position:relative;min-height:100vh;padding-top:64px;overflow:hidden;display:flex;align-items:flex-end;}
+.hero-bg{position:absolute;inset:0;background-image:url('hero.png');background-size:cover;background-position:center top;z-index:0;}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, rgba(8,8,8,0.85) 0%, rgba(8,8,8,0.5) 55%, rgba(8,8,8,0.1) 100%);}
+.hero-content{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1fr 1fr;align-items:end;padding:0 4rem 5rem;}
+.hero-left{display:flex;flex-direction:column;justify-content:flex-end;max-width:580px;}
 .eyebrow{font-size:0.65rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:1.8rem;display:flex;align-items:center;gap:0.8rem;}
 .eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
-.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,5.5vw,5.8rem);line-height:0.92;letter-spacing:0.02em;color:var(--cream);margin-bottom:2rem;}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,7vw,8rem);line-height:0.88;letter-spacing:0.02em;color:var(--cream);margin-bottom:2rem;}
 .hero-title em{color:var(--gold);font-style:normal;}
-.hero-sub{font-size:0.95rem;line-height:1.85;color:var(--gray);max-width:420px;margin-bottom:1.8rem;font-weight:300;}
+.hero-sub{font-size:0.95rem;line-height:1.85;color:rgba(240,235,226,0.75);max-width:420px;margin-bottom:2rem;font-weight:300;}
 .hero-sub strong{color:var(--cream);font-weight:400;}
-.hero-demo{background:var(--surface);border:1px solid var(--border);padding:1rem 1.4rem;margin-bottom:2.8rem;display:flex;gap:0.8rem;align-items:flex-start;}
+.hero-demo{background:rgba(22,22,22,0.7);backdrop-filter:blur(8px);border:1px solid rgba(184,154,106,0.25);padding:1rem 1.4rem;margin-bottom:2.2rem;display:flex;gap:0.8rem;align-items:flex-start;}
 .hero-demo-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:0.35rem;}
-.hero-demo-text{font-size:0.8rem;line-height:1.6;color:var(--gray-d);}
+.hero-demo-text{font-size:0.8rem;line-height:1.6;color:rgba(240,235,226,0.6);}
 .hero-demo-text strong{color:var(--cream);display:block;margin-bottom:0.2rem;font-size:0.82rem;}
 .btn-gold{display:inline-flex;align-items:center;gap:0.7rem;background:var(--gold);color:var(--black);text-decoration:none;padding:1rem 2.2rem;font-size:0.73rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;transition:background 0.2s;width:fit-content;}
 .btn-gold:hover{background:var(--gold-d);}
-.btn-outline{display:inline-flex;align-items:center;gap:0.7rem;background:transparent;color:var(--cream-d);text-decoration:none;padding:1rem 2.2rem;font-size:0.73rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;border:1px solid var(--border-l, #333);transition:all 0.2s;width:fit-content;}
+.btn-outline{display:inline-flex;align-items:center;gap:0.7rem;background:transparent;color:var(--cream-d);text-decoration:none;padding:1rem 2.2rem;font-size:0.73rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;border:1px solid rgba(240,235,226,0.2);transition:all 0.2s;width:fit-content;}
 .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
 .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
-.hero-stats{display:flex;gap:3rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid var(--border);}
-.stat-n{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:0.04em;color:var(--gold);display:block;line-height:1;}
-.stat-l{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--gray-d);margin-top:0.3rem;display:block;}
-.hero-right{background:var(--surface);display:flex;flex-direction:column;position:relative;overflow:hidden;}
-.hero-right-img{flex:1;display:flex;align-items:center;justify-content:center;padding:3rem;position:relative;}
-.hero-placeholder{width:100%;aspect-ratio:3/4;background:var(--black2);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;max-height:65vh;}
-.hero-placeholder svg{opacity:0.15;}
-.hero-placeholder span{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray-d);}
-.hero-tags{display:flex;flex-direction:column;border-top:1px solid var(--border);}
-.hero-tag{display:flex;align-items:center;gap:0.8rem;padding:0.9rem 3rem;font-size:0.7rem;color:var(--gray-d);border-bottom:1px solid var(--border);}
-.hero-tag-dot{width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;}
+.hero-stats{display:flex;flex-direction:column;align-items:flex-end;gap:0;}
+.stat-block{text-align:right;padding:1.5rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+.stat-block:last-child{border-bottom:none;}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:3.8rem;letter-spacing:0.04em;color:var(--gold);display:block;line-height:1;}
+.stat-l{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(240,235,226,0.35);margin-top:0.3rem;display:block;}
+@media(max-width:900px){
+  .hero-content{grid-template-columns:1fr;padding:0 1.5rem 4rem;}
+  .hero-stats{display:none;}
+  .hero-bg::after{background:linear-gradient(to bottom,rgba(8,8,8,0.2) 0%,rgba(8,8,8,0.85) 65%,rgba(8,8,8,0.97) 100%);}
+}
 
 /* MARQUEE */
 .marquee-wrap{background:var(--gold);padding:0.75rem 0;overflow:hidden;}
@@ -275,47 +277,37 @@ footer{background:var(--black2);padding:1.8rem 4rem;display:flex;justify-content
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-left">
-    <p class="eyebrow">Producción Visual · Moda</p>
-    <h1 class="hero-title">FOTOS DE<br>CAMPAÑA<br>SIN EL<br><em>SHOOTING.</em></h1>
-    <p class="hero-sub">Tu prenda puesta en una modelo real, en el entorno que tu marca merece — sin fotógrafo, sin estudio, sin esperar semanas. <strong>Lista para vender en 5 días.</strong></p>
-    <div class="hero-demo">
-      <div class="hero-demo-dot"></div>
-      <div class="hero-demo-text">
-        <strong>Pruébalo antes de decidir — gratis.</strong>
-        Mándanos una foto de una prenda tuya y te devolvemos una imagen de campaña real. Sin compromiso, para que lo veas con tus propios ojos.
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <p class="eyebrow">Producción Visual · Moda</p>
+      <h1 class="hero-title">FOTOS DE<br>CAMPAÑA<br>SIN EL<br><em>SHOOTING.</em></h1>
+      <p class="hero-sub">Tu prenda en una modelo real, en el entorno que tu marca merece — sin fotógrafo, sin estudio, sin esperar semanas. <strong>Lista para vender en 5 días.</strong></p>
+      <div class="hero-demo">
+        <div class="hero-demo-dot"></div>
+        <div class="hero-demo-text">
+          <strong>Pruébalo antes de decidir — gratis.</strong>
+          Mándanos una foto de una prenda tuya y te devolvemos una imagen de campaña real. Sin compromiso.
+        </div>
+      </div>
+      <div class="hero-btns">
+        <a href="#contacto" class="btn-gold">Quiero mi demo gratuita</a>
+        <a href="#precios" class="btn-outline">Ver precios</a>
       </div>
     </div>
-    <div class="hero-btns">
-      <a href="#contacto" class="btn-gold">Quiero mi demo gratuita</a>
-      <a href="#precios" class="btn-outline">Ver precios</a>
-    </div>
     <div class="hero-stats">
-      <div>
+      <div class="stat-block">
         <span class="stat-n">5–7</span>
         <span class="stat-l">Días de entrega</span>
       </div>
-      <div>
+      <div class="stat-block">
         <span class="stat-n">-90%</span>
         <span class="stat-l">Vs. producción real</span>
       </div>
-      <div>
+      <div class="stat-block">
         <span class="stat-n">0</span>
         <span class="stat-l">Estudios ni equipos</span>
       </div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-right-img">
-      <div class="hero-placeholder">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="28" rx="2" stroke="#f0ebe2" stroke-width="1.5"/><circle cx="17" cy="20" r="4" stroke="#f0ebe2" stroke-width="1.5"/><path d="M6 32l10-8 7 6 6-5 13 11" stroke="#f0ebe2" stroke-width="1.5" stroke-linejoin="round"/></svg>
-        <span>Imagen de campaña · próximamente</span>
-      </div>
-    </div>
-    <div class="hero-tags">
-      <div class="hero-tag"><div class="hero-tag-dot"></div>Marcas de moda emergentes</div>
-      <div class="hero-tag"><div class="hero-tag-dot"></div>Bolsos, accesorios y textil premium</div>
-      <div class="hero-tag"><div class="hero-tag-dot"></div>España · LATAM</div>
     </div>
   </div>
 </div>
