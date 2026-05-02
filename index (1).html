@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Havana Studio — Dirección de Arte para Marcas de Moda</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --black:#0a0a0a;
+  --black2:#111;
+  --surface:#161616;
+  --border:#242424;
+  --cream:#f0ebe2;
+  --cream-d:#d4c9b8;
+  --gold:#b89a6a;
+  --gold-d:#9a7d52;
+  --white:#fafaf8;
+  --gray:#888;
+  --gray-d:#555;
+  --red:#c0392b;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--cream);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;justify-content:space-between;align-items:center;padding:0 4rem;height:64px;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.12em;color:var(--cream);text-decoration:none;}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center;}
+.nav-links a{text-decoration:none;font-size:0.68rem;font-weight:400;color:var(--gray);letter-spacing:0.16em;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--cream);}
+.nav-cta{background:var(--gold)!important;color:var(--black)!important;padding:0.45rem 1.2rem;letter-spacing:0.1em!important;font-weight:500!important;transition:background 0.2s!important;}
+.nav-cta:hover{background:var(--gold-d)!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
+.hamburger span{display:block;width:22px;height:1px;background:var(--cream);transition:all 0.3s;}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;z-index:299;background:var(--black);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{text-decoration:none;font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:0.1em;color:var(--cream);}
+.mobile-menu a:hover,.mobile-menu .m-cta{color:var(--gold);}
+
+/* HERO — full bleed */
+.hero{position:relative;min-height:100vh;padding-top:64px;overflow:hidden;display:flex;align-items:flex-end;}
+.hero-bg{position:absolute;inset:0;background-image:url('hero.png');background-size:cover;background-position:center top;z-index:0;}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, rgba(8,8,8,0.85) 0%, rgba(8,8,8,0.5) 55%, rgba(8,8,8,0.1) 100%);}
+.hero-content{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1fr 1fr;align-items:end;padding:0 4rem 5rem;}
+.hero-left{display:flex;flex-direction:column;justify-content:flex-end;max-width:580px;}
+.eyebrow{font-size:0.65rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:1.8rem;display:flex;align-items:center;gap:0.8rem;}
+.eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,7vw,8rem);line-height:0.88;letter-spacing:0.02em;color:var(--cream);margin-bottom:2rem;}
+.hero-title em{color:var(--gold);font-style:normal;}
+.hero-sub{font-size:0.95rem;line-height:1.85;color:rgba(240,235,226,0.75);max-width:420px;margin-bottom:2rem;font-weight:300;}
+.hero-sub strong{color:var(--cream);font-weight:400;}
+.hero-demo{background:rgba(22,22,22,0.7);backdrop-filter:blur(8px);border:1px solid rgba(184,154,106,0.25);padding:1rem 1.4rem;margin-bottom:2.2rem;display:flex;gap:0.8rem;align-items:flex-start;}
+.hero-demo-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:0.35rem;}
+.hero-demo-text{font-size:0.8rem;line-height:1.6;color:rgba(240,235,226,0.6);}
+.hero-demo-text strong{color:var(--cream);display:block;margin-bottom:0.2rem;font-size:0.82rem;}
+.btn-gold{display:inline-flex;align-items:center;gap:0.7rem;background:var(--gold);color:var(--black);text-decoration:none;padding:1rem 2.2rem;font-size:0.73rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;transition:background 0.2s;width:fit-content;}
+.btn-gold:hover{background:var(--gold-d);}
+.btn-outline{display:inline-flex;align-items:center;gap:0.7rem;background:transparent;color:var(--cream-d);text-decoration:none;padding:1rem 2.2rem;font-size:0.73rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;border:1px solid rgba(240,235,226,0.2);transition:all 0.2s;width:fit-content;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.hero-stats{display:flex;flex-direction:column;align-items:flex-end;gap:0;}
+.stat-block{text-align:right;padding:1.5rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+.stat-block:last-child{border-bottom:none;}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:3.8rem;letter-spacing:0.04em;color:var(--cream);display:block;line-height:1;}
+.stat-l{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(240,235,226,0.5);margin-top:0.3rem;display:block;}
+@media(max-width:900px){
+  .hero-content{grid-template-columns:1fr;padding:0 1.5rem 4rem;}
+  .hero-stats{display:none;}
+  .hero-bg::after{background:linear-gradient(to bottom,rgba(8,8,8,0.2) 0%,rgba(8,8,8,0.85) 65%,rgba(8,8,8,0.97) 100%);}
+}
+
+/* MARQUEE */
+.marquee-wrap{background:var(--gold);padding:0.75rem 0;overflow:hidden;}
+.marquee-track{display:flex;gap:3rem;white-space:nowrap;animation:marquee 28s linear infinite;}
+.marquee-item{font-family:'Bebas Neue',sans-serif;font-size:0.85rem;letter-spacing:0.2em;color:var(--black);display:flex;align-items:center;gap:3rem;flex-shrink:0;}
+.marquee-item::after{content:'·';opacity:0.5;}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:7rem 4rem;}
+.sec-eyebrow{font-size:0.64rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:0.8rem;display:flex;align-items:center;gap:0.7rem;}
+.sec-eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,4vw,4rem);letter-spacing:0.03em;line-height:0.93;color:var(--cream);margin-bottom:1.4rem;}
+
+/* A QUIÉN AYUDAMOS */
+#ayudamos{background:var(--black2);border-top:1px solid var(--border);}
+.ayud-intro{font-size:0.93rem;line-height:1.85;color:var(--gray);font-weight:300;max-width:580px;margin-bottom:4rem;}
+.ayud-intro strong{color:var(--cream);font-weight:400;}
+.target-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);}
+.target-no{background:var(--black);padding:2.5rem 2.2rem;opacity:0.5;}
+.target-si{background:var(--surface);padding:2.5rem 2.2rem;}
+.target-label{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.6rem;}
+.target-no .target-label{color:var(--gray-d);}
+.target-si .target-label{color:var(--gold);}
+.target-label-line{width:16px;height:1px;}
+.target-no .target-label-line{background:var(--gray-d);}
+.target-si .target-label-line{background:var(--gold);}
+.target-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.04em;margin-bottom:1rem;}
+.target-no .target-title{color:var(--gray-d);}
+.target-si .target-title{color:var(--cream);}
+.target-desc{font-size:0.8rem;line-height:1.7;color:var(--gray-d);font-weight:300;}
+.target-si .target-desc{color:var(--gray);}
+.target-items{list-style:none;margin-top:1.5rem;display:flex;flex-direction:column;gap:0.5rem;}
+.target-items li{font-size:0.76rem;color:var(--gray-d);display:flex;align-items:flex-start;gap:0.5rem;line-height:1.5;}
+.target-si .target-items li{color:var(--gray);}
+.target-items li::before{content:'→';color:var(--gold);flex-shrink:0;font-size:0.7rem;margin-top:0.05rem;}
+.target-no .target-items li::before{color:var(--gray-d);}
+
+/* DOLORES */
+#dolores{background:var(--black);}
+.dolores-intro{font-size:0.93rem;line-height:1.85;color:var(--gray);font-weight:300;max-width:540px;margin-bottom:4rem;}
+.dolor-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.dolor-card:last-child{grid-column:1/-1;}
+.dolor-card{background:var(--black2);padding:2.5rem 2.2rem;}
+.dolor-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--border);letter-spacing:0.04em;line-height:1;margin-bottom:1.2rem;}
+.dolor-title{font-size:0.9rem;font-weight:500;color:var(--cream);margin-bottom:0.5rem;letter-spacing:0.02em;}
+.dolor-desc{font-size:0.78rem;color:var(--gray);line-height:1.7;font-weight:300;}
+.dolor-bottom{margin-top:1px;background:var(--gold);padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.dolor-bottom-text{font-size:0.95rem;font-weight:400;color:var(--black);max-width:520px;line-height:1.6;}
+.dolor-bottom-text strong{font-weight:600;}
+.btn-black{display:inline-flex;align-items:center;gap:0.6rem;flex-shrink:0;background:var(--black);color:var(--cream);text-decoration:none;padding:0.9rem 1.8rem;font-size:0.73rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.2s;}
+.btn-black:hover{background:var(--black2);}
+
+/* PROCESO */
+#proceso{background:var(--surface);}
+.proc-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:3.5rem;}
+.proc-step{background:var(--black2);padding:2.5rem 2rem;position:relative;overflow:hidden;}
+.proc-step-bg{font-family:'Bebas Neue',sans-serif;font-size:7rem;color:rgba(255,255,255,0.03);position:absolute;top:-0.5rem;right:0.5rem;letter-spacing:0.04em;line-height:1;pointer-events:none;}
+.proc-icon{width:36px;height:36px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;}
+.proc-step h3{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:0.06em;color:var(--cream);margin-bottom:0.7rem;}
+.proc-step p{font-size:0.78rem;color:var(--gray);line-height:1.65;font-weight:300;}
+.proc-tag{display:inline-block;margin-top:1.2rem;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;background:rgba(184,154,106,0.08);border:1px solid rgba(184,154,106,0.25);color:var(--gold);padding:0.22rem 0.7rem;}
+
+/* PRECIOS */
+#precios{background:var(--black);padding:7rem 4rem;}
+.precios-sub{font-size:0.88rem;color:var(--gray);font-weight:300;line-height:1.75;max-width:500px;margin-bottom:4rem;}
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.pack{padding:3rem 2.5rem;position:relative;}
+.pack-basico{background:var(--black2);}
+.pack-dest{background:var(--surface);}
+.pack-label{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:500;margin-bottom:1.8rem;display:block;color:var(--gray-d);}
+.pack-badge{position:absolute;top:2.5rem;right:2.5rem;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;background:var(--gold);color:var(--black);padding:0.25rem 0.7rem;font-weight:600;}
+.pack-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,3.5vw,3.4rem);letter-spacing:0.03em;line-height:0.92;margin-bottom:1.2rem;color:var(--cream);}
+.pack-price{font-size:0.95rem;font-weight:300;font-style:italic;margin-bottom:2.5rem;padding-bottom:2rem;color:var(--gray);border-bottom:1px solid var(--border);}
+.pack-items{list-style:none;margin-bottom:2.5rem;}
+.pack-items li{font-size:0.78rem;padding:0.55rem 0;display:flex;align-items:flex-start;gap:0.7rem;line-height:1.45;color:var(--gray);border-bottom:1px solid var(--border);}
+.pack-items li::before{content:'→';font-size:0.7rem;flex-shrink:0;margin-top:0.07rem;color:var(--gold);}
+.pack-cta-outline{display:block;text-align:center;text-decoration:none;padding:0.95rem;font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.2s;border:1px solid var(--border);color:var(--gray);}
+.pack-cta-outline:hover{border-color:var(--gold);color:var(--gold);}
+.pack-cta-gold{display:block;text-align:center;text-decoration:none;padding:0.95rem;font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.2s;background:var(--gold);color:var(--black);border:1px solid var(--gold);}
+.pack-cta-gold:hover{background:var(--gold-d);border-color:var(--gold-d);}
+.precios-note{margin-top:2rem;font-size:0.75rem;color:var(--gray-d);text-align:center;line-height:1.65;font-style:italic;}
+
+/* PORTFOLIO */
+#portfolio{background:var(--black2);}
+.portfolio-intro{font-size:0.9rem;color:var(--gray);font-weight:300;line-height:1.75;max-width:480px;margin-bottom:3.5rem;}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.portfolio-item{background:var(--black);aspect-ratio:3/4;overflow:hidden;cursor:pointer;}
+.portfolio-item img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform 0.5s ease;display:block;}
+.portfolio-item:hover img{transform:scale(1.04);}
+.portfolio-note{margin-top:1.5rem;font-size:0.75rem;color:var(--gray-d);font-style:italic;}
+
+/* FAQ */
+#faq{background:var(--surface);}
+.faq-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:3.5rem;max-width:820px;}
+.faq-item{background:var(--black2);}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:1.3rem 1.6rem;font-family:'DM Sans',sans-serif;font-size:0.86rem;font-weight:400;color:var(--cream);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+.faq-q:hover{color:var(--gold);}
+.faq-icon{font-size:1.1rem;color:var(--gold);flex-shrink:0;transition:transform 0.2s;}
+.faq-a{display:none;padding:0 1.6rem 1.3rem;font-size:0.8rem;color:var(--gray);line-height:1.75;}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+
+/* CONTACTO */
+#contacto{background:var(--black);border-top:1px solid var(--border);}
+#contacto .sec-title{max-width:620px;margin-bottom:0.5rem;}
+.contacto-sub{font-size:0.9rem;color:var(--gray);max-width:480px;line-height:1.75;font-weight:300;margin-bottom:3.5rem;}
+.form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.form-left p{font-size:0.88rem;color:var(--gray);line-height:1.8;font-weight:300;margin-bottom:1.8rem;}
+.form-left ul{list-style:none;display:flex;flex-direction:column;gap:0.8rem;}
+.form-left ul li{display:flex;align-items:flex-start;gap:0.6rem;font-size:0.78rem;color:var(--gray-d);}
+.form-left ul li::before{content:'→';color:var(--gold);flex-shrink:0;font-size:0.7rem;margin-top:0.05rem;}
+.form-box{background:var(--surface);border:1px solid var(--border);padding:2.8rem;}
+.form-group{margin-bottom:1.5rem;}
+.form-group label{display:block;font-size:0.67rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray-d);font-weight:500;margin-bottom:0.55rem;}
+.form-group input[type="text"],
+.form-group input[type="email"]{
+  width:100%;padding:0.8rem 1rem;
+  border:1px solid var(--border);background:var(--black);
+  font-family:'DM Sans',sans-serif;font-size:0.85rem;color:var(--cream);
+  outline:none;transition:border-color 0.2s;
+}
+.form-group input:focus{border-color:var(--gold);}
+.form-check{display:flex;align-items:flex-start;gap:0.8rem;padding:1rem;background:var(--black);border:1px solid var(--border);margin-bottom:1.5rem;cursor:pointer;}
+.form-check input[type="checkbox"]{width:15px;height:15px;flex-shrink:0;margin-top:0.15rem;accent-color:var(--gold);cursor:pointer;}
+.form-check-label{font-size:0.76rem;color:var(--gray-d);line-height:1.55;}
+.form-check-label strong{color:var(--cream);font-weight:500;}
+.btn-submit{
+  display:block;width:100%;
+  background:var(--gold);color:var(--black);border:none;
+  padding:1.1rem;font-family:'DM Sans',sans-serif;
+  font-size:0.75rem;font-weight:600;letter-spacing:0.14em;
+  text-transform:uppercase;cursor:pointer;transition:background 0.2s;
+}
+.btn-submit:hover{background:var(--gold-d);}
+.btn-submit:disabled{background:var(--gray-d);cursor:not-allowed;color:var(--black2);}
+.form-note{font-size:0.68rem;color:var(--gray-d);text-align:center;margin-top:0.9rem;line-height:1.55;}
+.form-success{display:none;text-align:center;padding:2.5rem;background:var(--surface);border:1px solid var(--border);}
+.form-success h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.06em;color:var(--cream);margin-bottom:0.6rem;}
+.form-success p{font-size:0.83rem;color:var(--gray);line-height:1.65;}
+
+/* FOOTER */
+footer{background:var(--black2);padding:1.8rem 4rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem;}
+.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.12em;color:var(--cream);}
+.foot-logo span{color:var(--gold);}
+.foot-copy{font-size:0.65rem;color:var(--gray-d);}
+.foot-nicho{font-size:0.63rem;color:var(--gray-d);letter-spacing:0.1em;text-transform:uppercase;}
+
+/* SCROLL TOP */
+#scrolltop{position:fixed;bottom:2rem;right:2rem;z-index:400;width:40px;height:40px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity 0.3s,background 0.2s;}
+#scrolltop.visible{opacity:1;pointer-events:all;}
+#scrolltop:hover{background:var(--gold);}
+#scrolltop:hover svg path{stroke:var(--black);}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:0 1.5rem;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero{grid-template-columns:1fr;}
+  .hero-left{padding:3.5rem 1.5rem 3rem;}
+  .hero-right{display:none;}
+  section{padding:5rem 1.5rem;}
+  #precios{padding:5rem 1.5rem;}
+  #contacto{padding:5rem 1.5rem;}
+  footer{padding:1.5rem;}
+  .target-grid{grid-template-columns:1fr;}
+  .dolor-grid{grid-template-columns:1fr;}
+  .proc-steps{grid-template-columns:1fr;}
+  .packs{grid-template-columns:1fr;}
+  .portfolio-grid{grid-template-columns:1fr 1fr;}
+  .hero-stats{gap:2rem;}
+  .dolor-bottom{flex-direction:column;}
+  .form-wrap{grid-template-columns:1fr;gap:2.5rem;}
+  .form-box{padding:2rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">HAVANA<span>STUDIO</span></a>
+  <ul class="nav-links">
+    <li><a href="#ayudamos">Para quién</a></li>
+    <li><a href="#dolores">Qué resolvemos</a></li>
+    <li><a href="#precios">Precios</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#contacto" class="nav-cta">Demo gratuita</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#ayudamos" class="m-link">Para quién</a>
+  <a href="#dolores" class="m-link">Qué resolvemos</a>
+  <a href="#precios" class="m-link">Precios</a>
+  <a href="#proceso" class="m-link">Proceso</a>
+  <a href="#contacto" class="m-cta m-link">Demo gratuita</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <p class="eyebrow">Producción Visual · Moda</p>
+      <h1 class="hero-title">FOTOS DE<br>CAMPAÑA<br>SIN EL<br><em>SHOOTING.</em></h1>
+      <p class="hero-sub">Tu prenda en una modelo real, en el entorno que tu marca merece — sin fotógrafo, sin estudio, sin esperar semanas. <strong>Lista para vender en 5 días.</strong></p>
+      <div class="hero-demo">
+        <div class="hero-demo-dot"></div>
+        <div class="hero-demo-text">
+          <strong>Pruébalo antes de decidir — gratis.</strong>
+          Mándanos una foto de una prenda tuya y te devolvemos una imagen de campaña real. Sin compromiso.
+        </div>
+      </div>
+      <div class="hero-btns">
+        <a href="#contacto" class="btn-gold">Quiero mi demo gratuita</a>
+        <a href="#precios" class="btn-outline">Ver precios</a>
+      </div>
+    </div>
+    <div></div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item">Dirección de arte</div>
+    <div class="marquee-item">Sin fotógrafo</div>
+    <div class="marquee-item">Sin modelo</div>
+    <div class="marquee-item">Sin estudio</div>
+    <div class="marquee-item">Entrega en 5 días</div>
+    <div class="marquee-item">Imágenes de campaña</div>
+    <div class="marquee-item">Vídeo editorial</div>
+    <div class="marquee-item">Contenido mensual</div>
+    <div class="marquee-item">Demo gratuita</div>
+    <div class="marquee-item">Dirección de arte</div>
+    <div class="marquee-item">Sin fotógrafo</div>
+    <div class="marquee-item">Sin modelo</div>
+    <div class="marquee-item">Sin estudio</div>
+    <div class="marquee-item">Entrega en 5 días</div>
+    <div class="marquee-item">Imágenes de campaña</div>
+    <div class="marquee-item">Vídeo editorial</div>
+    <div class="marquee-item">Contenido mensual</div>
+    <div class="marquee-item">Demo gratuita</div>
+  </div>
+</div>
+
+<!-- PARA QUIÉN -->
+<section id="ayudamos">
+  <p class="sec-eyebrow">Para quién es esto</p>
+  <h2 class="sec-title">¿TE SUENA<br>ALGO DE ESTO?</h2>
+  <p class="ayud-intro">Si tienes una marca de moda propia y alguna de estas frases te ha pasado por la cabeza, estás en el sitio correcto.</p>
+  <div class="target-grid">
+    <div class="target-si" style="border-right:1px solid var(--border);">
+      <div class="target-label"><div class="target-label-line"></div>Lo que escuchamos cada semana</div>
+      <div class="target-title">"NO PUEDO<br>PERMITIRME<br>UN SHOOTING<br>CADA COLECCIÓN"</div>
+      <p class="target-desc">Fotógrafo, modelo, estudio, desplazamiento, edición. Gastas entre 800€ y 3.000€ — y en seis meses ya necesitas otro. Para una marca en crecimiento, eso no es sostenible.</p>
+    </div>
+    <div class="target-si">
+      <div class="target-label"><div class="target-label-line"></div>También esto</div>
+      <div class="target-title">"TENGO BUEN<br>PRODUCTO PERO<br>MIS FOTOS NO<br>LO REFLEJAN"</div>
+      <p class="target-desc">Sabes que tu prenda vale más de lo que transmiten tus imágenes actuales. Pero sin fotos de campaña, tu clienta ideal llega al perfil y no entiende por qué debería pagarte lo que cobras.</p>
+      <ul class="target-items" style="margin-top:1.2rem;">
+        <li>Marcas emergentes con producto propio y precio medio-alto</li>
+        <li>Bolsos de piel, textil premium, moda de autor, accesorios</li>
+        <li>Entre 2.000 y 50.000 seguidores en Instagram</li>
+        <li>Quieres crecer sin depender de producciones caras</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DOLORES -->
+<section id="dolores">
+  <p class="sec-eyebrow">Qué resolvemos</p>
+  <h2 class="sec-title">LOS CINCO<br>PROBLEMAS REALES.</h2>
+  <p class="dolores-intro">No te vendemos tecnología. Te vendemos la solución a los problemas que ya conoces demasiado bien.</p>
+  <div class="dolor-grid">
+    <div class="dolor-card">
+      <div class="dolor-num">01</div>
+      <div class="dolor-title">El coste de producción te come los márgenes</div>
+      <p class="dolor-desc">Fotógrafo, modelo, estudio, desplazamiento, edición — entre 800€ y 3.000€ por colección. Para una marca en crecimiento ese gasto se repite cada temporada y no para de sangrar caja. Con Havana Studio obtienes la misma calidad visual por una fracción de ese coste.</p>
+    </div>
+    <div class="dolor-card">
+      <div class="dolor-num">02</div>
+      <div class="dolor-title">Fabricas stock sin saber si va a vender</div>
+      <p class="dolor-desc">La fábrica te exige mínimos de producción. Produces cientos de unidades de algo que aún no ha visto nadie. Si no funciona, tienes stock muerto inmovilizando tu capital. Nuestras imágenes te permiten lanzar una preventa — enseñar la prenda antes de fabricarla — y solo producir lo que ya está vendido.</p>
+    </div>
+    <div class="dolor-card">
+      <div class="dolor-num">03</div>
+      <div class="dolor-title">Las fotos planas no venden y generan devoluciones</div>
+      <p class="dolor-desc">Un flat lay o una foto en maniquí no muestra la caída de la tela, el fit real ni cómo queda puesta. Tu clienta compra con dudas — y devuelve. Una imagen con modelo en un entorno que habla a tu marca convierte más y reduce drásticamente la tasa de devolución.</p>
+    </div>
+    <div class="dolor-card">
+      <div class="dolor-num">04</div>
+      <div class="dolor-title">El algoritmo exige contenido que no puedes producir</div>
+      <p class="dolor-desc">Tres publicaciones semanales mínimo. Una sesión tradicional te da contenido para tres semanas — si tienes suerte. Luego vuelves a quedarte sin nada. Con el plan mensual de Havana Studio tienes imágenes y vídeos frescos cada mes, sin organizar ni un solo shooting.</p>
+    </div>
+    <div class="dolor-card" style="grid-column:1/-1;border-top:1px solid var(--border);">
+      <div class="dolor-num">05</div>
+      <div class="dolor-title">Para cuando tienes las fotos, la temporada ya pasó</div>
+      <p class="dolor-desc">Esperas a que llegue la muestra. Organizas el shooting. Edición. Dos o tres semanas mínimo. Para entonces el momento de lanzar en plena temporada ya pasó y perdiste ventas. Nosotros te entregamos imágenes de campaña en 5–7 días desde que nos mandas la foto de tu prenda.</p>
+    </div>
+  </div>
+  <div class="dolor-bottom">
+    <p class="dolor-bottom-text"><strong>Tu colección en campaña en 5–7 días.</strong> Sin fotógrafo, sin modelo, sin estudio. Sin esperar.</p>
+    <a href="#contacto" class="btn-black">Quiero mi demo gratuita</a>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso">
+  <p class="sec-eyebrow">Cómo funciona</p>
+  <h2 class="sec-title">ASÍ DE SIMPLE.</h2>
+  <div class="proc-steps">
+    <div class="proc-step">
+      <span class="proc-step-bg">1</span>
+      <div class="proc-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="#b89a6a" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Nos envías tu prenda</h3>
+      <p>Una foto clara en fondo blanco o claro, bien iluminada. Vale perfectamente con el móvil. Nada de equipos especiales.</p>
+      <span class="proc-tag">Día 1</span>
+    </div>
+    <div class="proc-step">
+      <span class="proc-step-bg">2</span>
+      <div class="proc-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="1" stroke="#b89a6a" stroke-width="1.4"/><path d="M5 8h6M8 5v6" stroke="#b89a6a" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Dirección de arte y producción</h3>
+      <p>Definimos modelo, entorno y estética adaptados a tu marca. Producimos todas las imágenes y vídeos de tu paquete con revisión incluida.</p>
+      <span class="proc-tag">Días 2 – 6</span>
+    </div>
+    <div class="proc-step">
+      <span class="proc-step-bg">3</span>
+      <div class="proc-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8l5 5 8-8" stroke="#b89a6a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Entrega lista para publicar</h3>
+      <p>Recibes todo en alta resolución, optimizado para tienda online, Instagram y Reels. Solo queda publicar.</p>
+      <span class="proc-tag">Día 5 – 7</span>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <p class="sec-eyebrow">Nuestro trabajo</p>
+  <h2 class="sec-title">LO QUE HACEMOS<br>HABLA POR NOSOTROS.</h2>
+  <p class="portfolio-intro">Próximamente aquí verás ejemplos reales de marcas que ya confían en Havana Studio. Mientras tanto, pídenos una demo gratuita con una prenda tuya.</p>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="portfolio1.png" alt="Campaña editorial estudio — jersey rayas naranja con modelo">
+    </div>
+    <div class="portfolio-item">
+      <img src="portfolio2.png" alt="Campaña exterior ciudad — conjunto lino amarillo con modelo">
+    </div>
+    <div class="portfolio-item">
+      <img src="portfolio3.png" alt="Campaña interior mediterráneo — vestido lino blanco con modelo">
+    </div>
+  </div>
+  <p class="portfolio-note">¿Quieres ver cómo quedaría tu prenda? Pídenos una demo gratuita y lo resolvemos antes de que tomes ninguna decisión.</p>
+</section>
+
+<!-- PRECIOS -->
+<section id="precios">
+  <p class="sec-eyebrow">Paquetes</p>
+  <h2 class="sec-title">TRES OPCIONES.<br>SIN LETRA PEQUEÑA.</h2>
+  <p class="precios-sub">Escríbenos y confirmamos tu presupuesto exacto en menos de 24 horas. Sin compromiso.</p>
+  <div class="packs">
+
+    <div class="pack pack-basico">
+      <span class="pack-label">Pack 01</span>
+      <h3 class="pack-name">E-COMMERCE<br>& REDES</h3>
+      <p class="pack-price">Desde $150 USD / proyecto</p>
+      <ul class="pack-items">
+        <li>5–10 imágenes lifestyle de alta calidad</li>
+        <li>Tu prenda en modelos hiperrealistas (diversidad de etnias, cuerpos y estilos)</li>
+        <li>Fondos a elegir: neutros para catálogo o entornos elegantes para redes</li>
+        <li>Sin contratar fotógrafos, modelos ni estudios</li>
+        <li>Entrega en alta resolución lista para publicar</li>
+        <li>1 ronda de revisión incluida</li>
+        <li>Plazo: 5–7 días</li>
+      </ul>
+      <a href="#contacto" class="pack-cta-outline">Cotizar mi proyecto</a>
+    </div>
+
+    <div class="pack pack-dest">
+      <span class="pack-badge">Más completo</span>
+      <span class="pack-label">Pack 02</span>
+      <h3 class="pack-name">VÍDEO<br>EDITORIAL</h3>
+      <p class="pack-price">Desde $500 USD / proyecto</p>
+      <ul class="pack-items">
+        <li>3–5 vídeos cinemáticos cortos (hasta 30 segundos c/u)</li>
+        <li>Prenda en movimiento real con consistencia total</li>
+        <li>Formatos listos para Instagram Reels, TikTok y Ads</li>
+        <li>Dirección de arte y guion visual adaptado a tu marca</li>
+        <li>Música y edición completa incluidas</li>
+        <li>1 ronda de revisión incluida</li>
+        <li>Plazo: 7–10 días</li>
+      </ul>
+      <a href="#contacto" class="pack-cta-gold">Cotizar mi proyecto</a>
+    </div>
+
+    <div class="pack pack-basico">
+      <span class="pack-label">Pack 03</span>
+      <h3 class="pack-name">PILOTO<br>AUTOMÁTICO</h3>
+      <p class="pack-price">$700 USD / mes</p>
+      <ul class="pack-items">
+        <li>15 imágenes lifestyle nuevas cada mes</li>
+        <li>2 vídeos cortos para Reels y TikTok cada mes</li>
+        <li>Hasta 4 prendas diferentes integradas por mes</li>
+        <li>Coherencia visual: misma atmósfera y estilo cada mes</li>
+        <li>Sin permanencia — cancela o pausa cuando quieras</li>
+        <li>El mes de contenido resuelto, sin esfuerzo</li>
+      </ul>
+      <a href="#contacto" class="pack-cta-outline">Empezar suscripción</a>
+    </div>
+
+  </div>
+  <p class="precios-note">Precio base para 1–2 prendas. Escríbenos y te confirmamos el presupuesto exacto en menos de 24h — sin compromiso.</p>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <p class="sec-eyebrow">Preguntas frecuentes</p>
+  <h2 class="sec-title">LO QUE MÁS<br>NOS PREGUNTAN.</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Necesito fotos profesionales de la prenda?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">No. Basta con una foto clara en fondo blanco o claro, bien iluminada. Vale perfectamente con el móvil si la luz es buena. Cuanto más limpia sea la foto, mejor será el resultado final — pero no hace falta ningún equipo especial.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Se va a notar que es IA?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Esta es la pregunta que más nos hacen — y la razón por la que ofrecemos una demo gratuita antes de que decidas nada. El estándar que manejamos es hiperrealista: modelos con piel real, entornos con luz natural, movimiento creíble. Por eso preferimos que lo veas antes de creerlo.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Puedo elegir el tipo de modelo o la estética?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Sí. Puedes indicarnos etnia, complexión, estilo visual y tipo de entorno — interior, exterior, ciudad, estudio minimalista, arquitectura elegante. Adaptamos el resultado a la identidad de tu marca.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Cuánto tiempo tardáis en entregar?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Entre 5 y 7 días para imágenes, y entre 7 y 10 días para paquetes con vídeo. Siempre te confirmamos el plazo exacto al inicio del proyecto.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Qué incluye la ronda de revisión?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Una vez entregado el contenido tienes una ronda de ajustes incluida — cambios de estética, encuadre, color o composición. Queremos que el resultado encaje con tu marca antes de darlo por cerrado.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Puedo usar las imágenes para publicidad de pago?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Sí. Todo el contenido que entregamos es tuyo para usarlo donde quieras: tienda online, redes sociales, Meta Ads, Google Shopping, email marketing o cualquier otro canal.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿En qué formato entregáis el contenido?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">En alta resolución con los formatos optimizados para cada canal: cuadrado y vertical para Instagram, horizontal para web, y formato Reels/TikTok para vídeo. Todo listo para publicar directamente.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <p class="sec-eyebrow">Empieza hoy</p>
+  <h2 class="sec-title">MÁNDANOS UNA PRENDA.<br>TE DEVOLVEMOS<br>UNA CAMPAÑA.</h2>
+  <p class="contacto-sub">Sin compromiso. Sin pagar nada todavía. Solo para que veas con tus propios ojos lo que Havana Studio puede hacer por tu marca antes de decidir.</p>
+  <div class="form-wrap">
+    <div class="form-left">
+      <p>Para orientarte bien desde el principio, necesitamos saber tres cosas:</p>
+      <ul>
+        <li>Tu tienda o Instagram — para entender tu marca, estética y posicionamiento</li>
+        <li>El tipo de contenido que necesitas — para orientarte al paquete adecuado</li>
+        <li>Confirmar el presupuesto mínimo — para ofrecerte una propuesta alineada con tu proyecto</li>
+      </ul>
+    </div>
+
+    <div class="form-box" id="formBox">
+      <form id="contactForm" action="https://formspree.io/f/mjglvbgg" method="POST">
+
+        <div class="form-group">
+          <label for="nombre">Nombre y marca</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej: Laura — Marca Bloom" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email de contacto</label>
+          <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono / WhatsApp</label>
+          <input type="text" id="telefono" name="telefono" placeholder="+34 000 000 000" required>
+        </div>
+
+        <div class="form-group">
+          <label for="tienda">URL de tu tienda o Instagram</label>
+          <input type="text" id="tienda" name="tienda" placeholder="instagram.com/tumarca" required>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" id="presupuesto" name="presupuesto" value="confirmado" required>
+          <label for="presupuesto" class="form-check-label">Entiendo que Havana Studio trabaja con presupuestos base desde <strong>$150 USD</strong> para imágenes, <strong>$500 USD</strong> para vídeo y <strong>$700 USD/mes</strong> para producción continua.</label>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Enviar solicitud</button>
+        <p class="form-note">Respondemos en menos de 24 horas laborables con orientación inicial y, si encaja, una propuesta adaptada a tu marca.</p>
+      </form>
+    </div>
+
+    <div class="form-success" id="formSuccess">
+      <h3>SOLICITUD RECIBIDA.</h3>
+      <p>Gracias por contactarnos. Revisaremos tu solicitud y nos pondremos en contacto en menos de 24 horas. Te pediremos fotos de tus prendas por email.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">HAVANA<span>STUDIO</span></div>
+  <span class="foot-nicho">Dirección de arte visual para marcas de moda</span>
+  <span class="foot-copy">© 2026 Havana Studio</span>
+</footer>
+
+<div id="scrolltop" title="Volver arriba">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 12V4M4 8l4-4 4 4" stroke="#f0ebe2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+
+<script>
+function toggleFaq(btn){
+  const item=btn.parentElement;
+  item.classList.toggle('open');
+}
+
+const ham=document.getElementById('ham');
+const mobileMenu=document.getElementById('mobileMenu');
+ham.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
+document.querySelectorAll('.m-link').forEach(l=>l.addEventListener('click',()=>mobileMenu.classList.remove('open')));
+
+const scrollBtn=document.getElementById('scrolltop');
+window.addEventListener('scroll',()=>scrollBtn.classList.toggle('visible',window.scrollY>400));
+scrollBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+const form=document.getElementById('contactForm');
+const submitBtn=document.getElementById('submitBtn');
+const formBox=document.getElementById('formBox');
+const formSuccess=document.getElementById('formSuccess');
+
+if(form){
+  form.addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    submitBtn.disabled=true;
+    submitBtn.textContent='Enviando...';
+    try{
+      const data=new FormData(form);
+      const res=await fetch(form.action,{method:'POST',body:data,headers:{Accept:'application/json'}});
+      if(res.ok){
+        form.style.display='none';
+        formSuccess.style.display='block';
+      } else {
+        submitBtn.disabled=false;
+        submitBtn.textContent='Enviar solicitud';
+        alert('Hubo un error. Por favor inténtalo de nuevo.');
+      }
+    } catch(err){
+      submitBtn.disabled=false;
+      submitBtn.textContent='Enviar solicitud';
+      alert('Hubo un error. Por favor inténtalo de nuevo.');
+    }
+  });
+}
+</script>
+</body>
+</html>
