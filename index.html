@@ -18,7 +18,7 @@ body{background:var(--nordico);color:var(--texto);font-family:'Raleway',sans-ser
 .cursor-ring{position:fixed;width:36px;height:36px;border:1px solid var(--carbon);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.3s ease;opacity:0.4}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:2rem 4rem;transition:background 0.4s}
-nav.scrolled{background:rgba(245,243,239,0.95);backdrop-filter:blur(8px)}
+nav.scrolled{background:rgba(245,243,239,0.96);backdrop-filter:blur(8px)}
 .nav-logo{font-family:'Raleway',sans-serif;font-weight:200;font-size:0.72rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--nordico);text-decoration:none;transition:all 0.3s}
 nav.scrolled .nav-logo{color:var(--carbon)}
 .nav-logo:hover{opacity:0.6}
@@ -57,30 +57,24 @@ nav.scrolled .nav-links a{color:var(--carbon)}
 .porque-titulo{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.2rem;color:var(--texto);margin-bottom:1rem;line-height:1.25}
 .porque-desc{font-family:'Raleway',sans-serif;font-weight:300;font-size:0.78rem;line-height:2;color:var(--gris)}
 
+/* TRABAJO — tarjetas compactas */
 .trabajo{padding:8rem 4rem;max-width:1400px;margin:0 auto}
-.trabajo-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4rem}
+.trabajo-header{margin-bottom:4rem}
+.proyectos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem}
+.proyecto-card{text-decoration:none;display:block;group:true}
+.proyecto-thumb{aspect-ratio:3/4;overflow:hidden;background:var(--carbon);margin-bottom:1.5rem}
+.proyecto-thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(0.85);transition:transform 0.7s ease,filter 0.7s ease}
+.proyecto-card:hover .proyecto-thumb img{transform:scale(1.04);filter:saturate(1)}
+.proyecto-meta{padding:0 0.2rem}
+.proyecto-nombre{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.6rem;color:var(--texto);margin-bottom:0.4rem;line-height:1}
+.proyecto-tipo{font-family:'Raleway',sans-serif;font-weight:200;font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gris);margin-bottom:1rem}
+.proyecto-ver{font-family:'Raleway',sans-serif;font-weight:300;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--texto);display:inline-flex;align-items:center;gap:0.5rem;transition:gap 0.3s}
+.proyecto-ver::after{content:'→';transition:transform 0.3s}
+.proyecto-card:hover .proyecto-ver{gap:0.8rem}
 
-.caso-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px}
-.caso-img-hero{aspect-ratio:4/5;overflow:hidden;background:var(--carbon)}
-.caso-img-hero img{width:100%;height:100%;object-fit:cover;filter:saturate(0.88);transition:transform 0.8s ease,filter 0.8s ease}
-.caso-img-hero:hover img{transform:scale(1.03);filter:saturate(1)}
-.caso-img-sec{aspect-ratio:4/5;overflow:hidden;background:var(--carbon)}
-.caso-img-sec img{width:100%;height:100%;object-fit:cover;filter:saturate(0.88);transition:transform 0.8s ease,filter 0.8s ease}
-.caso-img-sec:hover img{transform:scale(1.03);filter:saturate(1)}
-.caso-info{background:var(--carbon);padding:2.5rem 0 2rem;display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;gap:3rem;flex-wrap:wrap}
-.caso-info-left{display:flex;flex-direction:column;gap:0.5rem}
-.caso-nombre{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2.2rem;letter-spacing:0.08em;color:var(--texto);line-height:1}
-.caso-subtitulo{font-family:'Raleway',sans-serif;font-weight:200;font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gris)}
-.caso-texto{font-family:'Raleway',sans-serif;font-weight:300;font-size:0.8rem;line-height:1.9;color:var(--gris);max-width:480px}
-.caso-tags{display:flex;flex-wrap:wrap;gap:0.4rem;align-items:center}
-.tag{font-family:'Raleway',sans-serif;font-weight:300;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gris);border:1px solid rgba(200,191,176,0.5);padding:0.35rem 0.8rem}
-
-.galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-.galeria-item{aspect-ratio:4/5;overflow:hidden;background:var(--carbon)}
-.galeria-item img{width:100%;height:100%;object-fit:cover;filter:saturate(0.88);transition:transform 0.8s ease,filter 0.8s ease}
-.galeria-item:hover img{transform:scale(1.04);filter:saturate(1)}
-.proximamente{padding:4rem 0 0;text-align:center}
-.proximamente p{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1.1rem;color:var(--gris)}
+/* Placeholder próximo proyecto */
+.proyecto-placeholder{border:1px solid var(--sand);opacity:0.4;display:flex;align-items:center;justify-content:center;aspect-ratio:3/4;margin-bottom:1.5rem}
+.proyecto-placeholder span{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1rem;color:var(--gris)}
 
 .manifiesto{background:var(--carbon);padding:10rem 4rem;text-align:center}
 .manifiesto-inner{max-width:700px;margin:0 auto}
@@ -139,8 +133,8 @@ footer{background:var(--carbon);border-top:1px solid rgba(200,191,176,0.15);padd
 .reveal{opacity:0;transform:translateY(35px);transition:opacity 0.9s ease,transform 0.9s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-@media(max-width:1024px){.porque-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:900px){
+@media(max-width:1024px){.porque-grid{grid-template-columns:repeat(2,1fr)}.proyectos-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){
   nav{padding:1.5rem 2rem}
   .nav-links{display:none}
   .hero-content{padding:0 2rem 3rem;flex-direction:column;align-items:flex-start;gap:2rem}
@@ -148,10 +142,7 @@ footer{background:var(--carbon);border-top:1px solid rgba(200,191,176,0.15);padd
   .porque{padding:5rem 2rem}
   .porque-grid{grid-template-columns:1fr;gap:2rem}
   .trabajo{padding:5rem 2rem}
-  .caso-grid{grid-template-columns:1fr}
-  .caso-img-sec{aspect-ratio:4/3}
-  .caso-info{flex-direction:column;gap:1.5rem}
-  .galeria{grid-template-columns:1fr 1fr}
+  .proyectos-grid{grid-template-columns:1fr}
   .manifiesto{padding:6rem 2rem}
   .precios{padding:5rem 2rem}
   .precios-grid{grid-template-columns:1fr}
@@ -241,41 +232,45 @@ footer{background:var(--carbon);border-top:1px solid rgba(200,191,176,0.15);padd
 
 <section class="trabajo" id="trabajo">
   <div class="trabajo-header reveal">
-    <div>
-      <p class="section-label">Proyectos</p>
-      <h2 class="section-title">Trabajo seleccionado</h2>
-    </div>
+    <p class="section-label">Proyectos</p>
+    <h2 class="section-title">Trabajo seleccionado</h2>
   </div>
 
-  <div class="caso-grid reveal">
-    <div class="caso-img-hero">
-      <img src="assets/arne-01.jpg" alt="ARNE — Campaña editorial Alentejo">
-    </div>
-    <div class="caso-img-sec">
-      <img src="assets/arne-02.jpg" alt="ARNE — Editorial Alentejo">
-    </div>
-  </div>
-  <div class="caso-info reveal">
-    <div class="caso-info-left">
-      <h3 class="caso-nombre">ARNE</h3>
-      <p class="caso-subtitulo">Identidad · Campaña editorial · Dirección de arte</p>
-    </div>
-    <p class="caso-texto">Marca de abrigos de lana de doble cara. Lisboa con alma nórdica. Desarrollamos la identidad completa y la campaña editorial producida en el Alentejo portugués. Una sola prenda. Un solo mundo.</p>
-    <div class="caso-tags">
-      <span class="tag">Quiet Luxury</span>
-      <span class="tag">Editorial</span>
-      <span class="tag">Identidad</span>
-      <span class="tag">Portugal</span>
-    </div>
-  </div>
+  <div class="proyectos-grid">
 
-  <div class="galeria reveal" style="margin-top:2px">
-    <div class="galeria-item"><img src="assets/arne-03.jpg" alt="ARNE — Plano íntimo"></div>
-    <div class="galeria-item"><img src="assets/arne-04.jpg" alt="ARNE — Detalle tejido"></div>
-    <div class="galeria-item"><img src="assets/arne-05.jpg" alt="ARNE — Editorial completa"></div>
-  </div>
+    <!-- ARNE -->
+    <a href="arne.html" class="proyecto-card reveal">
+      <div class="proyecto-thumb">
+        <img src="assets/arne-hero.jpg" alt="ARNE — Campaña editorial">
+      </div>
+      <div class="proyecto-meta">
+        <h3 class="proyecto-nombre">ARNE</h3>
+        <p class="proyecto-tipo">Identidad · Editorial · Dirección de arte</p>
+        <span class="proyecto-ver">Ver proyecto</span>
+      </div>
+    </a>
 
-  <div class="proximamente reveal"><p>Nuevos proyectos en producción</p></div>
+    <!-- Próximo proyecto 1 -->
+    <div class="reveal">
+      <div class="proyecto-placeholder">
+        <span>Próximamente</span>
+      </div>
+      <div class="proyecto-meta">
+        <h3 class="proyecto-nombre" style="color:var(--gris);font-size:1.2rem">En producción</h3>
+      </div>
+    </div>
+
+    <!-- Próximo proyecto 2 -->
+    <div class="reveal">
+      <div class="proyecto-placeholder">
+        <span>Próximamente</span>
+      </div>
+      <div class="proyecto-meta">
+        <h3 class="proyecto-nombre" style="color:var(--gris);font-size:1.2rem">En producción</h3>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <section class="manifiesto">
@@ -293,7 +288,6 @@ footer{background:var(--carbon);border-top:1px solid rgba(200,191,176,0.15);padd
       <h2 class="section-title">Elige tu proyecto</h2>
     </div>
     <div class="precios-grid">
-
       <div class="precio-card reveal">
         <div>
           <div class="precio-top"><p class="precio-pack">Pack 01</p></div>
@@ -311,7 +305,6 @@ footer{background:var(--carbon);border-top:1px solid rgba(200,191,176,0.15);padd
         </div>
         <a href="mailto:havanastudioco@outlook.es?subject=Pack%2001%20-%20Sesión%20Editorial" class="precio-btn">Solicitar este pack</a>
       </div>
-
       <div class="precio-card destacado reveal">
         <div>
           <div class="precio-top">
@@ -333,7 +326,6 @@ footer{background:var(--carbon);border-top:1px solid rgba(200,191,176,0.15);padd
         </div>
         <a href="mailto:havanastudioco@outlook.es?subject=Pack%2002%20-%20Campaña%20Completa" class="precio-btn">Solicitar este pack</a>
       </div>
-
       <div class="precio-card reveal">
         <div>
           <div class="precio-top"><p class="precio-pack">Pack 03</p></div>
@@ -352,7 +344,6 @@ footer{background:var(--carbon);border-top:1px solid rgba(200,191,176,0.15);padd
         </div>
         <a href="mailto:havanastudioco@outlook.es?subject=Pack%2003%20-%20Marca%20desde%20Cero" class="precio-btn">Solicitar este pack</a>
       </div>
-
     </div>
   </div>
 </section>
@@ -383,14 +374,12 @@ document.querySelectorAll('a,button').forEach(el=>{
   el.addEventListener('mouseenter',()=>{ring.style.transform='translate(-50%,-50%) scale(1.8)';ring.style.opacity='0.25';});
   el.addEventListener('mouseleave',()=>{ring.style.transform='translate(-50%,-50%) scale(1)';ring.style.opacity='0.4';});
 });
-
 const nav=document.getElementById('nav');
 const backTop=document.getElementById('backTop');
 window.addEventListener('scroll',()=>{
   if(window.scrollY>window.innerHeight*0.85){nav.classList.add('scrolled');backTop.classList.add('visible');}
   else{nav.classList.remove('scrolled');backTop.classList.remove('visible');}
 });
-
 const reveals=document.querySelectorAll('.reveal');
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
