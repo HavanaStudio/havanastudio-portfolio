@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Havana Studio — Dirección Creativa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --sand: #C8BFB0;
+    --lino: #E8E4DC;
+    --carbon: #1C1C1A;
+    --nordico: #F5F3EF;
+    --oliva: #6B6B4A;
+    --texto: #2C2C2A;
+    --gris-suave: #9A9590;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--nordico);
+    color: var(--texto);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    mix-blend-mode: normal;
+  }
+
+  .nav-logo {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--nordico);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-logo:hover {
+    opacity: 0.6;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--nordico);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    opacity: 1;
+  }
+
+  /* PRECIOS */
+  .precios {
+    padding: 8rem 4rem;
+    background: var(--carbon);
+  }
+
+  .precios-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .precios .section-header {
+    margin-bottom: 5rem;
+  }
+
+  .precios .section-label {
+    color: var(--sand);
+  }
+
+  .precios .section-title {
+    color: var(--nordico);
+  }
+
+  .precios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .precio-card {
+    background: #242422;
+    padding: 3.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 520px;
+    transition: background 0.3s ease;
+  }
+
+  .precio-card:hover {
+    background: #2a2a28;
+  }
+
+  .precio-card.destacado {
+    background: var(--lino);
+  }
+
+  .precio-card.destacado:hover {
+    background: #ece8e0;
+  }
+
+  .precio-card.destacado .precio-numero,
+  .precio-card.destacado .precio-nombre,
+  .precio-card.destacado .precio-descripcion {
+    color: var(--texto);
+  }
+
+  .precio-card.destacado .precio-label {
+    color: var(--gris-suave);
+  }
+
+  .precio-card.destacado .precio-lista li {
+    color: var(--texto);
+    border-bottom-color: var(--sand);
+  }
+
+  .precio-card.destacado .precio-btn {
+    background: var(--carbon);
+    color: var(--nordico);
+  }
+
+  .precio-card.destacado .precio-btn:hover {
+    background: var(--texto);
+  }
+
+  .precio-card.destacado .precio-tag {
+    background: var(--carbon);
+    color: var(--nordico);
+  }
+
+  .precio-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+
+  .precio-tag {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--sand);
+    color: var(--carbon);
+    padding: 0.4rem 0.8rem;
+  }
+
+  .precio-label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gris-suave);
+    margin-bottom: 1rem;
+  }
+
+  .precio-nombre {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 2rem;
+    color: var(--nordico);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .precio-numero {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 3.5rem;
+    color: var(--nordico);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .precio-entrega {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gris-suave);
+    margin-bottom: 2rem;
+  }
+
+  .precio-descripcion {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 0.82rem;
+    line-height: 1.9;
+    color: var(--gris-suave);
+    margin-bottom: 2rem;
+  }
+
+  .precio-lista {
+    list-style: none;
+    margin-bottom: 2.5rem;
+    flex-grow: 1;
+  }
+
+  .precio-lista li {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: var(--sand);
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(200, 191, 176, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .precio-lista li::before {
+    content: '—';
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  .precio-btn {
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--carbon);
+    background: var(--sand);
+    padding: 1.1rem 2rem;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.3s ease, color 0.3s ease;
+    margin-top: auto;
+  }
+
+  .precio-btn:hover {
+    background: var(--nordico);
+  }
+
+  @media (max-width: 900px) {
+    .precios {
+      padding: 5rem 2rem;
+    }
+    .precios-grid {
+      grid-template-columns: 1fr;
+    }
+    .precio-card {
+      min-height: auto;
+    }
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    background-color: var(--carbon);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(28, 28, 26, 0.2) 0%,
+      rgba(28, 28, 26, 0.1) 40%,
+      rgba(28, 28, 26, 0.6) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: saturate(0.85);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 4rem 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    color: var(--nordico);
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1.2s ease forwards 0.5s;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .hero-scroll {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--nordico);
+    opacity: 0;
+    animation: fadeUp 1.2s ease forwards 1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-scroll::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: var(--nordico);
+    opacity: 0.6;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* SECCIÓN INTRO */
+  .intro {
+    padding: 8rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .intro-label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gris-suave);
+    margin-bottom: 2rem;
+  }
+
+  .intro-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    line-height: 1.35;
+    color: var(--texto);
+  }
+
+  .intro-text em {
+    font-style: italic;
+  }
+
+  .intro-desc {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    line-height: 2;
+    color: var(--gris-suave);
+    padding-top: 2rem;
+    border-top: 1px solid var(--sand);
+  }
+
+  .intro-desc p + p {
+    margin-top: 1.5rem;
+  }
+
+  /* LÍNEA DIVISORIA */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--sand);
+    opacity: 0.4;
+  }
+
+  /* SECCIÓN TRABAJO */
+  .trabajo {
+    padding: 8rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5rem;
+  }
+
+  .section-label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gris-suave);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    color: var(--texto);
+  }
+
+  /* CASO ARNE */
+  .caso {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 8rem;
+  }
+
+  .caso-imagen-principal {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: var(--carbon);
+  }
+
+  .caso-imagen-principal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.9);
+    transition: transform 0.8s ease, filter 0.8s ease;
+  }
+
+  .caso-imagen-principal:hover img {
+    transform: scale(1.03);
+    filter: saturate(1);
+  }
+
+  .caso-lado-derecho {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .caso-imagen-secundaria {
+    overflow: hidden;
+    background: var(--carbon);
+  }
+
+  .caso-imagen-secundaria img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.9);
+    transition: transform 0.8s ease, filter 0.8s ease;
+  }
+
+  .caso-imagen-secundaria:hover img {
+    transform: scale(1.03);
+    filter: saturate(1);
+  }
+
+  .caso-info {
+    padding: 3rem;
+    background: var(--lino);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .caso-nombre {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 3rem;
+    letter-spacing: 0.1em;
+    color: var(--texto);
+    line-height: 1;
+  }
+
+  .caso-tipo {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gris-suave);
+    margin-top: 0.5rem;
+  }
+
+  .caso-descripcion {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 0.85rem;
+    line-height: 1.9;
+    color: var(--gris-suave);
+  }
+
+  .caso-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .tag {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gris-suave);
+    border: 1px solid var(--sand);
+    padding: 0.4rem 1rem;
+  }
+
+  /* GALERÍA EXTRA */
+  .galeria {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    margin-top: 2px;
+  }
+
+  .galeria-item {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: var(--carbon);
+  }
+
+  .galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.9);
+    transition: transform 0.8s ease, filter 0.8s ease;
+  }
+
+  .galeria-item:hover img {
+    transform: scale(1.04);
+    filter: saturate(1);
+  }
+
+  /* PRÓXIMAMENTE */
+  .proximamente {
+    padding: 5rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .proximamente-texto {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--gris-suave);
+    letter-spacing: 0.05em;
+  }
+
+  /* SECCIÓN MANIFIESTO */
+  .manifiesto {
+    background: var(--carbon);
+    padding: 10rem 4rem;
+    text-align: center;
+  }
+
+  .manifiesto-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .manifiesto-label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--sand);
+    margin-bottom: 3rem;
+  }
+
+  .manifiesto-texto {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    line-height: 1.4;
+    color: var(--nordico);
+  }
+
+  .manifiesto-texto em {
+    font-style: italic;
+    color: var(--sand);
+  }
+
+  .manifiesto-firma {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gris-suave);
+    margin-top: 4rem;
+  }
+
+  /* SECCIÓN SERVICIOS */
+  .servicios {
+    padding: 8rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    margin-top: 5rem;
+  }
+
+  .servicio-item {
+    border-top: 1px solid var(--sand);
+    padding-top: 2.5rem;
+  }
+
+  .servicio-numero {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: var(--sand);
+    margin-bottom: 1.5rem;
+  }
+
+  .servicio-nombre {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--texto);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .servicio-desc {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 0.82rem;
+    line-height: 2;
+    color: var(--gris-suave);
+  }
+
+  /* CONTACTO */
+  .contacto {
+    padding: 8rem 4rem;
+    background: var(--lino);
+    text-align: center;
+  }
+
+  .contacto-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contacto-label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gris-suave);
+    margin-bottom: 2rem;
+  }
+
+  .contacto-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    color: var(--texto);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+
+  .contacto-titulo em {
+    font-style: italic;
+  }
+
+  .contacto-subtexto {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 0.85rem;
+    line-height: 2;
+    color: var(--gris-suave);
+    margin-bottom: 3rem;
+  }
+
+  .contacto-btn {
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--nordico);
+    background: var(--carbon);
+    padding: 1.2rem 3rem;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .contacto-btn:hover {
+    background: var(--texto);
+  }
+
+  .contacto-email {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--gris-suave);
+    margin-top: 2rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .contacto-email:hover {
+    color: var(--texto);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--carbon);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--nordico);
+    opacity: 0.6;
+  }
+
+  .footer-copy {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--gris-suave);
+  }
+
+  /* CURSOR PERSONALIZADO */
+  body {
+    cursor: none;
+  }
+
+  .cursor {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--carbon);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    mix-blend-mode: multiply;
+  }
+
+  .cursor-ring {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--carbon);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    opacity: 0.5;
+  }
+
+  .hero .cursor,
+  .manifiesto .cursor {
+    background: var(--nordico);
+  }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav {
+      padding: 1.5rem 2rem;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .hero-content {
+      padding: 0 2rem 3rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .intro {
+      grid-template-columns: 1fr;
+      padding: 5rem 2rem;
+    }
+
+    .trabajo {
+      padding: 5rem 2rem;
+    }
+
+    .caso {
+      grid-template-columns: 1fr;
+    }
+
+    .caso-lado-derecho {
+      grid-template-rows: auto auto;
+    }
+
+    .caso-imagen-secundaria {
+      aspect-ratio: 3/2;
+    }
+
+    .galeria {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .servicios {
+      padding: 5rem 2rem;
+    }
+
+    .servicios-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .contacto {
+      padding: 5rem 2rem;
+    }
+
+    footer {
+      padding: 2rem;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Cursor personalizado -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Havana Studio</a>
+  <ul class="nav-links">
+    <li><a href="#trabajo">Trabajo</a></li>
+    <li><a href="#precios">Precios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <!-- Reemplaza el src con tu imagen hero de ARNE -->
+  <img 
+    class="hero-image" 
+    src="assets/arne-hero.jpg" 
+    alt="ARNE — Campaña editorial Alentejo"
+  >
+  <div class="hero-content">
+    <h1 class="hero-headline">
+      Dirección creativa para marcas que <em>no necesitan explicarse</em>
+    </h1>
+    <div class="hero-scroll">Scroll</div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro" id="intro">
+  <div class="reveal">
+    <p class="intro-label">Sobre Havana Studio</p>
+    <h2 class="intro-text">
+      No generamos imágenes.<br>
+      Construimos <em>mundos de marca</em>.
+    </h2>
+  </div>
+  <div class="reveal">
+    <div class="intro-desc">
+      <p>
+        Havana Studio es una agencia de dirección creativa especializada en marcas de moda y lujo que necesitan presencia visual de campaña — sin los costes de una producción tradicional.
+      </p>
+      <p>
+        Cada proyecto empieza desde el concepto. Trabajamos el ADN de la marca, su mundo visual, su cliente, su tono. Las imágenes son la consecuencia de ese trabajo, no el punto de partida.
+      </p>
+      <p>
+        El resultado: contenido editorial que se percibe como producción real, porque nace de la misma forma que una producción real.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TRABAJO -->
+<section class="trabajo" id="trabajo">
+  <div class="section-header reveal">
+    <p class="section-label">Proyectos</p>
+    <h2 class="section-title">Trabajo seleccionado</h2>
+  </div>
+
+  <!-- CASO ARNE -->
+  <div class="caso reveal">
+    <div class="caso-imagen-principal">
+      <!-- Imagen hero de ARNE — ángulo bajo, cielo, olivos -->
+      <img src="assets/arne-01.jpg" alt="ARNE — Campaña editorial">
+    </div>
+    <div class="caso-lado-derecho">
+      <div class="caso-imagen-secundaria">
+        <!-- Plano entero con piscina -->
+        <img src="assets/arne-02.jpg" alt="ARNE — Editorial Alentejo">
+      </div>
+      <div class="caso-info">
+        <div>
+          <h3 class="caso-nombre">ARNE</h3>
+          <p class="caso-tipo">Identidad de marca · Campaña editorial · Dirección de arte</p>
+        </div>
+        <div>
+          <p class="caso-descripcion">
+            Marca de abrigos de lana de doble cara nacida en Lisboa con alma nórdica. 
+            Desarrollamos la identidad completa — desde el concepto hasta la campaña editorial 
+            producida en el Alentejo portugués. Una sola prenda. Un solo mundo.
+          </p>
+          <div class="caso-tags">
+            <span class="tag">Quiet Luxury</span>
+            <span class="tag">Editorial</span>
+            <span class="tag">Identidad de Marca</span>
+            <span class="tag">Lisboa · Alentejo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALERÍA ARNE -->
+  <div class="galeria reveal">
+    <div class="galeria-item">
+      <!-- Plano íntimo -->
+      <img src="assets/arne-03.jpg" alt="ARNE — Detalle editorial">
+    </div>
+    <div class="galeria-item">
+      <!-- Plano detalle solapa -->
+      <img src="assets/arne-04.jpg" alt="ARNE — Detalle tejido">
+    </div>
+    <div class="galeria-item">
+      <!-- Tercera imagen que elijas -->
+      <img src="assets/arne-05.jpg" alt="ARNE — Editorial completa">
+    </div>
+  </div>
+
+  <!-- PRÓXIMAMENTE -->
+  <div class="proximamente reveal">
+    <p class="proximamente-texto">Nuevos proyectos en producción</p>
+  </div>
+
+</section>
+
+<div class="divider"></div>
+
+<!-- MANIFIESTO -->
+<section class="manifiesto">
+  <div class="manifiesto-inner reveal">
+    <p class="manifiesto-label">Filosofía</p>
+    <p class="manifiesto-texto">
+      El lujo no grita.<br>
+      <em>Se hace sentir.</em><br>
+      Las marcas que lo entienden<br>
+      no necesitan más volumen —<br>
+      necesitan más criterio.
+    </p>
+    <p class="manifiesto-firma">— Havana Studio</p>
+  </div>
+</section>
+
+<!-- PRECIOS -->
+<section class="precios" id="precios">
+  <div class="precios-inner">
+    <div class="section-header reveal">
+      <p class="section-label">Inversión</p>
+      <h2 class="section-title" style="color: var(--nordico);">Lo que incluye cada proyecto</h2>
+    </div>
+
+    <div class="precios-grid">
+
+      <!-- PACK 01 -->
+      <div class="precio-card reveal">
+        <div>
+          <div class="precio-top">
+            <p class="precio-label">Pack 01</p>
+          </div>
+          <h3 class="precio-nombre">Sesión Editorial</h3>
+          <p class="precio-numero">$450</p>
+          <p class="precio-entrega">Entrega en 5 días</p>
+          <p class="precio-descripcion">
+            Para marcas que ya tienen su identidad y necesitan contenido visual de campaña listo para publicar.
+          </p>
+          <ul class="precio-lista">
+            <li>5 imágenes de campaña en alta resolución</li>
+            <li>2 reels cinemáticos de 15 segundos</li>
+            <li>Estudio previo de tu marca y referencias</li>
+            <li>Selección y edición final incluida</li>
+            <li>1 ronda de revisión</li>
+          </ul>
+        </div>
+        <a href="mailto:havanastudioco@outlook.es?subject=Pack%2001%20-%20Sesión%20Editorial" class="precio-btn">
+          Solicitar este pack
+        </a>
+      </div>
+
+      <!-- PACK 02 -->
+      <div class="precio-card destacado reveal">
+        <div>
+          <div class="precio-top">
+            <p class="precio-label">Pack 02</p>
+            <span class="precio-tag">Más completo</span>
+          </div>
+          <h3 class="precio-nombre">Campaña Completa</h3>
+          <p class="precio-numero">$900</p>
+          <p class="precio-entrega">Entrega en 7 días</p>
+          <p class="precio-descripcion">
+            Producción completa de campaña. Más imágenes, más vídeo, más profundidad visual para marcas que quieren presencia editorial real.
+          </p>
+          <ul class="precio-lista">
+            <li>10 imágenes de campaña en alta resolución</li>
+            <li>2 reels cinemáticos de 30 segundos</li>
+            <li>Estudio previo de tu marca y referencias</li>
+            <li>Dirección de arte y concepto de campaña</li>
+            <li>Selección y edición final incluida</li>
+            <li>2 rondas de revisión</li>
+          </ul>
+        </div>
+        <a href="mailto:havanastudioco@outlook.es?subject=Pack%2002%20-%20Campaña%20Completa" class="precio-btn">
+          Solicitar este pack
+        </a>
+      </div>
+
+      <!-- PACK 03 -->
+      <div class="precio-card reveal">
+        <div>
+          <div class="precio-top">
+            <p class="precio-label">Pack 03</p>
+          </div>
+          <h3 class="precio-nombre">Marca desde Cero</h3>
+          <p class="precio-numero">$1.500</p>
+          <p class="precio-entrega">Entrega en 14 días</p>
+          <p class="precio-descripcion">
+            Para marcas emergentes que necesitan construir su mundo visual completo antes de producir. Empezamos desde el concepto.
+          </p>
+          <ul class="precio-lista">
+            <li>Identidad visual completa de la marca</li>
+            <li>ADN, paleta, tono y pilares de contenido</li>
+            <li>10 imágenes de campaña en alta resolución</li>
+            <li>2 reels cinemáticos de 30 segundos</li>
+            <li>Dirección de arte integral</li>
+            <li>2 rondas de revisión</li>
+          </ul>
+        </div>
+        <a href="mailto:havanastudioco@outlook.es?subject=Pack%2003%20-%20Marca%20desde%20Cero" class="precio-btn">
+          Solicitar este pack
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto" id="contacto">
+  <div class="contacto-inner reveal">
+    <p class="contacto-label">Trabajemos juntos</p>
+    <h2 class="contacto-titulo">
+      ¿Tu marca merece<br>
+      <em>imágenes a su altura?</em>
+    </h2>
+    <p class="contacto-subtexto">
+      Cuéntanos tu marca. Si creemos que podemos construir algo 
+      genuino juntos, lo hacemos.
+    </p>
+    <a href="mailto:havanastudioco@outlook.es" class="contacto-btn">
+      Escribirnos
+    </a>
+    <a href="mailto:havanastudioco@outlook.es" class="contacto-email">
+      havanastudioco@outlook.es
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Havana Studio</span>
+  <span class="footer-copy">© 2026 Havana Studio. Dirección Creativa.</span>
+</footer>
+
+<script>
+  // Cursor personalizado
+  const cursor = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursorRing');
+
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    setTimeout(() => {
+      cursorRing.style.left = e.clientX + 'px';
+      cursorRing.style.top = e.clientY + 'px';
+    }, 80);
+  });
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursorRing.style.transform = 'translate(-50%, -50%) scale(1.8)';
+      cursorRing.style.opacity = '0.3';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursorRing.style.transform = 'translate(-50%, -50%) scale(1)';
+      cursorRing.style.opacity = '0.5';
+    });
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav color change on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > window.innerHeight * 0.8) {
+      nav.querySelectorAll('a').forEach(a => {
+        a.style.color = 'var(--carbon)';
+      });
+    } else {
+      nav.querySelectorAll('a').forEach(a => {
+        a.style.color = 'var(--nordico)';
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
