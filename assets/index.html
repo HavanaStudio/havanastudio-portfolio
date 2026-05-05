@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Havana Studio — Dirección Creativa de Moda</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231C1C1A'/><text y='72' x='50' text-anchor='middle' font-size='52' font-family='Georgia,serif' fill='%23C8BFB0'>HS</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--sand:#C8BFB0;--lino:#E8E4DC;--carbon:#1C1C1A;--nordico:#F5F3EF;--texto:#2C2C2A;--gris:#9A9590}
+html{scroll-behavior:smooth}
+body{background:var(--nordico);color:var(--texto);font-family:'Raleway',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+
+.cursor{position:fixed;width:8px;height:8px;background:var(--carbon);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1px solid var(--carbon);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.3s ease;opacity:0.4}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:2rem 4rem;transition:background 0.4s}
+nav.scrolled{background:rgba(245,243,239,0.96);backdrop-filter:blur(8px)}
+.nav-logo{font-family:'Raleway',sans-serif;font-weight:200;font-size:0.72rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--nordico);text-decoration:none;transition:all 0.3s}
+nav.scrolled .nav-logo{color:var(--carbon)}
+.nav-logo:hover{opacity:0.6}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-family:'Raleway',sans-serif;font-weight:300;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--nordico);text-decoration:none;opacity:0.75;transition:all 0.3s}
+nav.scrolled .nav-links a{color:var(--carbon)}
+.nav-links a:hover{opacity:1}
+
+.hero{position:relative;height:100vh;overflow:hidden;display:flex;align-items:flex-end;background:var(--carbon)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,28,26,0.1) 0%,rgba(28,28,26,0.05) 40%,rgba(28,28,26,0.7) 100%);z-index:1}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:saturate(0.88)}
+.hero-content{position:relative;z-index:2;padding:0 4rem 5rem;width:100%;display:flex;justify-content:space-between;align-items:flex-end}
+.hero-headline{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.2rem,4.5vw,4rem);line-height:1.15;color:var(--nordico);max-width:560px;opacity:0;transform:translateY(30px);animation:fadeUp 1.2s ease forwards 0.5s}
+.hero-headline em{font-style:italic}
+.hero-scroll{font-family:'Raleway',sans-serif;font-weight:200;font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--nordico);opacity:0;animation:fadeUp 1.2s ease forwards 1s;display:flex;flex-direction:column;align-items:center;gap:1rem}
+.hero-scroll::after{content:'';display:block;width:1px;height:55px;background:var(--nordico);opacity:0.55}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+.section-label{font-family:'Raleway',sans-serif;font-weight:200;font-size:0.62rem;letter-spacing:0.38em;text-transform:uppercase;color:var(--gris);margin-bottom:1rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.6rem,2.5vw,2.4rem);color:var(--texto);line-height:1.2}
+.divider{width:100%;height:1px;background:var(--sand);opacity:0.35}
+
+.intro{padding:8rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1400px;margin:0 auto}
+.intro-headline{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.8rem,3vw,2.8rem);line-height:1.3;color:var(--texto)}
+.intro-headline em{font-style:italic}
+.intro-body{border-top:1px solid var(--sand);padding-top:2rem}
+.intro-body p{font-family:'Raleway',sans-serif;font-weight:300;font-size:0.88rem;line-height:2.1;color:var(--gris)}
+.intro-body p+p{margin-top:1.5rem}
+
+.porque{background:var(--lino);padding:8rem 4rem}
+.porque-inner{max-width:1400px;margin:0 auto}
+.porque-header{margin-bottom:5rem}
+.porque-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3rem}
+.porque-item{border-top:1px solid var(--sand);padding-top:2rem}
+.porque-numero{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2rem;color:var(--sand);line-height:1;margin-bottom:1.5rem}
+.porque-titulo{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.2rem;color:var(--texto);margin-bottom:1rem;line-height:1.25}
+.porque-desc{font-family:'Raleway',sans-serif;font-weight:300;font-size:0.78rem;line-height:2;color:var(--gris)}
+
+/* TRABAJO — tarjetas compactas */
+.trabajo{padding:8rem 4rem;max-width:1400px;margin:0 auto}
+.trabajo-header{margin-bottom:4rem}
+.proyectos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem}
+.proyecto-card{text-decoration:none;display:block;group:true}
+.proyecto-thumb{aspect-ratio:3/4;overflow:hidden;background:var(--carbon);margin-bottom:1.5rem}
+.proyecto-thumb.horizontal{aspect-ratio:16/9}
+.proyecto-thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(0.85);transition:transform 0.7s ease,filter 0.7s ease}
+.proyecto-card:hover .proyecto-thumb img{transform:scale(1.04);filter:saturate(1)}
+.proyecto-meta{padding:0 0.2rem}
+.proyecto-nombre{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.6rem;color:var(--texto);margin-bottom:0.4rem;line-height:1}
+.proyecto-tipo{font-family:'Raleway',sans-serif;font-weight:200;font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gris);margin-bottom:1rem}
+.proyecto-ver{font-family:'Raleway',sans-serif;font-weight:300;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--texto);display:inline-flex;align-items:center;gap:0.5rem;transition:gap 0.3s}
+.proyecto-ver::after{content:'→';transition:transform 0.3s}
+.proyecto-card:hover .proyecto-ver{gap:0.8rem}
+
+/* Placeholder próximo proyecto */
+.proyecto-placeholder{border:1px solid var(--sand);opacity:0.4;display:flex;align-items:center;justify-content:center;aspect-ratio:3/4;margin-bottom:1.5rem}
+.proyecto-placeholder span{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1rem;color:var(--gris)}
+
+.manifiesto{background:var(--carbon);padding:10rem 4rem;text-align:center}
+.manifiesto-inner{max-width:700px;margin:0 auto}
+.manifiesto .section-label{color:var(--sand);margin-bottom:3rem}
+.manifiesto-texto{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.8rem,3vw,3rem);line-height:1.45;color:var(--nordico)}
+.manifiesto-texto em{font-style:italic;color:var(--sand)}
+.manifiesto-firma{font-family:'Raleway',sans-serif;font-weight:200;font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gris);margin-top:3.5rem}
+
+.precios{padding:8rem 4rem;background:var(--nordico)}
+.precios-inner{max-width:1400px;margin:0 auto}
+.precios-header{margin-bottom:5rem}
+.precios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.precio-card{background:var(--lino);padding:3.5rem 2.8rem;display:flex;flex-direction:column;min-height:600px;transition:background 0.3s}
+.precio-card:hover{background:#e0dbd2}
+.precio-card.destacado{background:var(--carbon)}
+.precio-card.destacado:hover{background:#242422}
+.precio-card.destacado .precio-pack,.precio-card.destacado .precio-nombre,.precio-card.destacado .precio-numero,.precio-card.destacado .precio-entrega{color:var(--nordico)}
+.precio-card.destacado .precio-desc{color:var(--gris)}
+.precio-card.destacado .precio-item{color:var(--sand);border-bottom-color:rgba(200,191,176,0.2)}
+.precio-card.destacado .precio-btn{background:var(--sand);color:var(--carbon)}
+.precio-card.destacado .precio-btn:hover{background:var(--nordico)}
+.precio-card.destacado .precio-badge{background:var(--sand);color:var(--carbon)}
+.precio-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2rem}
+.precio-pack{font-family:'Raleway',sans-serif;font-weight:200;font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gris)}
+.precio-badge{font-family:'Raleway',sans-serif;font-weight:300;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;background:var(--carbon);color:var(--nordico);padding:0.35rem 0.8rem}
+.precio-nombre{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.8rem;color:var(--texto);line-height:1.1;margin-bottom:0.5rem}
+.precio-numero{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:3.5rem;color:var(--texto);line-height:1}
+.precio-entrega{font-family:'Raleway',sans-serif;font-weight:200;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gris);margin-bottom:1.8rem;margin-top:0.3rem}
+.precio-desc{font-family:'Raleway',sans-serif;font-weight:300;font-size:0.8rem;line-height:1.9;color:var(--gris);margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--sand);opacity:0.8}
+.precio-lista{list-style:none;flex-grow:1;margin-bottom:2.5rem}
+.precio-item{font-family:'Raleway',sans-serif;font-weight:300;font-size:0.78rem;color:var(--texto);padding:0.75rem 0;border-bottom:1px solid rgba(200,191,176,0.35);display:flex;align-items:center;gap:0.8rem}
+.precio-item::before{content:'—';color:var(--sand);flex-shrink:0;font-size:0.7rem}
+.precio-btn{display:block;font-family:'Raleway',sans-serif;font-weight:300;font-size:0.65rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--nordico);background:var(--carbon);padding:1.1rem 2rem;text-decoration:none;text-align:center;transition:background 0.3s,color 0.3s;margin-top:auto}
+.precio-btn:hover{background:var(--texto)}
+
+.contacto{padding:8rem 4rem;background:var(--carbon);text-align:center}
+.contacto-inner{max-width:580px;margin:0 auto}
+.contacto .section-label{color:var(--sand);margin-bottom:2rem}
+.contacto-titulo{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,4vw,3.2rem);color:var(--nordico);line-height:1.2;margin-bottom:2rem}
+.contacto-titulo em{font-style:italic}
+.contacto-subtexto{font-family:'Raleway',sans-serif;font-weight:300;font-size:0.84rem;line-height:2;color:var(--gris);margin-bottom:3rem}
+.contacto-btn{display:inline-block;font-family:'Raleway',sans-serif;font-weight:300;font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--carbon);background:var(--sand);padding:1.2rem 3rem;text-decoration:none;transition:background 0.3s}
+.contacto-btn:hover{background:var(--nordico)}
+.contacto-email{display:block;font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1rem;color:var(--gris);margin-top:2rem;text-decoration:none;transition:color 0.3s}
+.contacto-email:hover{color:var(--sand)}
+
+footer{background:var(--carbon);border-top:1px solid rgba(200,191,176,0.15);padding:2.5rem 4rem;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:'Raleway',sans-serif;font-weight:200;font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--nordico);opacity:0.5}
+.footer-copy{font-family:'Raleway',sans-serif;font-weight:200;font-size:0.62rem;letter-spacing:0.08em;color:var(--gris)}
+
+.back-top{position:fixed;bottom:2.5rem;right:2.5rem;width:44px;height:44px;background:var(--carbon);border:1px solid rgba(200,191,176,0.3);display:flex;align-items:center;justify-content:center;cursor:none;z-index:90;opacity:0;transform:translateY(10px);transition:opacity 0.4s,transform 0.4s,background 0.3s;text-decoration:none}
+.back-top.visible{opacity:1;transform:translateY(0)}
+.back-top:hover{background:var(--texto)}
+.back-top svg{width:14px;stroke:var(--sand);fill:none;stroke-width:1.5}
+
+.reveal{opacity:0;transform:translateY(35px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:1024px){.porque-grid{grid-template-columns:repeat(2,1fr)}.proyectos-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){
+  nav{padding:1.5rem 2rem}
+  .nav-links{display:none}
+  .hero-content{padding:0 2rem 3rem;flex-direction:column;align-items:flex-start;gap:2rem}
+  .intro{grid-template-columns:1fr;padding:5rem 2rem;gap:2rem}
+  .porque{padding:5rem 2rem}
+  .porque-grid{grid-template-columns:1fr;gap:2rem}
+  .trabajo{padding:5rem 2rem}
+  .proyectos-grid{grid-template-columns:1fr}
+  .manifiesto{padding:6rem 2rem}
+  .precios{padding:5rem 2rem}
+  .precios-grid{grid-template-columns:1fr}
+  .precio-card{min-height:auto}
+  .contacto{padding:5rem 2rem}
+  footer{padding:2rem;flex-direction:column;gap:1rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="ring"></div>
+
+<a href="#inicio" class="back-top" id="backTop" aria-label="Volver arriba">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</a>
+
+<nav id="nav">
+  <a href="#inicio" class="nav-logo">Havana Studio</a>
+  <ul class="nav-links">
+    <li><a href="#trabajo">Proyectos</a></li>
+    <li><a href="#porque">Por qué Havana Studio</a></li>
+    <li><a href="#precios">Precios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="inicio">
+  <div class="hero-overlay"></div>
+  <img class="hero-img" src="assets/arne-hero.jpg" alt="ARNE — Campaña editorial Alentejo">
+  <div class="hero-content">
+    <h1 class="hero-headline">Dirección creativa para marcas que <em>no necesitan explicarse</em></h1>
+    <div class="hero-scroll">Scroll</div>
+  </div>
+</section>
+
+<div style="max-width:1400px;margin:0 auto">
+  <div class="intro">
+    <div class="reveal">
+      <p class="section-label">Sobre Havana Studio</p>
+      <h2 class="intro-headline">No generamos imágenes.<br>Construimos <em>mundos de marca</em>.</h2>
+    </div>
+    <div class="reveal">
+      <div class="intro-body">
+        <p>Havana Studio es una agencia de dirección creativa especializada en marcas de moda y lujo. Producimos contenido visual de nivel de campaña usando inteligencia artificial como herramienta de producción — sin fotógrafos, sin estudios, sin semanas de espera.</p>
+        <p>Cada proyecto empieza desde el concepto. Estudiamos tu marca, tu cliente, tu mundo estético. Las imágenes son la consecuencia de ese trabajo, no el punto de partida.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<section class="porque" id="porque">
+  <div class="porque-inner">
+    <div class="porque-header reveal">
+      <p class="section-label">El diferenciador</p>
+      <h2 class="section-title">Por qué Havana Studio</h2>
+    </div>
+    <div class="porque-grid">
+      <div class="porque-item reveal">
+        <p class="porque-numero">01</p>
+        <h3 class="porque-titulo">Calidad de campaña sin el coste de campaña</h3>
+        <p class="porque-desc">Una producción tradicional cuesta entre 800€ y 3.000€ por colección. Usamos inteligencia artificial como herramienta de producción profesional para ofrecer el mismo nivel visual a una fracción de ese coste.</p>
+      </div>
+      <div class="porque-item reveal">
+        <p class="porque-numero">02</p>
+        <h3 class="porque-titulo">Dirección creativa real, no prompts al azar</h3>
+        <p class="porque-desc">Antes de generar una sola imagen estudiamos tu marca: ADN, cliente, referencias, mundo estético. Cada decisión tiene un razonamiento detrás. Eso es lo que diferencia una imagen de campaña de una imagen genérica de IA.</p>
+      </div>
+      <div class="porque-item reveal">
+        <p class="porque-numero">03</p>
+        <h3 class="porque-titulo">Entrega en días, no en semanas</h3>
+        <p class="porque-desc">Sin coordinación de equipos, sin esperas de agenda, sin imprevistos de producción. Desde que nos envías la información de tu marca hasta que recibes todo listo para publicar: 5 a 14 días según el paquete.</p>
+      </div>
+      <div class="porque-item reveal">
+        <p class="porque-numero">04</p>
+        <h3 class="porque-titulo">Contenido que pertenece a tu mundo</h3>
+        <p class="porque-desc">No producimos contenido genérico de moda. Producimos imágenes específicas al universo de tu marca — que cuando alguien las ve, las reconoce como tuyas antes de leer el nombre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="trabajo" id="trabajo">
+  <div class="trabajo-header reveal">
+    <p class="section-label">Proyectos</p>
+    <h2 class="section-title">Proyectos</h2>
+  </div>
+
+  <div class="proyectos-grid">
+
+    <!-- ARNE -->
+    <a href="arne.html" class="proyecto-card reveal">
+      <div class="proyecto-thumb">
+        <img src="assets/arne-hero.jpg" alt="ARNE — Campaña editorial">
+      </div>
+      <div class="proyecto-meta">
+        <h3 class="proyecto-nombre">ARNE</h3>
+        <p class="proyecto-tipo">Identidad · Editorial · Dirección de arte</p>
+        <span class="proyecto-ver">Ver proyecto</span>
+      </div>
+    </a>
+
+    <!-- SELEN ITALY -->
+    <a href="selen.html" class="proyecto-card reveal">
+      <div class="proyecto-thumb horizontal">
+        <img src="assets/vespa-hero.jpg" alt="Selen Italy — Campaña editorial">
+      </div>
+      <div class="proyecto-meta">
+        <h3 class="proyecto-nombre">Selen Italy</h3>
+        <p class="proyecto-tipo">Campaña editorial · Dirección de arte · Vídeo</p>
+        <span class="proyecto-ver">Ver proyecto</span>
+      </div>
+    </a>
+
+    <!-- Próximo proyecto 2 -->
+    <div class="reveal">
+      <div class="proyecto-placeholder">
+        <span>Próximamente</span>
+      </div>
+      <div class="proyecto-meta">
+        <h3 class="proyecto-nombre" style="color:var(--gris);font-size:1.2rem">En producción</h3>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="manifiesto">
+  <div class="manifiesto-inner reveal">
+    <p class="section-label">Filosofía</p>
+    <p class="manifiesto-texto">El lujo no grita.<br><em>Se hace sentir.</em><br>Las marcas que lo entienden<br>no necesitan más volumen —<br>necesitan más criterio.</p>
+    <p class="manifiesto-firma">— Havana Studio</p>
+  </div>
+</section>
+
+<section class="precios" id="precios">
+  <div class="precios-inner">
+    <div class="precios-header reveal">
+      <p class="section-label">Inversión</p>
+      <h2 class="section-title">Elige tu proyecto</h2>
+    </div>
+    <div class="precios-grid">
+      <div class="precio-card reveal">
+        <div>
+          <div class="precio-top"><p class="precio-pack">Pack 01</p></div>
+          <h3 class="precio-nombre">Sesión Editorial</h3>
+          <p class="precio-numero">$450</p>
+          <p class="precio-entrega">Entrega en 5 días</p>
+          <p class="precio-desc">Para marcas que ya tienen su identidad y necesitan contenido visual de campaña listo para publicar.</p>
+          <ul class="precio-lista">
+            <li class="precio-item">5 imágenes de campaña en alta resolución</li>
+            <li class="precio-item">2 reels cinemáticos de 15 segundos</li>
+            <li class="precio-item">Estudio previo de tu marca y referencias</li>
+            <li class="precio-item">Selección y postproducción incluida</li>
+            <li class="precio-item">1 ronda de revisión</li>
+          </ul>
+        </div>
+        <a href="mailto:havanastudioco@outlook.es?subject=Pack%2001%20-%20Sesión%20Editorial" class="precio-btn">Solicitar este pack</a>
+      </div>
+      <div class="precio-card destacado reveal">
+        <div>
+          <div class="precio-top">
+            <p class="precio-pack">Pack 02</p>
+            <span class="precio-badge">Más completo</span>
+          </div>
+          <h3 class="precio-nombre">Campaña Completa</h3>
+          <p class="precio-numero">$900</p>
+          <p class="precio-entrega">Entrega en 7 días</p>
+          <p class="precio-desc">Producción completa de campaña para marcas que quieren presencia editorial real en todas sus plataformas.</p>
+          <ul class="precio-lista">
+            <li class="precio-item">10 imágenes de campaña en alta resolución</li>
+            <li class="precio-item">2 reels cinemáticos de 30 segundos</li>
+            <li class="precio-item">Estudio previo de tu marca y referencias</li>
+            <li class="precio-item">Dirección de arte y concepto de campaña</li>
+            <li class="precio-item">Selección y postproducción incluida</li>
+            <li class="precio-item">2 rondas de revisión</li>
+          </ul>
+        </div>
+        <a href="mailto:havanastudioco@outlook.es?subject=Pack%2002%20-%20Campaña%20Completa" class="precio-btn">Solicitar este pack</a>
+      </div>
+      <div class="precio-card reveal">
+        <div>
+          <div class="precio-top"><p class="precio-pack">Pack 03</p></div>
+          <h3 class="precio-nombre">Marca desde Cero</h3>
+          <p class="precio-numero">$1.500</p>
+          <p class="precio-entrega">Entrega en 14 días</p>
+          <p class="precio-desc">Para marcas emergentes que necesitan construir su mundo visual completo antes de producir. Empezamos desde el concepto.</p>
+          <ul class="precio-lista">
+            <li class="precio-item">Identidad visual completa de la marca</li>
+            <li class="precio-item">ADN, paleta, tono y pilares de contenido</li>
+            <li class="precio-item">10 imágenes de campaña en alta resolución</li>
+            <li class="precio-item">2 reels cinemáticos de 30 segundos</li>
+            <li class="precio-item">Dirección de arte integral</li>
+            <li class="precio-item">2 rondas de revisión</li>
+          </ul>
+        </div>
+        <a href="mailto:havanastudioco@outlook.es?subject=Pack%2003%20-%20Marca%20desde%20Cero" class="precio-btn">Solicitar este pack</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="contacto-inner reveal">
+    <p class="section-label">Trabajemos juntos</p>
+    <h2 class="contacto-titulo">¿Tu marca merece<br><em>imágenes a su altura?</em></h2>
+    <p class="contacto-subtexto">Cuéntanos tu marca. Si creemos que podemos construir algo genuino juntos, lo hacemos.</p>
+    <a href="mailto:havanastudioco@outlook.es" class="contacto-btn">Escríbenos</a>
+    <a href="mailto:havanastudioco@outlook.es" class="contacto-email">havanastudioco@outlook.es</a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Havana Studio</span>
+  <span class="footer-copy">© 2026 Havana Studio. Dirección Creativa de Moda.</span>
+</footer>
+
+<script>
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('ring');
+document.addEventListener('mousemove',e=>{
+  cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px';
+  setTimeout(()=>{ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';},80);
+});
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ring.style.transform='translate(-50%,-50%) scale(1.8)';ring.style.opacity='0.25';});
+  el.addEventListener('mouseleave',()=>{ring.style.transform='translate(-50%,-50%) scale(1)';ring.style.opacity='0.4';});
+});
+const nav=document.getElementById('nav');
+const backTop=document.getElementById('backTop');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>window.innerHeight*0.85){nav.classList.add('scrolled');backTop.classList.add('visible');}
+  else{nav.classList.remove('scrolled');backTop.classList.remove('visible');}
+});
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
