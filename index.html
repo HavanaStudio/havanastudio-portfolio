@@ -572,9 +572,9 @@
     min-height: 480px;
   }
 
-  .tarifa.blue { background: #1e2d4a; border-color: transparent; }
-  .tarifa.light { background: #e8e6e2; border-color: transparent; }
-  .tarifa.dark { background: #111110; border-color: rgba(255,255,255,0.12); }
+  .tarifa.blue { background: #1a1a1a; border-color: #c8bfb0; }
+  .tarifa.light { background: #1a1a1a; border-color: #c8bfb0; }
+  .tarifa.dark { background: #1a1a1a; border-color: #c8bfb0; }
 
   /* título + descripción pegados arriba */
   .tarifa-header-row { margin-bottom: 0; }
@@ -639,6 +639,23 @@
   }
 
   .tarifa.light .tarifa-tag { color: var(--grey-600); }
+
+  .btn-contratar {
+    display: block;
+    margin-top: 24px;
+    padding: 12px 0;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    background: #c8bfb0;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+  .btn-contratar:hover { opacity: 0.8; }
 
   /* CIERRE */
   #cierre {
@@ -782,6 +799,8 @@
     .tarifas-grid { grid-template-columns: 1fr; margin: 0 24px; }
     .tarifas-header { padding: 64px 24px 40px; }
     .tarifas-strip { margin: 0 24px; grid-template-columns: repeat(3, 1fr); }
+    .tarifas-strip .strip-img:nth-child(4),
+    .tarifas-strip .strip-img:nth-child(5) { display: none; }
 
     .cierre-top { grid-template-columns: 1fr; gap: 40px; }
     #cierre { padding: 64px 24px; min-height: auto; }
@@ -964,6 +983,7 @@
         <li>INVERSIÓN: $150 USD &nbsp;&nbsp; ENTREGA: 5 días.</li>
       </ul>
       <p class="tarifa-tag">Para marcas que quieren ver resultados rápidos.</p>
+      <a href="mailto:havanastudioco@outlook.es?subject=Quiero%20contratar%20Visual%20Sprint%20%E2%80%94%20%24150%20USD&body=Hola%2C%20me%20interesa%20el%20paquete%20Visual%20Sprint%20por%20%24150%20USD.%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s." class="btn-contratar">Contratar</a>
     </div>
     <!-- 02 claro -->
     <div class="tarifa light">
@@ -980,6 +1000,7 @@
         <li>INVERSIÓN: $350 USD &nbsp;&nbsp; ENTREGA: 5 días.</li>
       </ul>
       <p class="tarifa-tag">Para marcas que quieren dominar su nicho visualmente.</p>
+      <a href="mailto:havanastudioco@outlook.es?subject=Quiero%20contratar%20Master%20Ads%20Pack%20%E2%80%94%20%24350%20USD&body=Hola%2C%20me%20interesa%20el%20paquete%20Master%20Ads%20Pack%20por%20%24350%20USD.%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s." class="btn-contratar">Contratar</a>
     </div>
     <!-- 03 oscuro -->
     <div class="tarifa dark">
@@ -999,6 +1020,7 @@
         <li>INVERSIÓN: $900 USD / Mes</li>
       </ul>
       <p class="tarifa-tag">Para marcas que operan a escala.</p>
+      <a href="mailto:havanastudioco@outlook.es?subject=Quiero%20contratar%20Partner%20Mensual%20%E2%80%94%20%24900%20USD%2Fmes&body=Hola%2C%20me%20interesa%20el%20paquete%20Partner%20Mensual%20por%20%24900%20USD%2Fmes.%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s." class="btn-contratar">Contratar</a>
     </div>
   </div>
 </section>
