@@ -457,21 +457,21 @@
 
   .portfolio-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 2px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
   }
 
   .portfolio-item {
     background: var(--grey-200);
-    aspect-ratio: 4/5;
+    aspect-ratio: 3/4;
     position: relative;
     overflow: hidden;
   }
 
   .portfolio-item:first-child {
-    grid-row: 1 / 3;
-    aspect-ratio: unset;
+    grid-column: auto;
+    grid-row: auto;
+    aspect-ratio: 3/4;
   }
 
   .portfolio-item img {
@@ -790,11 +790,8 @@
     .proceso-img-top { display: block; min-height: 300px; }
     .proceso-img-bottom { display: block; min-height: 300px; }
 
-    .portfolio-grid {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto;
-    }
-    .portfolio-item:first-child { grid-row: auto; aspect-ratio: 4/5; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .portfolio-item:first-child { grid-column: auto; grid-row: auto; aspect-ratio: 3/4; }
 
     .tarifas-grid { grid-template-columns: 1fr; margin: 0 24px; }
     .tarifas-header { padding: 64px 24px 40px; }
@@ -814,7 +811,7 @@
     .nav-links { display: none; }
     .hero-subtitle { display: none; }
     .portfolio-grid { grid-template-columns: 1fr; }
-    .portfolio-item:first-child { aspect-ratio: 4/5; }
+    .portfolio-item:first-child { aspect-ratio: 3/4; }
   }
   .scroll-top {
     position: fixed;
