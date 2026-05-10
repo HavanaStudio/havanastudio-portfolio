@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Fondo oscuro -->
+  <rect width="100" height="100" fill="#1E1714"/>
+  <!-- H — dos verticales + travesaño -->
+  <rect x="18" y="18" width="11" height="64" fill="#E8E0D4"/>
+  <rect x="71" y="18" width="11" height="64" fill="#E8E0D4"/>
+  <rect x="29" y="44" width="42" height="10" fill="#E8E0D4"/>
+</svg>
