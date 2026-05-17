@@ -3,1101 +3,792 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Havana Studio — AI Visual Studio</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231E1714'/><rect x='18' y='18' width='11' height='64' fill='%23E8E0D4'/><rect x='71' y='18' width='11' height='64' fill='%23E8E0D4'/><rect x='29' y='44' width='42' height='10' fill='%23E8E0D4'/></svg>">
+<title>Havana Studio — AI Visual Studio para Moda y Beauty</title>
+<meta name="description" content="Creamos contenido visual para marcas de moda, accesorios y beauty. Fotografía de campaña e IA, entrega en 5 días, desde $150 USD.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23faf9f7'/><rect x='18' y='18' width='11' height='64' fill='%231c1a18'/><rect x='71' y='18' width='11' height='64' fill='%231c1a18'/><rect x='29' y='44' width='42' height='10' fill='%231c1a18'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f4f3f1;
-    --bg-dark: #1a1a1a;
-    --white: #ffffff;
-    --grey-100: #f4f3f1;
-    --grey-200: #e8e6e2;
-    --grey-400: #b0aca5;
-    --grey-600: #6b6762;
-    --grey-800: #2e2c2a;
-    --black: #111110;
-    --accent: #c8bfb0;
-    --font-display: 'Cormorant Garamond', serif;
-    --font-body: 'Montserrat', sans-serif;
+    --bg:           #faf9f7;
+    --bg-alt:       #f3f1ee;
+    --bg-card:      #ffffff;
+    --text-primary: #1c1a18;
+    --text-secondary: #6b6762;
+    --text-muted:   #a8a49e;
+    --border:       #e4e0db;
+    --accent:       #c4b8a8;
+    --cta-bg:       #1c1a18;
+    --cta-text:     #faf9f7;
+    --font:         'DM Sans', system-ui, -apple-system, sans-serif;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
-    font-family: var(--font-body);
+    font-family: var(--font);
     background: var(--bg);
-    color: var(--black);
+    color: var(--text-primary);
     overflow-x: hidden;
-    cursor: none;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* CURSOR */
-  .cursor {
-    width: 8px; height: 8px;
-    background: var(--black);
-    border-radius: 50%;
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.15s ease;
-  }
-  .cursor-ring {
-    width: 36px; height: 36px;
-    border: 1px solid var(--grey-800);
-    border-radius: 50%;
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 9998;
-    transition: transform 0.4s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-  }
-
-  /* NAV */
+  /* ── NAV ── */
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 28px 48px;
-    background: transparent;
-    mix-blend-mode: normal;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 48px;
+    background: rgba(250, 249, 247, 0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
   }
-
   .nav-logo {
-    font-family: var(--font-body);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--black);
-    text-decoration: none;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--text-primary); text-decoration: none;
   }
-
-  .nav-links {
-    display: flex;
-    gap: 40px;
-    list-style: none;
-  }
-
+  .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
   .nav-links a {
-    font-family: var(--font-body);
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--grey-600);
-    text-decoration: none;
-    transition: color 0.3s ease;
+    font-size: 13px; font-weight: 400; color: var(--text-secondary);
+    text-decoration: none; transition: color 0.2s;
   }
+  .nav-links a:hover { color: var(--text-primary); }
+  .nav-cta {
+    font-size: 13px; font-weight: 500;
+    background: var(--cta-bg); color: var(--cta-text) !important;
+    padding: 10px 22px; border-radius: 6px; transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.82 !important; color: var(--cta-text) !important; }
 
-  .nav-links a:hover { color: var(--black); }
+  /* ── BOTONES ── */
+  .btn-primary {
+    display: inline-block; padding: 14px 28px;
+    background: var(--cta-bg); color: var(--cta-text);
+    font-family: var(--font); font-size: 14px; font-weight: 500;
+    text-decoration: none; border-radius: 6px; transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.82; }
+  .btn-secondary {
+    display: inline-block; padding: 13px 27px;
+    border: 1px solid var(--border); color: var(--text-primary);
+    font-family: var(--font); font-size: 14px; font-weight: 500;
+    text-decoration: none; border-radius: 6px;
+    transition: border-color 0.2s;
+    background: transparent;
+  }
+  .btn-secondary:hover { border-color: var(--text-secondary); }
 
-  /* HERO */
+  /* ── HERO ── */
   #hero {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 48px 64px;
-    background: var(--bg);
-    background-image: url('hero.png');
-    background-size: cover;
-    background-position: right center;
-    background-repeat: no-repeat;
     position: relative;
+    display: flex;
+    align-items: flex-end;
     overflow: hidden;
   }
-
-  .hero-line {
-    position: absolute;
-    top: 0; right: 0;
-    width: 1px;
-    height: 100%;
-    background: var(--grey-200);
-    transform: translateX(-120px);
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
   }
-
-  .hero-tagline {
-    font-family: var(--font-body);
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: #c8bfb0;
-    margin-bottom: 24px;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.3s forwards;
+  .hero-bg img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
   }
-
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.05) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 72px 48px;
+    max-width: 680px;
+  }
+  .hero-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: rgba(255,255,255,0.55);
+    margin-bottom: 20px;
+  }
   .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(72px, 13vw, 180px);
-    font-weight: 300;
-    line-height: 0.9;
-    color: #f4f3f1;
-    letter-spacing: -0.02em;
-    opacity: 0;
-    animation: fadeUp 1.2s ease 0.5s forwards;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300; line-height: 1.1;
+    color: #fff; letter-spacing: -0.025em;
+    margin-bottom: 20px;
   }
-
-  .hero-title em {
-    font-style: italic;
-    color: #c8bfb0;
-  }
-
+  .hero-title strong { font-weight: 600; }
   .hero-subtitle {
-    font-family: var(--font-body);
-    font-size: 11px;
-    font-weight: 300;
-    letter-spacing: 0.15em;
-    color: #c8bfb0;
-    margin-top: 32px;
-    max-width: 340px;
-    line-height: 1.8;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.8s forwards;
+    font-size: 16px; font-weight: 400; line-height: 1.7;
+    color: rgba(255,255,255,0.65); margin-bottom: 40px;
+    max-width: 420px;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* ── STATS ── */
+  #stats {
+    background: #0f0f0e;
+    padding: 80px 48px 72px;
+    text-align: center;
+  }
+  .stats-intro { margin-bottom: 64px; }
+  .stats-headline {
+    font-size: clamp(36px, 6.5vw, 88px);
+    font-weight: 700; line-height: 1;
+    color: #fff; text-transform: uppercase;
+    letter-spacing: -0.02em; margin-bottom: 20px;
+  }
+  .stats-subtitle {
+    font-size: 15px; color: rgba(255,255,255,0.45);
+    max-width: 480px; margin: 0 auto; line-height: 1.6;
+  }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat {
+    padding: 48px 40px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-number {
+    font-size: 56px; font-weight: 700; line-height: 1;
+    color: #fff; letter-spacing: -0.04em;
+    margin-bottom: 12px;
+  }
+  .stat-label {
+    font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.45);
+    line-height: 1.5;
   }
 
-  .hero-meta {
-    position: absolute;
-    bottom: 64px;
-    right: 48px;
-    text-align: right;
-    opacity: 0;
-    animation: fadeUp 1s ease 1s forwards;
+  /* ── ETIQUETAS DE SECCIÓN ── */
+  .section-tag {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--text-muted);
+    margin-bottom: 16px; display: block;
   }
-
-  .hero-meta span {
-    display: block;
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #c8bfb0;
-  }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 64px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    opacity: 0;
-    animation: fadeUp 1s ease 1.2s forwards;
-  }
-
-  .hero-scroll span {
-    font-size: 9px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--grey-400);
-    writing-mode: vertical-rl;
-  }
-
-  .scroll-line {
-    width: 1px;
-    height: 60px;
-    background: var(--grey-400);
-    animation: scrollPulse 2s ease infinite;
-  }
-
-  @keyframes scrollPulse {
-    0%, 100% { transform: scaleY(1); opacity: 1; }
-    50% { transform: scaleY(0.5); opacity: 0.4; }
-  }
-
-  /* SECTIONS */
-  section {
-    padding: 120px 48px;
-  }
-
-  .section-label {
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--grey-400);
-    margin-bottom: 64px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .section-label::after {
-    content: '';
-    flex: 1;
-    max-width: 60px;
-    height: 1px;
-    background: var(--grey-300);
-  }
-
-  /* PROPUESTA DE VALOR */
-  #valor {
-    background: var(--bg);
-    border-top: 1px solid var(--grey-200);
-  }
-
-  .valor-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .valor-headline {
-    font-family: var(--font-display);
-    font-size: clamp(40px, 5vw, 72px);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--black);
+  .section-title {
+    font-size: clamp(26px, 3.2vw, 42px); font-weight: 400;
+    line-height: 1.2; color: var(--text-primary);
     letter-spacing: -0.01em;
   }
 
-  .valor-headline em {
-    font-style: italic;
-    color: var(--grey-600);
+  /* ── SERVICIOS ── */
+  #servicios {
+    padding: 80px 48px;
+    background: #0f0f0e;
   }
-
-  .valor-pillars {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+  .services-header { margin-bottom: 40px; }
+  .services-badge {
+    display: inline-block;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.25); border-radius: 999px;
+    padding: 6px 16px; margin-bottom: 20px;
   }
-
-  .pillar {
-    display: flex;
-    align-items: flex-start;
-    gap: 24px;
-    padding: 28px 0;
-    border-bottom: 1px solid var(--grey-200);
+  .services-main-title {
+    font-size: clamp(36px, 5vw, 64px); font-weight: 700;
+    color: #fff; line-height: 1.05; letter-spacing: -0.025em;
+    margin-bottom: 10px;
   }
-
-  .pillar:first-child { border-top: 1px solid var(--grey-200); }
-
-  .pillar-num {
-    font-family: var(--font-body);
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    color: var(--grey-400);
-    padding-top: 4px;
-    min-width: 28px;
+  .services-main-subtitle {
+    font-size: 15px; color: rgba(255,255,255,0.45);
+    max-width: 520px;
   }
-
-  .pillar-text {
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--black);
-    line-height: 1.6;
+  .services-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
   }
-
-  /* PROCESO */
-  #proceso {
-    background: var(--bg-dark);
-    color: var(--white);
+  .service-card {
+    background: #1e1510;
+    border-radius: 16px;
     padding: 0;
-  }
-
-  .proceso-inner {
-    display: grid;
-    grid-template-columns: 5fr 7fr;
-    gap: 0;
-    min-height: 680px;
-  }
-
-  /* COLUMNA IZQUIERDA: "Proceso" arriba, imagen centro, "Creativo" abajo */
-  .proceso-left {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    background: var(--bg-dark);
-  }
-
-  .proceso-word {
-    font-family: var(--font-display);
-    font-size: clamp(56px, 8vw, 110px);
-    font-weight: 300;
-    color: var(--white);
-    line-height: 0.9;
-    letter-spacing: -0.02em;
-    padding: 32px 32px 24px;
-  }
-
-  .proceso-img-placeholder {
-    background: #2a2a28;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 260px;
-  }
-
-  .proceso-img-placeholder span {
-    font-size: 9px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
-  }
-
-  .proceso-word-bottom {
-    font-family: var(--font-display);
-    font-size: clamp(56px, 8vw, 110px);
-    font-weight: 300;
-    color: var(--white);
-    line-height: 0.9;
-    letter-spacing: -0.02em;
-    padding: 24px 32px 32px;
-  }
-
-  /* COLUMNA DERECHA: imagen grande arriba, 2 filas de 3 pasos, imagen grande abajo */
-  .proceso-right {
-    display: grid;
-    grid-template-rows: 1fr auto auto 1fr;
-    gap: 0;
-    border-left: 2px solid var(--bg-dark);
-  }
-
-  .proceso-img-top {
-    background: #2a2a28;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 220px;
-  }
-
-  .proceso-steps-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .step {
-    background: var(--bg-dark);
-    padding: 20px 20px 20px;
-    border-right: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .step:last-child { border-right: none; }
-
-  .step-title {
-    font-family: var(--font-body);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 6px;
-  }
-
-  .step-desc {
-    font-family: var(--font-body);
-    font-size: 10px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.7;
-    letter-spacing: 0.01em;
-  }
-
-  .proceso-steps-row2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .proceso-img-bottom {
-    background: #2a2a28;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 180px;
-  }
-
-  /* PORTFOLIO */
-  #portfolio {
-    background: var(--bg);
-    border-top: 1px solid var(--grey-200);
-  }
-
-  .portfolio-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 64px;
-  }
-
-  .portfolio-title {
-    font-family: var(--font-display);
-    font-size: clamp(36px, 4vw, 60px);
-    font-weight: 300;
-    color: var(--black);
-    letter-spacing: -0.01em;
-  }
-
-  .portfolio-note {
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    color: var(--grey-400);
-    text-transform: uppercase;
-    max-width: 200px;
-    text-align: right;
-    line-height: 1.8;
-  }
-
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-  }
-
-  .portfolio-item {
-    background: var(--grey-200);
-    aspect-ratio: 3/4;
-    position: relative;
     overflow: hidden;
   }
+  .service-media {
+    margin: 14px 14px 0;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #2e1e14;
+  }
+  .service-media img,
+  .service-media video {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .service-content {
+    padding: 18px 20px 24px;
+  }
+  .service-title {
+    font-size: 18px; font-weight: 600; color: #fff;
+    margin-bottom: 8px; letter-spacing: -0.01em;
+  }
+  .service-desc {
+    font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.45);
+    line-height: 1.55;
+  }
+  .services-cta {
+    text-align: center; margin-top: 56px;
+  }
+  .services-cta-text {
+    font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 18px;
+  }
+  .btn-light {
+    display: inline-block; padding: 14px 36px;
+    background: #fff; color: #0f0f0e;
+    font-family: var(--font); font-size: 15px; font-weight: 600;
+    text-decoration: none; border-radius: 999px; transition: opacity 0.2s;
+  }
+  .btn-light:hover { opacity: 0.88; }
 
-  .portfolio-item:first-child {
-    grid-column: auto;
-    grid-row: auto;
-    aspect-ratio: 3/4;
+  /* ── PROCESO ── */
+  #proceso {
+    padding: 96px 48px;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+  .proceso-header { margin-bottom: 56px; }
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border);
+  }
+  .step-item {
+    padding: 40px 32px 40px 0;
+    border-right: 1px solid var(--border);
+  }
+  .step-item:last-child { border-right: none; }
+  .step-item:not(:first-child) { padding-left: 32px; }
+  .step-number {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
+    color: var(--text-muted); margin-bottom: 20px; display: block;
+  }
+  .step-name {
+    font-size: 18px; font-weight: 500; color: var(--text-primary);
+    margin-bottom: 12px; letter-spacing: -0.01em;
+  }
+  .step-description {
+    font-size: 14px; font-weight: 400; color: var(--text-secondary);
+    line-height: 1.7;
   }
 
-  .portfolio-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s ease;
-    display: block;
-  }
 
-  .portfolio-item:hover img { transform: scale(1.04); }
-
-  .placeholder-img {
-    width: 100%;
-    height: 100%;
-    background: var(--grey-200);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 280px;
-  }
-
-  .placeholder-text {
-    font-size: 9px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--grey-400);
-  }
-
-  /* TARIFAS */
+  /* ── TARIFAS ── */
   #tarifas {
-    background: var(--bg-dark);
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 96px 48px;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
   }
-
-  .tarifas-header {
-    padding: 80px 48px 48px;
+  .tarifas-header { margin-bottom: 12px; }
+  .tarifas-subtitle {
+    font-size: 15px; color: var(--text-secondary);
+    margin-bottom: 48px; line-height: 1.6; max-width: 560px;
   }
-
-  .tarifas-title {
-    font-family: var(--font-display);
-    font-size: clamp(40px, 5vw, 72px);
-    font-weight: 300;
-    color: var(--white);
-    letter-spacing: -0.01em;
-    margin-bottom: 16px;
-  }
-
-  .tarifas-title em {
-    font-style: italic;
-    color: rgba(255,255,255,0.4);
-  }
-
-  .tarifas-note {
-    font-size: 11px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.4);
-    letter-spacing: 0.08em;
-  }
-
-  /* strip de imágenes como en la referencia */
   .tarifas-strip {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2px;
-    margin: 0 48px 2px;
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 3px; margin-bottom: 48px;
+    border-radius: 8px; overflow: hidden;
   }
-
-  .strip-img {
-    background: #2a2a28;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .strip-img span {
-    font-size: 8px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.15);
-  }
-
+  .strip-img { height: 88px; overflow: hidden; background: var(--bg-alt); }
+  .strip-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .tarifas-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    margin: 0 48px;
-    padding-bottom: 80px;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
   }
-
   .tarifa {
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 36px 32px 40px;
-    display: flex;
-    flex-direction: column;
-    min-height: 480px;
+    background: var(--bg-card);
+    border: 1px solid var(--border); border-radius: 10px;
+    padding: 36px 32px; display: flex; flex-direction: column;
   }
-
-  .tarifa.blue { background: #c8bfb0; border-color: #c8bfb0; }
-  .tarifa.light { background: #c8bfb0; border-color: #c8bfb0; }
-  .tarifa.dark { background: #c8bfb0; border-color: #c8bfb0; }
-
-  /* título + descripción pegados arriba */
-  .tarifa-header-row { margin-bottom: 0; }
-
+  .tarifa.featured {
+    background: var(--bg-alt);
+    border-color: var(--accent);
+  }
+  .tarifa-badge {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--text-secondary);
+    background: var(--bg-alt); padding: 4px 10px; border-radius: 4px;
+    display: inline-block; margin-bottom: 20px; align-self: flex-start;
+    border: 1px solid var(--border);
+  }
+  .tarifa.featured .tarifa-badge {
+    background: var(--accent); color: var(--bg); border-color: var(--accent);
+  }
   .tarifa-name {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    color: #1a1a1a;
-    margin-bottom: 6px;
+    font-size: 20px; font-weight: 500; color: var(--text-primary);
+    margin-bottom: 8px; letter-spacing: -0.01em;
   }
-
-  .tarifa.light .tarifa-name { color: #1a1a1a; }
-
   .tarifa-desc {
-    font-size: 13px;
-    font-weight: 300;
-    color: #1a1a1a;
-    line-height: 1.5;
-    padding-left: 16px;
+    font-size: 14px; color: var(--text-secondary); line-height: 1.6;
+    margin-bottom: 24px;
   }
-
-  .tarifa.light .tarifa-desc { color: #1a1a1a; }
-
-  /* espacio que empuja los ítems hacia abajo */
-  .tarifa-spacer { flex: 1; }
-
-  .tarifa-items {
-    list-style: none;
-    margin-bottom: 0;
+  .tarifa-price {
+    font-size: 40px; font-weight: 300; color: var(--text-primary);
+    letter-spacing: -0.03em; margin-bottom: 4px; line-height: 1;
   }
-
+  .tarifa-price sup {
+    font-size: 20px; font-weight: 400; vertical-align: top; margin-top: 8px;
+  }
+  .tarifa-price-note {
+    font-size: 12px; color: var(--text-muted); margin-bottom: 24px;
+  }
+  .tarifa-divider {
+    height: 1px; background: var(--border); margin-bottom: 24px;
+  }
+  .tarifa-items { list-style: none; margin-bottom: 28px; flex: 1; }
   .tarifa-items li {
-    font-size: 13px;
-    font-weight: 300;
-    color: #1a1a1a;
-    line-height: 1.9;
-    padding: 0;
+    font-size: 13px; color: var(--text-secondary); line-height: 1;
+    padding: 9px 0; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
   }
-
-  .tarifa.light .tarifa-items li { color: #1a1a1a; }
-
-  /* INVERSIÓN dentro de la lista, misma tipografía */
-  .tarifa-inversion {
-    font-size: 13px;
-    font-weight: 300;
-    color: #1a1a1a;
-    line-height: 1.9;
-    margin-top: 0;
+  .tarifa-items li:last-child { border-bottom: none; }
+  .tarifa-items li::before {
+    content: ''; width: 5px; height: 5px; flex-shrink: 0;
+    background: var(--accent); border-radius: 50%;
   }
-
-  .tarifa.light .tarifa-inversion { color: #1a1a1a; }
-
-  .tarifa-tag {
-    font-size: 13px;
-    font-weight: 300;
-    color: #1a1a1a;
-    line-height: 1.6;
-    font-style: italic;
-    margin-top: 4px;
+  .btn-tarifa {
+    display: block; text-align: center; padding: 13px;
+    font-family: var(--font); font-size: 13px; font-weight: 500;
+    text-decoration: none; border-radius: 6px; transition: opacity 0.2s;
+    margin-top: auto;
   }
+  .tarifa .btn-tarifa {
+    background: var(--bg-alt); color: var(--text-primary);
+    border: 1px solid var(--border);
+  }
+  .tarifa.featured .btn-tarifa {
+    background: var(--cta-bg); color: var(--cta-text);
+    border: none;
+  }
+  .btn-tarifa:hover { opacity: 0.8; }
 
-  .tarifa.light .tarifa-tag { color: #1a1a1a; }
+  /* ── FAQ ── */
+  #faq {
+    padding: 96px 48px;
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+  }
+  .faq-inner {
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 80px; align-items: start;
+  }
+  .faq-sticky {
+    position: sticky; top: 100px;
+  }
+  .faq-list { display: flex; flex-direction: column; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-item:first-child { border-top: 1px solid var(--border); }
+  .faq-question {
+    width: 100%; text-align: left; background: none; border: none;
+    padding: 20px 0; display: flex; justify-content: space-between;
+    align-items: center; cursor: pointer; gap: 16px; font-family: var(--font);
+  }
+  .faq-question span {
+    font-size: 15px; font-weight: 500; color: var(--text-primary);
+    text-align: left; line-height: 1.4;
+  }
+  .faq-icon {
+    width: 22px; height: 22px; flex-shrink: 0;
+    font-size: 20px; color: var(--text-muted); line-height: 22px;
+    text-align: center; transition: transform 0.25s ease;
+    font-weight: 300;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-answer {
+    font-size: 14px; color: var(--text-secondary);
+    line-height: 1.7; max-height: 0; overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+  }
+  .faq-item.open .faq-answer { max-height: 200px; padding-bottom: 20px; }
 
-  .btn-contratar {
-    display: block;
-    margin-top: 24px;
-    padding: 12px 0;
+  /* ── CTA FINAL ── */
+  #cta-final {
+    padding: 112px 48px;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
     text-align: center;
-    font-family: var(--font-body);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: #c8bfb0;
-    background: #1a1a1a;
+  }
+  .cta-final-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--text-muted);
+    margin-bottom: 20px; display: block;
+  }
+  .cta-final-title {
+    font-size: clamp(30px, 4vw, 54px); font-weight: 400;
+    color: var(--text-primary); letter-spacing: -0.02em;
+    line-height: 1.15; margin-bottom: 20px;
+  }
+  .cta-final-subtitle {
+    font-size: 16px; color: var(--text-secondary);
+    line-height: 1.7; margin-bottom: 40px;
+    max-width: 480px; margin-left: auto; margin-right: auto;
+  }
+  .cta-final-actions {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg-alt); border-top: 1px solid var(--border);
+    padding: 28px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-logo {
+    font-size: 13px; font-weight: 600; color: var(--text-primary);
     text-decoration: none;
-    transition: opacity 0.3s ease;
   }
-  .btn-contratar:hover { opacity: 0.8; }
-
-  /* CIERRE */
-  #cierre {
-    background: var(--bg-dark);
-    color: var(--white);
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 80px 48px;
+  .footer-meta { font-size: 12px; color: var(--text-muted); }
+  .footer-email {
+    font-size: 13px; color: var(--text-secondary);
+    text-decoration: none; transition: color 0.2s;
   }
+  .footer-email:hover { color: var(--text-primary); }
 
-  .cierre-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .cierre-title {
-    font-family: var(--font-display);
-    font-size: clamp(48px, 7vw, 100px);
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-
-  .cierre-title em {
-    font-style: italic;
-    color: rgba(255,255,255,0.4);
-  }
-
-  .cierre-body {
-    padding-top: 16px;
-  }
-
-  .cierre-copy {
-    font-size: 13px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.9;
-    letter-spacing: 0.05em;
-    margin-bottom: 48px;
-    max-width: 380px;
-  }
-
-  .cierre-cta-label {
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    margin-bottom: 16px;
-  }
-
-  .cierre-email {
-    font-family: var(--font-display);
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--white);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    padding-bottom: 8px;
-    display: inline-block;
-    transition: border-color 0.3s ease, color 0.3s ease;
-    letter-spacing: 0.02em;
-  }
-
-  .cierre-email:hover {
-    border-color: rgba(255,255,255,0.6);
-    color: rgba(255,255,255,0.8);
-  }
-
-  .cierre-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 40px;
-    margin-top: 80px;
-  }
-
-  .cierre-agency {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.25);
-  }
-
-  .cierre-year {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    color: rgba(255,255,255,0.25);
-  }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
+  /* ── REVEAL ── */
   .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.9s ease, transform 0.9s ease;
+    opacity: 0; transform: translateY(22px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .step-item {
+      border-right: none; padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step-item:not(:first-child) { padding-left: 0; }
+    .step-item:last-child { border-bottom: none; }
   }
 
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 20px; }
 
-  /* MOBILE */
-  @media (max-width: 768px) {
-    nav { padding: 20px 24px; }
-    .nav-links { gap: 24px; }
-    .nav-links a { font-size: 9px; }
+    .hero-content { padding: 48px 24px; }
+    .stats-headline { font-size: clamp(28px, 8vw, 52px); }
+    #stats { padding: 56px 24px 48px; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 32px 24px; }
+    .stat:last-child { border-bottom: none; }
 
-    section { padding: 80px 24px; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    #servicios { padding: 64px 24px; }
 
-    #hero { padding: 0 24px 80px; background-image: url('hero-mobile.png'); background-position: center center; }
-    .hero-title { font-size: clamp(56px, 16vw, 80px); }
-    .hero-meta { display: none; }
-    .hero-scroll { display: none; }
-    .hero-line { display: none; }
-
-    .valor-grid { grid-template-columns: 1fr; gap: 48px; }
-
-    .proceso-inner { grid-template-columns: 1fr; }
-    .proceso-right { grid-template-columns: 1fr; grid-template-rows: auto auto auto auto; }
-    .proceso-steps-grid { grid-template-columns: 1fr 1fr; }
-    .proceso-img-top { display: block; min-height: 300px; }
-    .proceso-img-bottom { display: block; min-height: 300px; }
-
-    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-
-    .tarifas-grid { grid-template-columns: 1fr; margin: 0 24px; }
-    .tarifas-header { padding: 64px 24px 40px; }
-    .tarifas-strip { margin: 0 24px; grid-template-columns: repeat(3, 1fr); }
+    .tarifas-grid { grid-template-columns: 1fr; }
+    .tarifas-strip { grid-template-columns: repeat(3, 1fr); }
     .tarifas-strip .strip-img:nth-child(4),
     .tarifas-strip .strip-img:nth-child(5) { display: none; }
 
-    .cierre-top { grid-template-columns: 1fr; gap: 40px; }
-    #cierre { padding: 64px 24px; min-height: auto; }
-    .cierre-title { font-size: clamp(40px, 12vw, 72px); }
+    .faq-inner { grid-template-columns: 1fr; gap: 40px; }
+    .faq-sticky { position: static; }
 
-    .portfolio-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .portfolio-note { text-align: left; }
+    #servicios, #proceso,
+    #tarifas, #faq, #cta-final { padding: 64px 24px; }
+
+    footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
   }
 
   @media (max-width: 480px) {
     .nav-links { display: none; }
-    .hero-subtitle { display: none; }
     .portfolio-grid { grid-template-columns: 1fr; }
-    .portfolio-item:first-child { aspect-ratio: 3/4; }
-  }
-  .scroll-top {
-    position: fixed;
-    bottom: 32px;
-    right: 32px;
-    width: 44px;
-    height: 44px;
-    background: #c8bfb0;
-    color: #1a1a1a;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 999;
+    .hero-actions { flex-direction: column; }
+    .hero-actions .btn-primary,
+    .hero-actions .btn-secondary { text-align: center; }
+    .cta-final-actions { flex-direction: column; align-items: center; }
   }
 </style>
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">Havana Studio</a>
   <ul class="nav-links">
-    <li><a href="#valor">Servicios</a></li>
-    <li><a href="#portfolio">Trabajo</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+
     <li><a href="#tarifas">Tarifas</a></li>
-    <li><a href="#cierre">Contacto</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="mailto:havanastudioco@outlook.es" class="nav-cta">Contactar</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-line"></div>
-  <p class="hero-tagline">AI Visual Studio — Moda · Accesorios · Beauty</p>
-  <h1 class="hero-title">Havana<br><em>Studio</em></h1>
-  <p class="hero-subtitle">Creamos contenido visual que eleva<br>la percepción de tu marca.</p>
-  <div class="hero-meta">
-    <span>Imagen de marca</span>
-    <span>Dirección creativa</span>
-    <span>2026</span>
+  <div class="hero-bg">
+    <img src="hero.png" alt="Campaña Havana Studio — contenido visual con IA">
   </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">AI Visual Studio · Moda · Accesorios · Beauty</p>
+    <h1 class="hero-title">Contenido visual que vende.<br><strong>Sin producción tradicional.</strong></h1>
+    <p class="hero-subtitle">Creamos imágenes y vídeos de campaña para marcas de moda, accesorios y beauty. Calidad editorial, listos en 5 días.</p>
+    <div class="hero-actions">
+      <a href="#tarifas" class="btn-primary">Ver paquetes</a>
+    </div>
   </div>
 </section>
 
-<!-- PROPUESTA DE VALOR -->
-<section id="valor">
-  <p class="section-label">02 — Propuesta de valor</p>
-  <div class="valor-grid">
-    <div class="reveal">
-      <h2 class="valor-headline">Imagen que<br>vende.<br><em>Sin producción tradicional.</em></h2>
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-intro reveal">
+    <h2 class="stats-headline">Cada lanzamiento<br>el mismo cuello de botella</h2>
+    <p class="stats-subtitle">Costes elevados, coordinar modelos, estudios y fotógrafos. Semanas de espera para contenido que ya llega tarde.</p>
+  </div>
+  <div class="stats-grid">
+    <div class="stat reveal">
+      <div class="stat-number">5 días</div>
+      <div class="stat-label">Tiempo de entrega</div>
     </div>
-    <div class="valor-pillars reveal">
-      <div class="pillar">
-        <span class="pillar-num">01</span>
-        <span class="pillar-text">Dirección visual con criterio</span>
+    <div class="stat reveal">
+      <div class="stat-number">−70%</div>
+      <div class="stat-label">Reducción de coste vs sesión tradicional</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-number">∞</div>
+      <div class="stat-label">Escalabilidad de piezas</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="services-header reveal">
+    <span class="services-badge">Qué hacemos</span>
+    <h2 class="services-main-title">Sistema de contenido.</h2>
+    <p class="services-main-subtitle">Sin limitación creativa, sin coordinación de equipo de producción.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-media">
+        <img src="producto.png" alt="Producto — Havana Studio">
       </div>
-      <div class="pillar">
-        <span class="pillar-num">02</span>
-        <span class="pillar-text">Contenido listo para campañas y redes</span>
-      </div>
-      <div class="pillar">
-        <span class="pillar-num">03</span>
-        <span class="pillar-text">Producción ágil con IA</span>
-      </div>
-      <div class="pillar">
-        <span class="pillar-num">04</span>
-        <span class="pillar-text">Imágenes que elevan el valor percibido</span>
+      <div class="service-content">
+        <h3 class="service-title">Producto</h3>
+        <p class="service-desc">Fotos y vídeo técnicos listos para web, fichas y marketplaces.</p>
       </div>
     </div>
+    <div class="service-card">
+      <div class="service-media">
+        <img src="Lifestyle.png" alt="Lifestyle — Havana Studio">
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Lifestyle</h3>
+        <p class="service-desc">El producto en su contexto. Con modelo, entorno e historia.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-media">
+        <video src="VESPA.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Vídeo</h3>
+        <p class="service-desc">Piezas de vídeo para hero, lanzamientos y redes.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-media">
+        <img src="campaña.png" alt="Campañas — Havana Studio">
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Campañas</h3>
+        <p class="service-desc">Creatividad editorial para campañas de temporada y lanzamientos.</p>
+      </div>
+    </div>
+  </div>
+  <div class="services-cta reveal">
+    <p class="services-cta-text">¿Esto es lo que necesitáis?</p>
+    <a href="mailto:havanastudioco@outlook.es" class="btn-light">Hablemos →</a>
   </div>
 </section>
 
 <!-- PROCESO -->
 <section id="proceso">
-  <div class="proceso-inner reveal">
-    <!-- IZQUIERDA: "Proceso" arriba / imagen centro / "Creativo" abajo -->
-    <div class="proceso-left">
-      <div class="proceso-word">Proceso</div>
-      <div class="proceso-img-placeholder">
-        <img src="2.png" alt="Campaña Havana Studio" style="width:100%;height:100%;object-fit:cover;object-position:left center;">
-      </div>
-      <div class="proceso-word-bottom">Creativo</div>
+  <div class="proceso-header reveal">
+    <span class="section-tag">Cómo trabajamos</span>
+    <h2 class="section-title">Un proceso simple. Un resultado claro.</h2>
+  </div>
+  <div class="steps-grid reveal">
+    <div class="step-item">
+      <span class="step-number">01 — Briefing</span>
+      <h3 class="step-name">Nos cuentas tu marca</h3>
+      <p class="step-description">Compartimos un briefing corto. Nos envías referencias y producto. En menos de 24 horas tienes una propuesta personalizada.</p>
     </div>
-    <!-- DERECHA: imagen grande / fila 3 pasos / fila 3 pasos / imagen grande -->
-    <div class="proceso-right">
-      <div class="proceso-img-top">
-        <img src="1.png" alt="Campaña Havana Studio" style="width:100%;height:100%;object-fit:cover;">
-      </div>
-      <div class="proceso-steps-grid">
-        <div class="step">
-          <p class="step-title">Análisis visual</p>
-          <p class="step-desc">Estudiamos tu marca, tu producto y el espacio en el que quieres competir.</p>
-        </div>
-        <div class="step">
-          <p class="step-title">Dirección creativa</p>
-          <p class="step-desc">Definimos el concepto, la estética y el lenguaje visual de cada pieza.</p>
-        </div>
-        <div class="step">
-          <p class="step-title">Concepto</p>
-          <p class="step-desc">Construimos una narrativa visual coherente antes de producir nada.</p>
-        </div>
-      </div>
-      <div class="proceso-steps-row2">
-        <div class="step">
-          <p class="step-title">Producción con IA</p>
-          <p class="step-desc">Generamos imágenes y vídeos de alto nivel con tecnología IA aplicada a moda y producto.</p>
-        </div>
-        <div class="step">
-          <p class="step-title">Refinamiento</p>
-          <p class="step-desc">Ajustamos cada detalle para que el resultado refleje exactamente el valor de tu marca.</p>
-        </div>
-        <div class="step">
-          <p class="step-title">Entrega</p>
-          <p class="step-desc">En 5 días tienes el contenido listo para publicar, vender y comunicar.</p>
-        </div>
-      </div>
-      <div class="proceso-img-bottom">
-        <img src="3.png" alt="Campaña Havana Studio" style="width:100%;height:100%;object-fit:cover;">
-      </div>
+    <div class="step-item">
+      <span class="step-number">02 — Propuesta</span>
+      <h3 class="step-name">Alineamos la visión</h3>
+      <p class="step-description">Definimos el concepto visual, los entregables y el enfoque creativo. Apruebas antes de que empecemos a producir nada.</p>
+    </div>
+    <div class="step-item">
+      <span class="step-number">03 — Producción</span>
+      <h3 class="step-name">Producimos con IA</h3>
+      <p class="step-description">Generamos imágenes y vídeos con IA dirigida. Nivel editorial, controlado por criterio creativo real, no por azar.</p>
+    </div>
+    <div class="step-item">
+      <span class="step-number">04 — Entrega</span>
+      <h3 class="step-name">Recibes y revisas</h3>
+      <p class="step-description">En 5 días tienes el pack completo. Incluye una ronda de ajustes para asegurarnos de que todo encaja perfectamente.</p>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
-<section id="portfolio">
-  <div class="portfolio-header reveal">
-    <h2 class="portfolio-title">Trabajo</h2>
-    <p class="portfolio-note">Campañas visuales para moda, accesorios y marcas con ambición estética.</p>
-  </div>
-  <div class="portfolio-grid reveal">
-    <div class="portfolio-item">
-      <img src="work1.png" alt="Campaña Havana Studio" style="width:100%;height:100%;object-fit:cover;display:block;">
-    </div>
-    <div class="portfolio-item">
-      <img src="work2.png" alt="Campaña Havana Studio" style="width:100%;height:100%;object-fit:cover;display:block;">
-    </div>
-    <div class="portfolio-item">
-      <img src="work3.png" alt="Campaña Havana Studio" style="width:100%;height:100%;object-fit:cover;display:block;">
-    </div>
-    <div class="portfolio-item">
-      <img src="work4.png" alt="Campaña Havana Studio" style="width:100%;height:100%;object-fit:cover;display:block;">
-    </div>
-  </div>
-</section>
 
 <!-- TARIFAS -->
 <section id="tarifas">
   <div class="tarifas-header reveal">
-    <h2 class="tarifas-title">Sistemas de <em>producción</em></h2>
-    <p class="tarifas-note">Elige el sistema visual que necesitas ahora mismo.</p>
+    <span class="section-tag">Tarifas</span>
+    <h2 class="section-title">Elige el paquete que necesitas</h2>
   </div>
-  <div class="tarifas-strip reveal">
-    <div class="strip-img"><img src="strip1.png" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div class="strip-img"><img src="strip2.png" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div class="strip-img"><img src="strip3.png" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div class="strip-img"><img src="strip4.png" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div class="strip-img"><img src="strip5.png" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
-  </div>
+  <p class="tarifas-subtitle reveal">Sin costes ocultos. Sin permanencia en los paquetes puntuales. Contenido listo en 5 días hábiles.</p>
+
   <div class="tarifas-grid reveal">
-    <!-- 01 azul -->
-    <div class="tarifa blue">
-      <div class="tarifa-header-row">
-        <p class="tarifa-name">01. VISUAL SPRINT</p>
-        <p class="tarifa-desc">Contenido listo para publicar<br>en 5 días.</p>
-      </div>
-      <div class="tarifa-spacer"></div>
+
+    <!-- Visual Sprint -->
+    <div class="tarifa">
+      <span class="tarifa-badge">Para empezar</span>
+      <h3 class="tarifa-name">Visual Sprint</h3>
+      <p class="tarifa-desc">Contenido listo para publicar. Ideal para ver el potencial visual de tu marca en acción.</p>
+      <div class="tarifa-price"><sup>$</sup>150 <span style="font-size:20px;font-weight:400">USD</span></div>
+      <p class="tarifa-price-note">Entrega en 5 días hábiles</p>
+      <div class="tarifa-divider"></div>
       <ul class="tarifa-items">
-        <li>03 Fotos</li>
-        <li>01 Video (4s).</li>
-        <li>01 Video (15s).</li>
-        <li>INVERSIÓN: $150 USD &nbsp;&nbsp; ENTREGA: 5 días.</li>
+        <li>3 fotografías de campaña</li>
+        <li>1 vídeo de 4 segundos</li>
+        <li>1 vídeo de 15 segundos</li>
+        <li>1 ronda de revisión incluida</li>
       </ul>
-      <p class="tarifa-tag">Para marcas que quieren ver el potencial de su imagen.</p>
-      <a href="mailto:havanastudioco@outlook.es?subject=Quiero%20contratar%20Visual%20Sprint%20%E2%80%94%20%24150%20USD&body=Hola%2C%20me%20interesa%20el%20paquete%20Visual%20Sprint%20por%20%24150%20USD.%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s." class="btn-contratar">Contratar</a>
+      <a href="mailto:havanastudioco@outlook.es?subject=Quiero%20contratar%20Visual%20Sprint%20—%20%24150%20USD&body=Hola%2C%20me%20interesa%20el%20paquete%20Visual%20Sprint%20por%20%24150%20USD.%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s." class="btn-tarifa">Solicitar ahora</a>
     </div>
-    <!-- 02 claro -->
-    <div class="tarifa light">
-      <div class="tarifa-header-row">
-        <p class="tarifa-name">02. MASTER ADS PACK</p>
-        <p class="tarifa-desc">Una semana de contenido lista<br>en 5 días.</p>
-      </div>
-      <div class="tarifa-spacer"></div>
+
+    <!-- Master Ads Pack -->
+    <div class="tarifa featured">
+      <span class="tarifa-badge">Más popular</span>
+      <h3 class="tarifa-name">Master Ads Pack</h3>
+      <p class="tarifa-desc">Una semana de contenido lista en 5 días. Para marcas con presencia activa en redes.</p>
+      <div class="tarifa-price"><sup>$</sup>350 <span style="font-size:20px;font-weight:400">USD</span></div>
+      <p class="tarifa-price-note">Entrega en 5 días hábiles</p>
+      <div class="tarifa-divider"></div>
       <ul class="tarifa-items">
-        <li>06 Fotos</li>
-        <li>02 Videos (4s).</li>
-        <li>04 Videos (15s).</li>
-        <li>01 Carrusel</li>
-        <li>INVERSIÓN: $350 USD &nbsp;&nbsp; ENTREGA: 5 días.</li>
+        <li>6 fotografías de campaña</li>
+        <li>2 vídeos de 4 segundos</li>
+        <li>4 vídeos de 15 segundos</li>
+        <li>1 carrusel para Instagram</li>
+        <li>1 ronda de revisión incluida</li>
       </ul>
-      <p class="tarifa-tag">Para marcas que necesitan presencia visual consistente.</p>
-      <a href="mailto:havanastudioco@outlook.es?subject=Quiero%20contratar%20Master%20Ads%20Pack%20%E2%80%94%20%24350%20USD&body=Hola%2C%20me%20interesa%20el%20paquete%20Master%20Ads%20Pack%20por%20%24350%20USD.%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s." class="btn-contratar">Contratar</a>
+      <a href="mailto:havanastudioco@outlook.es?subject=Quiero%20contratar%20Master%20Ads%20Pack%20—%20%24350%20USD&body=Hola%2C%20me%20interesa%20el%20paquete%20Master%20Ads%20Pack%20por%20%24350%20USD.%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s." class="btn-tarifa">Solicitar ahora</a>
     </div>
-    <!-- 03 oscuro -->
-    <div class="tarifa dark">
-      <div class="tarifa-header-row">
-        <p class="tarifa-name">03. PARTNER MENSUAL</p>
-        <p class="tarifa-desc">Infraestructura visual continua<br>para tu marca.</p>
-      </div>
-      <div class="tarifa-spacer"></div>
+
+    <!-- Partner Mensual -->
+    <div class="tarifa">
+      <span class="tarifa-badge">Producción continua</span>
+      <h3 class="tarifa-name">Partner Mensual</h3>
+      <p class="tarifa-desc">Infraestructura visual completa. Para marcas que necesitan contenido constante y coherente.</p>
+      <div class="tarifa-price"><sup>$</sup>900 <span style="font-size:20px;font-weight:400">USD/mes</span></div>
+      <p class="tarifa-price-note">Mínimo 3 meses · Dirección creativa incluida</p>
+      <div class="tarifa-divider"></div>
       <ul class="tarifa-items">
-        <li>12 Fotos</li>
-        <li>04 Videos (4s)</li>
-        <li>08 Videos (15s)</li>
-        <li>02 Carruseles</li>
-        <li>01 Video (60s)</li>
+        <li>12 fotografías de campaña</li>
+        <li>4 vídeos de 4 segundos</li>
+        <li>8 vídeos de 15 segundos</li>
+        <li>2 carruseles para Instagram</li>
+        <li>1 vídeo de 60 segundos</li>
         <li>Dirección creativa y ajustes ilimitados</li>
-        <li>CONTRATO: Mínimo 3 meses.</li>
-        <li>INVERSIÓN: $900 USD / Mes</li>
       </ul>
-      <p class="tarifa-tag">Para marcas que necesitan producción visual continua.</p>
-      <a href="mailto:havanastudioco@outlook.es?subject=Quiero%20contratar%20Partner%20Mensual%20%E2%80%94%20%24900%20USD%2Fmes&body=Hola%2C%20me%20interesa%20el%20paquete%20Partner%20Mensual%20por%20%24900%20USD%2Fmes.%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s." class="btn-contratar">Contratar</a>
+      <a href="mailto:havanastudioco@outlook.es?subject=Quiero%20contratar%20Partner%20Mensual%20—%20%24900%20USD%2Fmes&body=Hola%2C%20me%20interesa%20el%20paquete%20Partner%20Mensual%20por%20%24900%20USD%2Fmes.%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s." class="btn-tarifa">Solicitar ahora</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="faq-sticky reveal">
+      <span class="section-tag">FAQ</span>
+      <h2 class="section-title">Preguntas frecuentes</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Cuánto tarda la entrega?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <p class="faq-answer">5 días hábiles desde que confirmamos el proyecto y recibimos tus referencias y materiales de producto.</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Cuántas revisiones incluye cada paquete?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <p class="faq-answer">Todos los paquetes puntuales incluyen una ronda de revisión. El Partner Mensual incluye ajustes continuos durante toda la relación.</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Puedo usar el contenido en todos mis canales?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <p class="faq-answer">Sí. Todo el contenido es tuyo. Puedes usarlo en redes sociales, web, anuncios pagados, email y cualquier otro canal sin restricciones adicionales.</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Qué necesito enviaros para empezar?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <p class="faq-answer">Fotos claras de tu producto, referencias visuales de la estética que buscas (Pinterest, Instagram) y una breve descripción de tu marca y público. Con eso es suficiente para empezar.</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Trabajáis con marcas pequeñas o en crecimiento?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <p class="faq-answer">Sí, la mayoría de nuestros clientes son marcas independientes o en fase de crecimiento. Nuestros paquetes están diseñados para ser accesibles sin sacrificar la calidad visual.</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Qué diferencia a Havana Studio de otras soluciones?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <p class="faq-answer">Aplicamos dirección creativa real a cada proyecto. No generamos imágenes al azar — definimos primero el concepto y el lenguaje visual de tu marca, y después producimos. Eso marca la diferencia en el resultado final.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CIERRE -->
-<section id="cierre">
-  <div class="cierre-top">
-    <h2 class="cierre-title reveal">Trabajemos<br><em>juntos.</em></h2>
-    <div class="cierre-body reveal">
-      <p class="cierre-copy">Si tu producto tiene potencial visual, podemos hacer que se vea como realmente es. Una mejor imagen no es un lujo — es la herramienta más poderosa que tiene tu marca para vender, comunicar y crecer.</p>
-      <p class="cierre-cta-label">Escríbenos</p>
-      <a href="mailto:havanastudioco@outlook.es" class="cierre-email">havanastudioco@outlook.es</a>
-    </div>
-  </div>
-  <div class="cierre-bottom">
-    <span class="cierre-agency">Havana Studio — AI Visual Studio</span>
-    <span class="cierre-year">2026</span>
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <span class="cta-final-eyebrow">¿Hablamos?</span>
+  <h2 class="cta-final-title reveal">Tu producto merece<br>una imagen a su altura.</h2>
+  <p class="cta-final-subtitle reveal">Cuéntanos tu proyecto. Te respondemos en menos de 24 horas y te decimos exactamente qué paquete encaja con lo que necesitas.</p>
+  <div class="cta-final-actions reveal">
+    <a href="mailto:havanastudioco@outlook.es" class="btn-primary">Escribir a Havana Studio</a>
+    <a href="#tarifas" class="btn-secondary">Ver paquetes</a>
   </div>
 </section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#hero" class="footer-logo">Havana Studio</a>
+  <span class="footer-meta">AI Visual Studio · Moda · Accesorios · Beauty · 2026</span>
+  <a href="mailto:havanastudioco@outlook.es" class="footer-email">havanastudioco@outlook.es</a>
+</footer>
 
 <script>
-  // CURSOR
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.transform = `translate(${mx - 4}px, ${my - 4}px)`;
-  });
-
-  function animateRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.transform = `translate(${rx - 18}px, ${ry - 18}px)`;
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
-
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      ring.style.width = '60px'; ring.style.height = '60px';
-      ring.style.opacity = '0.4';
-    });
-    el.addEventListener('mouseleave', () => {
-      ring.style.width = '36px'; ring.style.height = '36px';
-      ring.style.opacity = '1';
-    });
-  });
-
   // SCROLL REVEAL
-  const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver(entries => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-        observer.unobserve(e.target);
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  reveals.forEach(el => observer.observe(el));
-
-  window.addEventListener('scroll', () => {
-    const btn = document.getElementById('scrollTop');
-    btn.style.opacity = window.scrollY > 400 ? '1' : '0';
+  // FAQ ACCORDION
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
   });
 </script>
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 </body>
 </html>
