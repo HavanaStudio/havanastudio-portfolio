@@ -77,6 +77,40 @@
     background: transparent;
   }
   .btn-secondary:hover { border-color: var(--text-secondary); }
+  .btn-ghost {
+    display: inline-block; padding: 13px 27px;
+    border: 1px solid rgba(255,255,255,0.45); color: #fff;
+    font-family: var(--font); font-size: 14px; font-weight: 500;
+    text-decoration: none; border-radius: 6px;
+    transition: border-color 0.2s, background 0.2s;
+    background: transparent;
+  }
+  .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+  /* ── SOCIAL FLOTANTE ── */
+  .social-float {
+    position: fixed;
+    bottom: 32px; right: 32px;
+    z-index: 200;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .social-link {
+    width: 42px; height: 42px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  .social-link:hover {
+    color: var(--text-primary);
+    border-color: var(--text-secondary);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+  }
+  .social-link svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 
   /* ── HERO ── */
   #hero {
@@ -531,6 +565,7 @@
     <p class="hero-subtitle">Creamos imágenes y vídeos de campaña para marcas de moda, accesorios y beauty. Calidad editorial, listos en 5 días.</p>
     <div class="hero-actions">
       <a href="#tarifas" class="btn-primary">Ver paquetes</a>
+      <a href="mailto:havanastudioco@outlook.es?subject=Demo%20gratis%20—%20Havana%20Studio&body=Hola%2C%20me%20interesa%20solicitar%20una%20demo%20gratis." class="btn-ghost">Demo gratis</a>
     </div>
   </div>
 </section>
@@ -768,7 +803,7 @@
   <p class="cta-final-subtitle reveal">Cuéntanos tu proyecto. Te respondemos en menos de 24 horas y te decimos exactamente qué paquete encaja con lo que necesitas.</p>
   <div class="cta-final-actions reveal">
     <a href="mailto:havanastudioco@outlook.es" class="btn-primary">Escribir a Havana Studio</a>
-    <a href="#tarifas" class="btn-secondary">Ver paquetes</a>
+    <a href="mailto:havanastudioco@outlook.es?subject=Demo%20gratis%20—%20Havana%20Studio&body=Hola%2C%20me%20interesa%20solicitar%20una%20demo%20gratis." class="btn-secondary">Demo gratis</a>
   </div>
 </section>
 
@@ -778,6 +813,16 @@
   <span class="footer-meta">AI Visual Studio · Moda · Accesorios · Beauty · 2026</span>
   <a href="mailto:havanastudioco@outlook.es" class="footer-email">havanastudioco@outlook.es</a>
 </footer>
+
+<!-- SOCIAL FLOTANTE -->
+<div class="social-float">
+  <a href="https://www.instagram.com/havanastudioco/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+    <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+  </a>
+  <a href="mailto:havanastudioco@outlook.es" class="social-link" aria-label="Email">
+    <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+  </a>
+</div>
 
 <script>
   // SCROLL REVEAL
